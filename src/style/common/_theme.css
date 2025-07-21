@@ -17,6 +17,7 @@
   /* 기타 강조 색상 */
   --color-highlight: #ffe500; /* 강조된 메뉴 배경 (ex: CURRENT) */
   --color-border: #cccccc; /* 경계선, divider 등 */
+  --color-focuse-yellow: #ffcb46; /* 메뉴바 포서스 노랑 */
 
   --white: hsl(0, 0%, 100%);
   --black: hsl(0, 0%, 0%);
@@ -153,6 +154,14 @@
   --pink-800: hsl(350, 45%, 20%);
   --pink-900: hsl(350, 45%, 10%);
   --pink-950: hsl(350, 45%, 5%);
+
+  --text-color: light-dark(var(--stone-950), var(--stone-50));
+  --background-color: light-dark(var(--yellow-500), var(--blue-950));
+
+  /* menu */
+  --menu-text-color: light-dark(var(--nature-100), var(--nature-900));
+  --menu-text-hover-color: light-dark(var(--nature-950), var(--yellow-400));
+  --menu-background-color: light-dark(var(--nature-900), var(--yellow-500));
 
   color-scheme: light dark;
 }
