@@ -1,0 +1,30 @@
+body {
+  background-color: #444444;
+}
+
+.solar-system {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+
+  .sun-contain {
+    height: 100%;
+    width: 100%;
+
+    svg {
+      position: absolute;
+    }
+
+    & svg:nth-of-type(1) {
+      width: 150%;
+      height: 150%;
+      top: -25%;
+      left: -73%;
+    }
+
+    & > *:not(:first-child) {
+      transform: translate(0, 50%);
+    }
+  }
+}
