@@ -1,5 +1,4 @@
 import "./layout.css";
-import "./system.css";
 import SolarSystemSection from "/src/components/page-3-solar/layout.js";
 import { initSolarSystem } from "./transition.js";
 import { initHoverEffects } from "./hover.js";

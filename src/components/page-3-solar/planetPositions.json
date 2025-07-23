@@ -1,0 +1,98 @@
+{
+  "mobile": {
+    "sun": {
+      "initialTop": 100,
+      "targetTop": -60
+    },
+    "planets": [
+      {
+        "name": "mercury",
+        "targetTop": 15,
+        "targetLeft": 20
+      },
+      {
+        "name": "venus",
+        "targetTop": 25,
+        "targetLeft": 30
+      },
+      {
+        "name": "earth",
+        "targetTop": 40,
+        "targetLeft": 50
+      },
+      {
+        "name": "mars",
+        "targetTop": 48,
+        "targetLeft": 70
+      },
+      {
+        "name": "jupiter",
+        "targetTop": 58,
+        "targetLeft": 60
+      },
+      {
+        "name": "saturn",
+        "targetTop": 72,
+        "targetLeft": 20
+      },
+      {
+        "name": "uranus",
+        "targetTop": 80,
+        "targetLeft": 50
+      },
+      {
+        "name": "neptune",
+        "targetTop": 90,
+        "targetLeft": 70
+      }
+    ]
+  },
+  "desktop": {
+    "sun": {
+      "initialTop": 100,
+      "targetTop": -40
+    },
+    "planets": [
+      {
+        "name": "mercury",
+        "targetTop": 0,
+        "targetLeft": 15
+      },
+      {
+        "name": "venus",
+        "targetTop": 10,
+        "targetLeft": 25
+      },
+      {
+        "name": "earth",
+        "targetTop": 25,
+        "targetLeft": 40
+      },
+      {
+        "name": "mars",
+        "targetTop": 40,
+        "targetLeft": 55
+      },
+      {
+        "name": "jupiter",
+        "targetTop": 55,
+        "targetLeft": 70
+      },
+      {
+        "name": "saturn",
+        "targetTop": 65,
+        "targetLeft": 90
+      },
+      {
+        "name": "uranus",
+        "targetTop": 75,
+        "targetLeft": 50
+      },
+      {
+        "name": "neptune",
+        "targetTop": 90,
+        "targetLeft": 30
+      }
+    ]
+  }
+}
