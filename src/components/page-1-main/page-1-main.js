@@ -16,7 +16,11 @@ gsap.set(
 const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
 
 // 중앙 태양
-tl.fromTo(".circle", { scale: 0 }, { scale: 1, opacity: 1, duration: 1 });
+tl.fromTo(
+  ".main-span-circle",
+  { scale: 0 },
+  { scale: 1, opacity: 1, duration: 1 }
+);
 
 // 방사형 선들
 tl.fromTo(
@@ -58,7 +62,13 @@ tl.fromTo(
 
 // 양 옆 원
 tl.fromTo(
-  ".side-circle",
+  ".side-circle.left",
+  { x: -100, opacity: 0 },
+  { x: 0, opacity: 1, duration: 0.5, stagger: 0.2 },
+  "-=0.5"
+);
+tl.fromTo(
+  ".side-circle.right",
   { x: 100, opacity: 0 },
   { x: 0, opacity: 1, duration: 0.5, stagger: 0.2 },
   "-=0.5"
@@ -98,3 +108,4 @@ gsap.to("#planet2", {
     autoRotate: false,
   },
 });
+
