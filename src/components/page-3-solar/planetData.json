@@ -1,0 +1,74 @@
+{
+  "solar": {
+    "class": "solar",
+    "name": "태양",
+    "type": "항성",
+    "diameter": "1,392,700 km",
+    "mass": "1.989 × 10^30 kg",
+    "distance": "0 km (중심)"
+  },
+  "mercury": {
+    "class": "mercury",
+    "name": "수성",
+    "type": "암석 행성",
+    "diameter": "4,880 km",
+    "mass": "3.301 × 10^23 kg",
+    "distance": "57,910,000 km"
+  },
+  "venus": {
+    "class": "venus",
+    "name": "금성",
+    "type": "암석 행성",
+    "diameter": "12,104 km",
+    "mass": "4.867 × 10^24 kg",
+    "distance": "108,200,000 km"
+  },
+  "earth": {
+    "class": "earth",
+    "name": "지구",
+    "type": "암석 행성",
+    "diameter": "12,742 km",
+    "mass": "5.972 × 10^24 kg",
+    "distance": "149,600,000 km"
+  },
+  "mars": {
+    "class": "mars",
+    "name": "화성",
+    "type": "암석 행성",
+    "diameter": "6,779 km",
+    "mass": "6.417 × 10^23 kg",
+    "distance": "227,900,000 km"
+  },
+  "jupiter": {
+    "class": "jupiter",
+    "name": "목성",
+    "type": "가스 행성",
+    "diameter": "139,820 km",
+    "mass": "1.899 × 10^27 kg",
+    "distance": "778,500,000 km"
+  },
+  "saturn": {
+    "class": "saturn",
+    "name": "토성",
+    "type": "가스 행성",
+    "diameter": "116,460 km",
+    "mass": "5.685 × 10^26 kg",
+    "distance": "1,433,500,000 km"
+  },
+  "uranus": {
+    "class": "uranus",
+    "name": "천왕성",
+    "type": "얼음 행성",
+    "diameter": "50,724 km",
+    "mass": "8.682 × 10^25 kg",
+    "distance": "2,872,400,000 km"
+  },
+  "neptune": {
+    "class": "neptune",
+    "name": "해왕성",
+    "type": "얼음 행성",
+    "diameter": "49,244 km",
+    "mass": "1.024 × 10^26 kg",
+    "distance": "4,498,400,000 km"
+  }
+}
