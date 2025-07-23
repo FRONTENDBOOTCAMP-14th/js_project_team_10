@@ -1,13 +1,13 @@
 gsap.set(
   [
-    ".circle",
-    ".line-sm",
-    ".line-m",
+    ".main-span-circle",
+    ".main-span-lineSm",
+    ".main-span-lineM",
     ".orbit-path",
     ".planet",
     ".side-circle",
-    ".extend-line-x",
-    ".extend-line-y",
+    ".main-span-extendLineX",
+    ".main-span-extendLineY",
     ".solar-text",
   ],
   { opacity: 0 }
@@ -20,7 +20,7 @@ tl.fromTo(".circle", { scale: 0 }, { scale: 1, opacity: 1, duration: 1 });
 
 // 방사형 선들
 tl.fromTo(
-  ".line-sm, .line-m",
+  ".main-span-lineSm, .main-span-lineM",
   { scaleY: 0 },
   { scaleY: 1, opacity: 1, duration: 0.5, stagger: 0.05 },
   "-=0.5"
@@ -28,13 +28,13 @@ tl.fromTo(
 
 // 십자선
 tl.fromTo(
-  ".extend-line-x",
+  ".main-span-extendLineX",
   { scaleX: 0 },
   { scaleX: 1, opacity: 1, duration: 0.6 },
   "-=0.4"
 );
 tl.fromTo(
-  ".extend-line-y",
+  ".main-span-extendLineY",
   { scaleY: 0 },
   { scaleY: 1, opacity: 1, duration: 0.6 },
   "-=0.6"

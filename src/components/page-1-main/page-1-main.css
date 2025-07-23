@@ -9,7 +9,7 @@
     background-position: 0% 50%;
   }
 }
-.page-1-main {
+.header-div-page1 {
   width: 100vw;
   height: 100vh;
   overflow-x: hidden;
@@ -66,7 +66,7 @@
     background: var(--white);
   }
 
-  .line-sm {
+  .main-span-lineSm {
     width: var(--line-sm);
     height: 1px;
     top: calc(var(--center-top) + var(--center-circle) / 2);
@@ -75,7 +75,7 @@
     );
   }
 
-  .line-m {
+  .main-span-lineM {
     width: var(--line-m);
     height: 1px;
     top: calc(var(--center-top) + var(--center-circle) / 2);
@@ -193,3 +193,11 @@
     );
   }
 }
+
+/* @media (width < 750px) {
+  .header-div-page1 {
+    span {
+      transform: rotate(-90deg);
+    }
+  }
+} */
