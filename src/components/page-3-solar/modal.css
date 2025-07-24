@@ -33,7 +33,7 @@
   right: 1rem;
   background: none;
   border: none;
-  font-size: 1.5rem;
+  font-size: 2rem;
   color: #fff;
   cursor: pointer;
   transition: color 0.3s;
@@ -51,29 +51,68 @@
   margin-bottom: 1.5rem;
 }
 
-.system__modal-body {
-  margin-top: 1rem;
+.system__modal-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  position: relative;
 }
 
-.system__modal-table {
+.system__modal-image {
+  width: 50%;
+}
+
+.system__modal-satelite-button {
+  background: none;
+  border: none;
+  padding: 0;
+  position: absolute;
+  top: 70%;
+  left: 80%;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  width: 15%;
+}
+
+.system__modal-satelite-button:hover {
+  transform: scale(1.1);
+}
+
+.system__modal-satelite-image {
   width: 100%;
-  border-collapse: collapse;
-  margin-top: 1rem;
+  height: auto;
+  display: block;
 }
 
-.system__modal-table th,
-.system__modal-table td {
-  padding: 0.75rem;
-  text-align: left;
-  border-bottom: 1px solid #333;
+.system__modal-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
 }
 
-.system__modal-table th {
-  background-color: rgba(120, 204, 255, 0.1);
-  color: #78ccff;
-  width: 40%;
+.system__modal-info-name {
+  font-size: 2rem;
 }
 
+.system__modal-info-type {
+  font-size: 1.5rem;
+}
+
+.system__modal-info-planetType {
+  font-size: 1rem;
+}
+
+.system__modal-orbit-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.system__modal-info-etc {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7rem;
+}
 @keyframes fadeIn {
   from {
     opacity: 0;
