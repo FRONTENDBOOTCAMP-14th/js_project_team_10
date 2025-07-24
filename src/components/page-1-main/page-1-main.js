@@ -1,14 +1,69 @@
+function animatePlanet(
+  planetEl,
+  pathEl,
+  durationSec,
+  rotateDeg = 0,
+  rotateOrigin = { x: 0, y: 0 }
+) {
+  const pathLength = pathEl.getTotalLength();
+  const rad = (rotateDeg * Math.PI) / 180;
+
+  gsap.to(planetEl, {
+    duration: durationSec,
+    repeat: -1,
+    ease: "none",
+    onUpdate: function () {
+      const progress = this.progress();
+      const point = pathEl.getPointAtLength(pathLength * progress);
+
+      let x = point.x;
+      let y = point.y;
+
+      // 회전이 적용된 경우, 수학적으로 회전 좌표로 변환
+      if (rotateDeg !== 0) {
+        const dx = x - rotateOrigin.x;
+        const dy = y - rotateOrigin.y;
+
+        const rotatedX =
+          rotateOrigin.x + dx * Math.cos(rad) - dy * Math.sin(rad);
+        const rotatedY =
+          rotateOrigin.y + dx * Math.sin(rad) + dy * Math.cos(rad);
+
+        x = rotatedX;
+        y = rotatedY;
+      }
+
+      planetEl.setAttribute("transform", `translate(${x}, ${y})`);
+    },
+  });
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+  const planet1 = document.getElementById("planet");
+  const orbit1 = document.getElementById("orbit");
+
+  const planet2 = document.getElementById("planet2");
+  const orbit2 = document.getElementById("orbit2");
+
+  // 궤도 #1은 -30도 회전됨
+  animatePlanet(planet1, orbit1, 8, -30, { x: 300, y: 300 });
+
+  // 궤도 #2는 회전 없음
+  animatePlanet(planet2, orbit2, 5);
+});
+
 gsap.set(
   [
-    ".circle",
-    ".line-sm",
-    ".line-m",
-    ".orbit-path",
+    ".main-span-circle",
+    ".main-span-lineSm",
+    ".main-span-lineM",
     ".planet",
     ".side-circle",
-    ".extend-line-x",
-    ".extend-line-y",
+    ".main-span-extendLineX",
+    ".main-span-extendLineY",
+    "orbit-path",
     ".solar-text",
+    ".header_p-title",
   ],
   { opacity: 0 }
 );
@@ -16,11 +71,15 @@ gsap.set(
 const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
 
 // 중앙 태양
-tl.fromTo(".circle", { scale: 0 }, { scale: 1, opacity: 1, duration: 1 });
+tl.fromTo(
+  ".main-span-circle",
+  { scale: 0 },
+  { scale: 1, opacity: 1, duration: 1 }
+);
 
 // 방사형 선들
 tl.fromTo(
-  ".line-sm, .line-m",
+  ".main-span-lineSm, .main-span-lineM",
   { scaleY: 0 },
   { scaleY: 1, opacity: 1, duration: 0.5, stagger: 0.05 },
   "-=0.5"
@@ -28,13 +87,13 @@ tl.fromTo(
 
 // 십자선
 tl.fromTo(
-  ".extend-line-x",
+  ".main-span-extendLineX",
   { scaleX: 0 },
   { scaleX: 1, opacity: 1, duration: 0.6 },
   "-=0.4"
 );
 tl.fromTo(
-  ".extend-line-y",
+  ".main-span-extendLineY",
   { scaleY: 0 },
   { scaleY: 1, opacity: 1, duration: 0.6 },
   "-=0.6"
@@ -43,8 +102,8 @@ tl.fromTo(
 // 궤도
 tl.fromTo(
   ".orbit-path",
-  { drawSVG: "0% 0%" },
-  { drawSVG: "0% 100%", opacity: 1, duration: 1 },
+  { scaleY: 0 },
+  { scaleY: 1, opacity: 1, duration: 1 },
   "-=0.5"
 );
 
@@ -58,7 +117,13 @@ tl.fromTo(
 
 // 양 옆 원
 tl.fromTo(
-  ".side-circle",
+  ".side-circle.left",
+  { x: -100, opacity: 0 },
+  { x: 0, opacity: 1, duration: 0.5, stagger: 0.2 },
+  "-=0.5"
+);
+tl.fromTo(
+  ".side-circle.right",
   { x: 100, opacity: 0 },
   { x: 0, opacity: 1, duration: 0.5, stagger: 0.2 },
   "-=0.5"
@@ -71,30 +136,36 @@ tl.fromTo(
   { y: 0, opacity: 1, duration: 0.8 },
   "-=0.5"
 );
+tl.fromTo(
+  ".header_p-title",
+  { y: 50, opacity: 0 },
+  { y: 0, opacity: 1, duration: 0.8 },
+  "-=0.5"
+);
 
 // 궤도 이동 애니메이션
-gsap.registerPlugin(MotionPathPlugin);
+// gsap.registerPlugin(MotionPathPlugin);
 
-gsap.to("#planet", {
-  duration: 8,
-  repeat: -1,
-  ease: "none",
-  motionPath: {
-    path: "#orbit",
-    align: "#orbit",
-    alignOrigin: [0.5, 0.5],
-    autoRotate: false,
-  },
-});
+// gsap.to("#planet", {
+//   duration: 8,
+//   repeat: -1,
+//   ease: "none",
+//   motionPath: {
+//     path: "#orbit",
+//     align: "#orbit",
+//     alignOrigin: [0.5, 0.5],
+//     autoRotate: false,
+//   },
+// });
 
-gsap.to("#planet2", {
-  duration: 5,
-  repeat: -1,
-  ease: "none",
-  motionPath: {
-    path: "#orbit2",
-    align: "#orbit2",
-    alignOrigin: [0.5, 0.5],
-    autoRotate: false,
-  },
-});
+// gsap.to("#planet2", {
+//   duration: 5,
+//   repeat: -1,
+//   ease: "none",
+//   motionPath: {
+//     path: "#orbit2",
+//     align: "#orbit2",
+//     alignOrigin: [0.5, 0.5],
+//     autoRotate: false,
+//   },
+// });

@@ -9,7 +9,11 @@
     background-position: 0% 50%;
   }
 }
-.page-1-main {
+
+/* body {
+  height: 500vh;
+} */
+.header-div-page1 {
   width: 100vw;
   height: 100vh;
   overflow-x: hidden;
@@ -27,28 +31,34 @@
   animation: wave 20s ease infinite;
   position: relative;
 
-  display: flex;
-  justify-content: center;
-  align-items: end;
+  @media (width>1280px) {
+    h1 {
+      height: 100%;
+      padding-bottom: 5%;
 
-  /* 배경 키프레임 */
-
-  h1 {
-    margin-block-end: 5%;
-    div {
       display: flex;
-      justify-content: space-between;
-      gap: 10%;
-    }
-    div {
-      & p:nth-child(1) {
-        font-size: 40px;
-        max-width: 500px;
-        font-weight: 300;
+      flex-direction: column;
+      justify-content: end;
+      align-items: center;
+      & div:first-child {
+        display: flex;
+        gap: 10%;
       }
-      & p:nth-child(2) {
-        font-size: 60px;
-        font-weight: 600;
+
+      & div:nth-child(2) {
+        display: flex;
+        width: 1425px;
+        gap: 65%;
+        justify-content: space-between;
+
+        & p:nth-child(1) {
+          font-size: 30px;
+          text-align: start;
+        }
+
+        & p:nth-child(2) {
+          font-size: 50px;
+        }
       }
     }
   }
@@ -60,13 +70,31 @@
     --line-sm: 400px;
     --line-m: 600px;
     --side-circle: 50px;
+    --orbit-width: 1000px;
+
+    --extend-y: 98%;
 
     display: block;
     position: absolute;
     background: var(--white);
+
+    @media (width < 1280px) {
+      --center-left: 45%;
+      --center-top: 40%;
+      --center-circle: 70px;
+      --line-sm: 320px;
+      --line-m: 170px;
+      --side-circle: 20px;
+      --orbit-width: 500px;
+      --extend-y: 70%;
+
+      &.main-span-extendLineX {
+        display: none;
+      }
+    }
   }
 
-  .line-sm {
+  .main-span-lineSm {
     width: var(--line-sm);
     height: 1px;
     top: calc(var(--center-top) + var(--center-circle) / 2);
@@ -75,7 +103,7 @@
     );
   }
 
-  .line-m {
+  .main-span-lineM {
     width: var(--line-m);
     height: 1px;
     top: calc(var(--center-top) + var(--center-circle) / 2);
@@ -115,8 +143,13 @@
   & span:nth-of-type(3) {
     top: 1%;
     left: calc(var(--center-left) + var(--center-circle) / 2);
-    height: 98%;
+    height: var(--extend-y);
     width: 2px;
+
+    @media (width<1280px) {
+      height: var(--extend-y);
+      top: 10%;
+    }
   }
 
   /* line-sm */
@@ -150,22 +183,39 @@
   /* side-circle */
   & span:nth-of-type(12) {
     left: 10%;
+
+    @media (width<1280px) {
+      left: calc(
+        var(--center-left) + var(--center-circle) / 2 - var(--side-circle) / 2 +
+          0.6px
+      );
+      top: calc(
+        (var(--center-top) + var(--center-circle) / 2) - var(--extend-y) / 2
+      );
+    }
   }
   & span:nth-of-type(13) {
     left: 90%;
+
+    @media (width<1280px) {
+      left: calc(
+        var(--center-left) + var(--center-circle) / 2 - var(--side-circle) / 2 +
+          1px
+      );
+      top: calc(
+        var(--center-top) + var(--center-circle) / 2 + var(--extend-y) / 2
+      );
+    }
   }
 
-  .orbit,
-  .orgit2 {
-    --orbit-width: 1000px;
-
+  .orbit {
     background: transparent;
     top: calc(
       var(--center-top) + var(--center-circle) / 2 - var(--orbit-width) / 2
     );
 
     svg {
-      width: var(--orbit-width);
+      min-width: var(--orbit-width);
       aspect-ratio: 1;
     }
 
@@ -191,5 +241,48 @@
     left: calc(
       (var(--center-left) + var(--center-circle) / 2) - var(--orbit-width) / 2
     );
+  }
+}
+
+/* 모바일  */
+@media (width < 1280px) {
+  .header-div-page1 {
+    .header_div-title {
+      svg {
+        position: absolute;
+        transform: rotate(90deg);
+      }
+
+      & svg:nth-child(1) {
+        top: 10vh;
+        left: -13%;
+        width: 50%;
+      }
+
+      & svg:nth-child(2) {
+        top: 53vh;
+        left: 55%;
+        width: 60%;
+      }
+    }
+
+    .header_p-title {
+      height: 100vh;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: end;
+      padding: 0px;
+      margin-inline-start: 10vw;
+      padding-bottom: 23vh;
+
+      & p:nth-child(1) {
+        order: 2;
+        font-size: 9px;
+        width: 120px;
+      }
+      & p:nth-child(2) {
+        font-size: 20px;
+      }
+    }
   }
 }
