@@ -1,3 +1,5 @@
+const backDisain = document.querySelectorAll(".header-div-page1 span");
+
 gsap.set(
   [
     ".main-span-circle",
@@ -9,6 +11,7 @@ gsap.set(
     ".main-span-extendLineX",
     ".main-span-extendLineY",
     ".solar-text",
+    ".header_p-title",
   ],
   { opacity: 0 }
 );
@@ -81,9 +84,15 @@ tl.fromTo(
   { y: 0, opacity: 1, duration: 0.8 },
   "-=0.5"
 );
+tl.fromTo(
+  ".header_p-title",
+  { y: 50, opacity: 0 },
+  { y: 0, opacity: 1, duration: 0.8 },
+  "-=0.5"
+);
 
 // 궤도 이동 애니메이션
-gsap.registerPlugin(MotionPathPlugin);
+// gsap.registerPlugin(MotionPathPlugin);
 
 gsap.to("#planet", {
   duration: 8,
@@ -108,4 +117,3 @@ gsap.to("#planet2", {
     autoRotate: false,
   },
 });
-
