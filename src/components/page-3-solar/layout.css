@@ -1,11 +1,20 @@
 .solarSystem {
   position: relative;
-  height: 100vh;
+  height: 150vh;
   width: 100%;
   background: rgb(28, 28, 28);
   overflow: hidden;
   margin: 0;
   padding: 0;
+}
+.solarSystem::before {
+  content: "";
+  position: absolute;
+  height: 150vh;
+  width: 100%;
+  background-image: url("/public/planet/bg.webp");
+  background-size: cover;
+  background-position: center;
 }
 
 .system__button {
@@ -32,7 +41,6 @@
   opacity: 0;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: -1;
-  /* Add these for a more natural glow */
   box-shadow: 0 0 40px 20px rgba(100, 200, 255, 0.5),
     0 0 80px 40px rgba(100, 200, 255, 0.3);
   filter: blur(5px);
@@ -52,9 +60,7 @@
 
 /* 태양 */
 .system__button.solar {
-  top: -40%;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
 }
 
 .system__button.solar img {
@@ -62,153 +68,68 @@
 }
 
 /* 수성 */
-.system__button.mercury {
-  top: 25%;
-  left: 20%;
-  transform: translateX(-50%);
-}
-
 .system__button.mercury img {
-  width: 30px;
-  height: 30px;
+  width: 10vw;
+  height: 10vw;
 }
 
 /* 금성 */
-.system__button.venus {
-  top: 32%;
-  left: 30%;
-  transform: translateX(-50%);
-}
-
 .system__button.venus img {
-  width: 40px;
-  height: 40px;
+  width: 15vw;
+  height: 15vw;
 }
 
 /* 지구 */
-.system__button.earth {
-  top: 40%;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
 .system__button.earth img {
-  width: 60px;
-  height: 60px;
+  width: 20vw;
+  height: 20vw;
 }
 
 /* 화성 */
-.system__button.mars {
-  top: 48%;
-  left: 70%;
-  transform: translateX(-50%);
-}
-
 .system__button.mars img {
-  width: 35px;
-  height: 35px;
+  width: 18vw;
+  height: 18vw;
 }
 
 /* 목성 */
-.system__button.jupiter {
-  top: 58%;
-  left: 60%;
-  transform: translateX(-50%);
-}
-
 .system__button.jupiter img {
-  width: 80px;
-  height: 80px;
+  width: 25vw;
+  height: 25vw;
 }
 
 /* 토성 */
-.system__button.saturn {
-  top: 72%;
-  left: 20%;
-  transform: translateX(-50%);
-}
-
 .system__button.saturn img {
-  width: 90px;
-  height: 80px;
+  width: 30vw;
+  height: 28vw;
 }
 
 /* 천왕성 */
-.system__button.uranus {
-  top: 80%;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
 .system__button.uranus img {
-  width: 70px;
-  height: 70px;
+  width: 25vw;
+  height: 25vw;
 }
 
 /* 해왕성 */
-.system__button.neptune {
-  top: 90%;
-  left: 70%;
-  transform: translateX(-50%);
-}
-
 .system__button.neptune img {
-  width: 45px;
-  height: 45px;
+  width: 15vw;
+  height: 15vw;
 }
 
 @media screen and (min-width: 1280px) {
+  .solarSystem {
+    height: 400vh;
+  }
+  .solarSystem::before {
+    height: 400vh;
+  }
+
   .system__button.solar {
-    left: 10%;
-    top: 50%;
+    left: 0;
+    top: -40%;
     transform: translateY(-50%);
   }
 
-  .system__button.mercury {
-    left: 20%;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  .system__button.venus {
-    left: 30%;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  .system__button.earth {
-    left: 40%;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  .system__button.mars {
-    left: 50%;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  .system__button.jupiter {
-    left: 60%;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  .system__button.saturn {
-    left: 70%;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  .system__button.uranus {
-    left: 80%;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  .system__button.neptune {
-    left: 90%;
-    top: 50%;
-    transform: translateY(-50%);
+  .system__button.solar img {
+    width: 100vw;
   }
 }
