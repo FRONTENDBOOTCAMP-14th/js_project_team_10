@@ -250,28 +250,30 @@
     .header_div-title {
       svg {
         position: absolute;
-        transform: rotate(90deg) translateX(80px);
+        transform: rotate(90deg);
       }
 
       & svg:nth-child(1) {
-        top: 0vh;
+        top: 10vh;
         left: -13%;
         width: 50%;
       }
 
       & svg:nth-child(2) {
-        top: 44vh;
+        top: 53vh;
         left: 55%;
         width: 60%;
       }
     }
 
     .header_p-title {
+      height: 100vh;
       display: flex;
       flex-flow: column nowrap;
-      margin-block-start: 72vh;
+      justify-content: end;
       padding: 0px;
       margin-inline-start: 10vw;
+      padding-bottom: 23vh;
 
       & p:nth-child(1) {
         order: 2;
