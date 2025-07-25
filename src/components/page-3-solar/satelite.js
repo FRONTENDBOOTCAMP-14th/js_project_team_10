@@ -1,11 +1,15 @@
-import "./satelite.css";
+import "./satellite.css";
 import planetData from "./satelliteData.json";
 
-function createSatelliteModal(satelliteId) {
-  const satellite = planetData[satelliteId] || {
-    name: "알 수 없는 행성",
-    sateliteName: "알 수 없는 위성",
-    sateliteDescription: "위성 정보가 없습니다.",
+function createSatelliteModal(planetName) {
+  const satellite = Object.values(planetData).find(
+    (sat) => sat.planet === planetName.toLowerCase()
+  ) || {
+    name: `${planetName}의 위성`,
+    diameter: "정보 없음",
+    distance: "정보 없음",
+    orbitalPeriod: "정보 없음",
+    rotationPeriod: "정보 없음",
   };
 
   const modalHTML = `
@@ -13,9 +17,24 @@ function createSatelliteModal(satelliteId) {
       <div class="satellite-modal-content">
         <button class="satellite-modal-close">&times;</button>
         <h2>${satellite.name}</h2>
-        <div class="satellite-modal-info">
-          <h3>${satellite.sateliteName || "위성 정보 없음"}</h3>
-        </div>
+        <table class="satellite-info-table">
+          <tr>
+            <th>지름</th>
+            <td>${satellite.diameter}</td>
+          </tr>
+          <tr>
+            <th>행성에서의 거리</th>
+            <td>${satellite.distance}</td>
+          </tr>
+          <tr>
+            <th>공전 주기</th>
+            <td>${satellite.orbitalPeriod}</td>
+          </tr>
+          <tr>
+            <th>자전 주기</th>
+            <td>${satellite.rotationPeriod}</td>
+          </tr>
+        </table>
       </div>
     </div>
   `;
@@ -28,8 +47,21 @@ function createSatelliteModal(satelliteId) {
   const modal = document.getElementById("satelliteModal");
   const closeBtn = modal.querySelector(".satellite-modal-close");
 
-  closeBtn.onclick = () => modal.remove();
-  modal.onclick = (e) => e.target === modal && modal.remove();
+  // Close modal function
+  const closeModal = () => {
+    modal.remove();
+    document.removeEventListener('keydown', handleEscape);
+  };
+
+  const handleEscape = (e) => {
+    if (e.key === 'Escape') {
+      closeModal();
+    }
+  };
+
+  closeBtn.onclick = closeModal;
+  modal.onclick = (e) => e.target === modal && closeModal();
+  document.addEventListener('keydown', handleEscape);
 }
 
 function setupSatelliteModal() {

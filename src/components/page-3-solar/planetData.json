@@ -24,8 +24,7 @@
     "au": "0.387 AU",
     "distance": "57,910,000 km",
     "orbitalPeriod": "88일",
-    "rotationPeriod": "59일",
-    "sateliteImage": "/public/planet/mercury_fill.svg"
+    "rotationPeriod": "59일"
   },
   "venus": {
     "class": "VENUS",
@@ -38,12 +37,11 @@
     "au": "0.723 AU",
     "distance": "108,200,000 km",
     "orbitalPeriod": "225일",
-    "rotationPeriod": "243일",
-    "sateliteImage": "/public/planet/venus_fill.svg"
+    "rotationPeriod": "243일"
   },
   "earth": {
     "class": "EARTH",
-    "image": "/public/planet/earth_fill.svg",
+    "image": "/public/planet/earth_fill.webp",
     "name": "지구",
     "type": "암석 행성",
     "planetType": "내행성",
@@ -53,7 +51,7 @@
     "distance": "149,600,000 km",
     "orbitalPeriod": "365일",
     "rotationPeriod": "24시간",
-    "sateliteImage": "/public/planet/earth_fill.svg"
+    "sateliteImage": "/public/planet/earth_st.webp"
   },
   "mars": {
     "class": "MARS",
@@ -67,7 +65,7 @@
     "distance": "227,900,000 km",
     "orbitalPeriod": "687일",
     "rotationPeriod": "24시간",
-    "sateliteImage": "/public/planet/mars_fill.svg"
+    "sateliteImage": "/public/planet/mars_st.webp"
   },
   "jupiter": {
     "class": "JUPITER",
@@ -81,7 +79,7 @@
     "distance": "778,500,000 km",
     "orbitalPeriod": "687일",
     "rotationPeriod": "24시간",
-    "sateliteImage": "/public/planet/jupiter_fill.svg"
+    "sateliteImage": "/public/planet/jupiter_st.webp"
   },
   "saturn": {
     "class": "SATURN",
@@ -95,7 +93,7 @@
     "distance": "1,433,500,000 km",
     "orbitalPeriod": "687일",
     "rotationPeriod": "24시간",
-    "sateliteImage": "/public/planet/saturn_fill.svg"
+    "sateliteImage": "/public/planet/saturn_st.webp"
   },
   "uranus": {
     "class": "URANUS",
@@ -109,7 +107,7 @@
     "distance": "2,872,400,000 km",
     "orbitalPeriod": "687일",
     "rotationPeriod": "24시간",
-    "sateliteImage": "/public/planet/uranus_fill.svg"
+    "sateliteImage": "/public/planet/uranus_st.webp"
   },
   "neptune": {
     "class": "NEPTUNE",
@@ -123,6 +121,6 @@
     "distance": "4,498,400,000 km",
     "orbitalPeriod": "687일",
     "rotationPeriod": "24시간",
-    "sateliteImage": "/public/planet/neptune_fill.svg"
+    "sateliteImage": "/public/planet/neptune_st.webp"
   }
 }
