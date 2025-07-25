@@ -25,9 +25,11 @@ function createModal(planetId) {
         <h2>${planet.class}</h2>
         <div class="system__modal-image-container">
           <img src="${planet.image}" class="system__modal-image" alt="${planet.name}">
-          <button class="system__modal-satelite-button" aria-label="위성 정보 보기">
-            <img src="${planet.sateliteImage}" class="system__modal-satelite-image" alt="${planet.name} 위성">
-          </button>
+          ${planet.sateliteImage ? `
+            <button class="system__modal-satelite-button" aria-label="위성 정보 보기">
+              <img src="${planet.sateliteImage}" class="system__modal-satelite-image" alt="${planet.name} 위성">
+            </button>
+          ` : ''}
         </div>
         <div class="system__modal-body">
           <div class="system__modal-info">
