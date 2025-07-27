@@ -1,4 +1,4 @@
-const faceGroup = document.getElementById("face-group");
+const face = document.getElementById("face-group");
 const leftEye = document.getElementById("left-eye");
 const rightEye = document.getElementById("right-eye");
 
@@ -18,7 +18,7 @@ document.addEventListener("mousemove", (e) => {
   const dx = (mouseX - faceCenterX) / 25;
   const dy = (mouseY - faceCenterY) / 25;
 
-  faceGroup.setAttribute("transform", `translate(${dx}, ${dy})`);
+  face.setAttribute("transform", `translate(${dx}, ${dy})`);
 });
 
 function moveEye(eye, originX, originY, mouseX, mouseY) {
@@ -26,7 +26,7 @@ function moveEye(eye, originX, originY, mouseX, mouseY) {
   const dy = mouseY - originY;
   const angle = Math.atan2(dy, dx);
 
-  const maxDistance = 5;
+  const maxDistance = 5; 
 
   const newX = originX + Math.cos(angle) * maxDistance;
   const newY = originY + Math.sin(angle) * maxDistance;
@@ -34,3 +34,16 @@ function moveEye(eye, originX, originY, mouseX, mouseY) {
   eye.setAttribute("cx", newX);
   eye.setAttribute("cy", newY);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
