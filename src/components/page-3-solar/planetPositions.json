@@ -7,91 +7,91 @@
     "planets": [
       {
         "name": "mercury",
-        "targetTop": 15,
-        "targetLeft": 20
+        "targetTop": 40,
+        "targetLeft": -40
       },
       {
         "name": "venus",
-        "targetTop": 25,
+        "targetTop": 50,
         "targetLeft": 30
       },
       {
         "name": "earth",
-        "targetTop": 40,
-        "targetLeft": 50
+        "targetTop": 60,
+        "targetLeft": 0
       },
       {
         "name": "mars",
-        "targetTop": 48,
-        "targetLeft": 70
+        "targetTop": 70,
+        "targetLeft": -30
       },
       {
         "name": "jupiter",
-        "targetTop": 58,
-        "targetLeft": 60
+        "targetTop": 80,
+        "targetLeft": 0
       },
       {
         "name": "saturn",
-        "targetTop": 72,
+        "targetTop": 90,
         "targetLeft": 20
       },
       {
         "name": "uranus",
-        "targetTop": 80,
-        "targetLeft": 50
+        "targetTop": 110,
+        "targetLeft": 30
       },
       {
         "name": "neptune",
-        "targetTop": 90,
-        "targetLeft": 70
+        "targetTop": 130,
+        "targetLeft": 0
       }
     ]
   },
   "desktop": {
     "sun": {
-      "initialTop": 100,
-      "targetTop": -40
+      "initialTop": 0,
+      "targetTop": -60
     },
     "planets": [
       {
         "name": "mercury",
-        "targetTop": 0,
-        "targetLeft": 15
+        "targetTop": 150,
+        "targetLeft": -40
       },
       {
         "name": "venus",
-        "targetTop": 10,
-        "targetLeft": 25
+        "targetTop": 180,
+        "targetLeft": 30
       },
       {
         "name": "earth",
-        "targetTop": 25,
-        "targetLeft": 40
+        "targetTop": 210,
+        "targetLeft": 0
       },
       {
         "name": "mars",
-        "targetTop": 40,
-        "targetLeft": 55
+        "targetTop": 240,
+        "targetLeft": -30
       },
       {
         "name": "jupiter",
-        "targetTop": 55,
-        "targetLeft": 70
+        "targetTop": 270,
+        "targetLeft": 0
       },
       {
         "name": "saturn",
-        "targetTop": 65,
-        "targetLeft": 90
+        "targetTop": 300,
+        "targetLeft": 20
       },
       {
         "name": "uranus",
-        "targetTop": 75,
-        "targetLeft": 50
+        "targetTop": 330,
+        "targetLeft": 30
       },
       {
         "name": "neptune",
-        "targetTop": 90,
-        "targetLeft": 30
+        "targetTop": 350,
+        "targetLeft": 0
       }
     ]
   }

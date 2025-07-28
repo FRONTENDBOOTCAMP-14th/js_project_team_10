@@ -1,7 +1,51 @@
 import planetData from "./planetData.json";
 import "/src/components/page-3-solar/modal.css";
 import { setupSatelliteModal } from "./satelite";
-import '/src/style/common/_theme.css';
+import "/src/style/common/_theme.css";
+
+let focusedElementBeforeModal = null;
+
+const getFocusableElements = (modal) => {
+  return Array.from(
+    modal.querySelectorAll(
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    )
+  ).filter((el) => !el.disabled && el.offsetParent !== null);
+};
+
+const handleKeyDown = (e, modal, focusableElements) => {
+  const KEY_TAB = 9;
+  const KEY_ESC = 27;
+  if (e.keyCode === KEY_ESC) {
+    closeModal(modal);
+    return;
+  }
+
+  if (e.keyCode === KEY_TAB) {
+    const firstFocusableEl = focusableElements[0];
+    const lastFocusableEl = focusableElements[focusableElements.length - 1];
+    if (focusableElements.length === 1) {
+      e.preventDefault();
+      firstFocusableEl.focus();
+      return;
+    }
+  }
+};
+
+const closeModal = (modal) => {
+  if (!modal) {
+    modal = document.getElementById("planetModal");
+  }
+  if (modal) {
+    document.body.style.overflow = "";
+    if (focusedElementBeforeModal) {
+      focusedElementBeforeModal.focus();
+    }
+    modal.style.animation = "fadeOut 0.3s forwards";
+    setTimeout(() => modal.remove(), 300);
+    document.removeEventListener("keydown", handleEscape);
+  }
+};
 
 function createModal(planetId) {
   const lowerId = planetId.toLowerCase();
@@ -21,14 +65,16 @@ function createModal(planetId) {
   };
 
   const modalHTML = `
-    <div class="system__modal-overlay" id="planetModal">
+    <div role="dialog" aria-modal="true" aria-labelledby="modal-title" class="system__modal-overlay" id="planetModal">
       <div class="system__modal-content modal-${lowerId}">
-        <button class="system__modal-close" id="closeModal">&times;</button>
+        <button type="button" class="system__modal-close" id="closeModal">&times;</button>
 
-        <h2 class="planet-eng-name">${planet.class}</h2>
+        <h2 id="modalTitle" class="planet-eng-name">${planet.class}</h2>
 
         <div class="system__modal-image-container">
-          <img src="${planet.fullImage || planet.image}" class="system__modal-image" alt="${planet.name}">
+          <img src="${
+            planet.fullImage || planet.image
+          }" class="system__modal-image" alt="${planet.name}">
           <div class="planet-orbit-ring">
             <svg width="142" height="142" viewBox="0 0 142 142" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g clip-path="url(#clip0_263_352)">
@@ -110,23 +156,28 @@ function createModal(planetId) {
   document.body.insertAdjacentHTML("beforeend", modalHTML);
   setupSatelliteModal();
 
-  const closeButton = document.getElementById("closeModal");
   const modal = document.getElementById("planetModal");
-  closeButton.addEventListener("click", closeModal);
+  const closeButton = document.getElementById("closeModal");
+
+  focusedElementBeforeModal = document.activeElement;
+  document.body.style.overflow = "hidden";
+
+  const focusableElements = getFocusableElements(modal);
+
+  const keyDownHandler = (e) => handleKeyDown(e, modal, focusableElements);
+  modal.addEventListener("keydown", keyDownHandler);
+
+  closeButton.focus();
+
+  closeButton.addEventListener("click", () => closeModal(modal));
+
   modal.addEventListener("click", (e) => {
-    if (e.target === modal) closeModal();
+    if (e.target === modal) {
+      closeModal(modal);
+    }
   });
 
   document.addEventListener("keydown", handleEscape);
-}
-
-function closeModal() {
-  const modal = document.getElementById("planetModal");
-  if (modal) {
-    modal.style.animation = "fadeOut 0.3s forwards";
-    setTimeout(() => modal.remove(), 300);
-    document.removeEventListener("keydown", handleEscape);
-  }
 }
 
 function handleEscape(e) {

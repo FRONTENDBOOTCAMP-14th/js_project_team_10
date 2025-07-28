@@ -13,10 +13,10 @@ function createSatelliteModal(planetName) {
   };
 
   const modalHTML = `
-    <div class="satellite-modal-overlay" id="satelliteModal">
+    <div role="dialog" aria-modal="true" aria-labelledby="satelliteModalTitle" class="satellite-modal-overlay" id="satelliteModal">
       <div class="satellite-modal-content">
-        <button class="satellite-modal-close">&times;</button>
-        <h2>${satellite.name}</h2>
+        <button type="button" class="satellite-modal-close">&times;</button>
+        <h2 id="satelliteModalTitle">${satellite.name}</h2>
         <table class="satellite-info-table">
           <tr>
             <th>지름</th>
@@ -50,18 +50,18 @@ function createSatelliteModal(planetName) {
   // Close modal function
   const closeModal = () => {
     modal.remove();
-    document.removeEventListener('keydown', handleEscape);
+    document.removeEventListener("keydown", handleEscape);
   };
 
   const handleEscape = (e) => {
-    if (e.key === 'Escape') {
+    if (e.key === "Escape") {
       closeModal();
     }
   };
 
   closeBtn.onclick = closeModal;
   modal.onclick = (e) => e.target === modal && closeModal();
-  document.addEventListener('keydown', handleEscape);
+  document.addEventListener("keydown", handleEscape);
 }
 
 function setupSatelliteModal() {
