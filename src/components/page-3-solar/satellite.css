@@ -1,0 +1,97 @@
+.satellite-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: -40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.satellite-modal-content {
+  background: rgba(11, 11, 11, 0.95);
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 400px;
+  width: 90vw;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  color: #fff;
+  font-family: "Noto Sans KR", sans-serif;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.satellite-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: #fff;
+  cursor: pointer;
+  padding: 0.5rem;
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+.satellite-modal-close:hover {
+  color: #ddd;
+}
+
+.satellite-modal-content h2 {
+  margin: 0 0 1rem 0;
+  color: #ddd;
+  text-align: center;
+  font-size: 1.2rem;
+  border-bottom: 2px solid #2d3748;
+  padding-bottom: 0.8rem;
+}
+
+.satellite-info-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+  font-size: 0.8rem;
+  color: #ffffff;
+  background: rgba(26, 26, 26, 0.8);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.satellite-info-table th,
+.satellite-info-table td {
+  padding: 0.8rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.satellite-info-table th {
+  background: rgba(80, 80, 80, 0.2);
+  color: #fff;
+  font-weight: 600;
+  white-space: nowrap;
+  width: 40%;
+}
+
+.satellite-info-table tr:last-child td,
+.satellite-info-table tr:last-child th {
+  border-bottom: none;
+}
+
+.satellite-info-table tr:hover td {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

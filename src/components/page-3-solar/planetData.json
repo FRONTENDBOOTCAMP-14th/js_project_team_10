@@ -1,74 +1,126 @@
 {
   "solar": {
-    "class": "solar",
+    "class": "SOLAR",
+    "image": "/public/planet/sun.svg",
     "name": "태양",
     "type": "항성",
+    "planetType": "항성",
+    "decription": "태양은 태양계의 중심 행성으로, 지구와 가장 가까운 거리인 0km에 위치한다.",
     "diameter": "1,392,700 km",
-    "mass": "1.989 × 10^30 kg",
-    "distance": "0 km (중심)"
+    "au": "1AU",
+    "distance": "0 km (중심)",
+    "orbitalPeriod": "1년",
+    "rotationPeriod": "24시간",
+    "sateliteImage": "/public/planet/sun.svg"
   },
   "mercury": {
-    "class": "mercury",
+    "class": "MERCURY",
+    "image": "/public/planet/mercury_fill.svg",
     "name": "수성",
     "type": "암석 행성",
+    "planetType": "내행성",
+    "decription": "수성은 태양계의 가장 가까운 행성으로, 지구와 가장 가까운 거리인 57,910,000km에 위치한다.",
     "diameter": "4,880 km",
-    "mass": "3.301 × 10^23 kg",
-    "distance": "57,910,000 km"
+    "au": "0.387 AU",
+    "distance": "57,910,000 km",
+    "orbitalPeriod": "88일",
+    "rotationPeriod": "59일"
   },
   "venus": {
-    "class": "venus",
+    "class": "VENUS",
+    "image": "/public/planet/venus_fill.svg",
     "name": "금성",
     "type": "암석 행성",
+    "planetType": "내행성",
+    "decription": "금성은 태양계의 두 번째 행성으로, 지구와 가장 가까운 거리인 108,200,000km에 위치한다.",
     "diameter": "12,104 km",
-    "mass": "4.867 × 10^24 kg",
-    "distance": "108,200,000 km"
+    "au": "0.723 AU",
+    "distance": "108,200,000 km",
+    "orbitalPeriod": "225일",
+    "rotationPeriod": "243일"
   },
   "earth": {
-    "class": "earth",
+    "class": "EARTH",
+    "image": "/public/planet/earth_fill.webp",
     "name": "지구",
     "type": "암석 행성",
+    "planetType": "내행성",
+    "decription": "지구는 태양계의 세 번째 행성으로, 지구와 가장 가까운 거리인 149,600,000km에 위치한다.",
     "diameter": "12,742 km",
-    "mass": "5.972 × 10^24 kg",
-    "distance": "149,600,000 km"
+    "au": "1 AU",
+    "distance": "149,600,000 km",
+    "orbitalPeriod": "365일",
+    "rotationPeriod": "24시간",
+    "sateliteImage": "/public/planet/earth_st.webp"
   },
   "mars": {
-    "class": "mars",
+    "class": "MARS",
+    "image": "/public/planet/mars_fill.svg",
     "name": "화성",
     "type": "암석 행성",
+    "planetType": "내행성",
+    "decription": "화성은 태양계의 네 번째 행성으로, 지구와 가장 가까운 거리인 227,900,000km에 위치한다.",
     "diameter": "6,779 km",
-    "mass": "6.417 × 10^23 kg",
-    "distance": "227,900,000 km"
+    "au": "1.524 AU",
+    "distance": "227,900,000 km",
+    "orbitalPeriod": "687일",
+    "rotationPeriod": "24시간",
+    "sateliteImage": "/public/planet/mars_st.webp"
   },
   "jupiter": {
-    "class": "jupiter",
+    "class": "JUPITER",
+    "image": "/public/planet/jupiter_fill.svg",
     "name": "목성",
     "type": "가스 행성",
+    "planetType": "외행성",
+    "decription": "목성은 태양계의 다섯 번째 행성으로, 지구와 가장 가까운 거리인 778,500,000km에 위치한다.",
     "diameter": "139,820 km",
-    "mass": "1.899 × 10^27 kg",
-    "distance": "778,500,000 km"
+    "au": "5.203 AU",
+    "distance": "778,500,000 km",
+    "orbitalPeriod": "687일",
+    "rotationPeriod": "24시간",
+    "sateliteImage": "/public/planet/jupiter_st.webp"
   },
   "saturn": {
-    "class": "saturn",
+    "class": "SATURN",
+    "image": "/public/planet/saturn_fill.svg",
     "name": "토성",
     "type": "가스 행성",
+    "planetType": "외행성",
+    "decription": "토성은 태양계의 여섯 번째 행성으로, 지구와 가장 가까운 거리인 1,433,500,000km에 위치한다.",
     "diameter": "116,460 km",
-    "mass": "5.685 × 10^26 kg",
-    "distance": "1,433,500,000 km"
+    "au": "9.582 AU",
+    "distance": "1,433,500,000 km",
+    "orbitalPeriod": "687일",
+    "rotationPeriod": "24시간",
+    "sateliteImage": "/public/planet/saturn_st.webp"
   },
   "uranus": {
-    "class": "uranus",
+    "class": "URANUS",
+    "image": "/public/planet/uranus_fill.svg",
     "name": "천왕성",
     "type": "얼음 행성",
+    "planetType": "외행성",
+    "decription": "천왕성은 태양계의 일곱 번째 행성으로, 지구와 가장 가까운 거리인 2,872,400,000km에 위치한다.",
     "diameter": "50,724 km",
-    "mass": "8.682 × 10^25 kg",
-    "distance": "2,872,400,000 km"
+    "au": "19.218 AU",
+    "distance": "2,872,400,000 km",
+    "orbitalPeriod": "687일",
+    "rotationPeriod": "24시간",
+    "sateliteImage": "/public/planet/uranus_st.webp"
   },
   "neptune": {
-    "class": "neptune",
+    "class": "NEPTUNE",
+    "image": "/public/planet/neptune_fill.svg",
     "name": "해왕성",
     "type": "얼음 행성",
+    "planetType": "외행성",
+    "decription": "해왕성은 태양계의 여덟 번째 행성으로, 지구와 가장 가까운 거리인 4,498,400,000km에 위치한다.",
     "diameter": "49,244 km",
-    "mass": "1.024 × 10^26 kg",
-    "distance": "4,498,400,000 km"
+    "au": "30.055 AU",
+    "distance": "4,498,400,000 km",
+    "orbitalPeriod": "687일",
+    "rotationPeriod": "24시간",
+    "sateliteImage": "/public/planet/neptune_st.webp"
   }
 }

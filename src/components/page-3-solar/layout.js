@@ -27,7 +27,7 @@ const SolarSystemSection = `
       <img 
         src="/public/planet/earth.svg" 
         data-default="/public/planet/earth.svg"
-        data-hover="/public/planet/earth_fill.svg"
+        data-hover="/public/planet/earth_fill.webp"
         alt="earth"
       >
     </button>
