@@ -1,0 +1,85 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.page-1 {
+  width: 100%;
+  height: 100vh;
+  background-color: pink;
+}
+
+.page-3 {
+  width: 100%;
+  height: 100vh;
+  background-color: lightblue;
+}
+
+/* 행성 박스 */
+.page_5-container {
+  width: 100%;
+  height: 120vh;
+  overflow: hidden;
+  /* border: 6px solid purple; */
+  border-radius: 10px;
+}
+
+/* 비교 박스 */
+.planet__contents {
+  --planet-gap: 500px;
+
+  width: max-content;
+  height: 100%;
+
+  display: flex;
+  justify-content: start;
+  align-items: end;
+  gap: var(--planet-gap);
+  padding-left: 20vw;
+
+  /* 화면 제어 */
+
+  transform-origin: bottom left;
+
+  /* transition: transform 0.3s ease-in-out; */
+}
+
+.planet {
+  /* --earth: 100px; */
+  width: 500px;
+  /* padding-bottom: 30px; */
+  /* img {
+    width: 100%;
+    height: 100%;
+  } */
+
+  p {
+    text-align: center;
+    margin-top: 20px;
+  }
+}
+
+.earth {
+  margin-left: calc(var(--planet-gap) * 1);
+}
+
+.neptune {
+  margin-left: 1000px;
+}
+
+.uranus {
+  margin-left: 4000px;
+}
+
+.saturn {
+  margin-left: 5000px;
+}
+
+.jupiter {
+  margin-left: 10000px;
+}
+
+.sun {
+  margin-left: 35000px;
+}
