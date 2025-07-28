@@ -56,7 +56,6 @@
   background: none;
   border: none;
   font-size: 2rem;
-  font-size: 2rem;
   color: #fff;
   cursor: pointer;
   transition: color 0.3s;
@@ -75,7 +74,7 @@
   z-index: 2;
 }
 
-
+/*행성 빛*/
 .system__modal-image-container::before {
   content: "";
   position: absolute;
@@ -117,6 +116,7 @@
   height: auto;
   display: block;
 }
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -203,6 +203,7 @@
   font-size: 2rem;
   font-weight: bold;
   color: currentColor;
+  white-space: nowrap;
 }
 
 .planet-orbit-label {
@@ -210,6 +211,16 @@
   color: #aaa;
   white-space: nowrap;
 }
+
+@media (min-width:0px) and (max-width:496px) {
+  .planet-orbit-label {
+    display: none !important;
+  }
+  .planet-distance{
+    font-size:1.5rem
+  }
+}
+
 
 .planet-metadata-row {
   display: flex;
@@ -315,6 +326,7 @@
   }
 }
 
+/*행성 바닥 그림자*/
 .system__modal-image-container::after {
   content: "";
   position: absolute;
