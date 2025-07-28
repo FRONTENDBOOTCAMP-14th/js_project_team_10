@@ -1,0 +1,122 @@
+.sun-page {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 170px;
+  padding-inline: 30px;
+  background-color: #606060;
+  font-family: 'Arial', sans-serif;
+}
+
+@keyframes rotate-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#sun-ring {
+  animation: rotate-ring 6s linear infinite;
+  transform-origin: 152.5px 152.5px;
+}
+
+@keyframes slide-in-right {
+  0% {
+    right: -400px;
+    opacity: 0;
+  }
+  100% {
+    right: 0px;
+    opacity: 1;
+  }
+}
+
+.sun-description {
+  position: relative;
+  background-color: white;
+  padding: 40px 30px;
+  border-radius: 15px;
+  width: 670px;
+  box-shadow: 5px 6px 0px black;
+  font-size: 16px;
+  line-height: 1.7;
+  color: black;
+  right: -1100px;
+  animation: slide-in-right 1s ease-out forwards;
+  overflow: visible;
+}
+
+.sun-description::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -40px;
+  transform: translateY(-50%);
+  border: 20px solid transparent;
+  border-right-color: white;
+  z-index: 1;
+}
+
+.sun-description::after {
+  content: "";
+  position: absolute;
+  top: 52%;
+  left: -40px;
+  transform: translateY(-50%);
+  border: 20px solid transparent;
+  border-right-color: rgba(0, 0, 0, 0.9);
+  z-index: 0;
+}
+
+@media (max-width: 1280px) {
+  .sun-page {
+    flex-direction: column;
+    gap: 80px;
+    height: auto;
+    padding: 40px 0px;
+  }
+
+  .sun-description {
+    width: 70%;
+    font-size: 14px;
+    padding: 20px;
+    right: 0;
+    animation: slide-in-bottom 1s ease-out forwards;
+  }
+
+  .sun-graphic {
+    width: 40vw;
+    height: auto;
+  }
+
+  .sun-description::before {
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-bottom-color: white;
+    border-right-color: transparent;
+  }
+
+  .sun-description::after {
+    top: -41px;
+    left: 51%;
+    transform: translateX(-50%);
+    border-bottom-color: rgba(0, 0, 0, 0.9);
+    border-right-color: transparent;
+  }
+
+  @keyframes slide-in-bottom {
+    0% {
+      bottom: -200px;
+      opacity: 0;
+    }
+    100% {
+      bottom: 0px;
+      opacity: 1;
+    }
+  }
+}
