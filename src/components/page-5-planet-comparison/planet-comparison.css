@@ -19,15 +19,13 @@
 /* 행성 박스 */
 .page_5-container {
   width: 100%;
-  height: 120vh;
+  height: 100vh;
   overflow: hidden;
-  /* border: 6px solid purple; */
-  border-radius: 10px;
 }
 
 /* 비교 박스 */
 .planet__contents {
-  --planet-gap: 500px;
+  --planet-gap: 20vw;
 
   width: max-content;
   height: 100%;
@@ -46,40 +44,57 @@
 }
 
 .planet {
-  /* --earth: 100px; */
+  --default-margin: 23vw;
   width: 500px;
-  /* padding-bottom: 30px; */
-  /* img {
-    width: 100%;
-    height: 100%;
-  } */
 
   p {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font-size: 24px;
+    font-weight: 700;
   }
 }
 
+.venus {
+  margin-left: calc(var(--default-margin) / 1);
+}
+
 .earth {
-  margin-left: calc(var(--planet-gap) * 1);
+  margin-left: calc(var(--default-margin) * 2.8);
 }
 
 .neptune {
-  margin-left: 1000px;
+  margin-left: calc(var(--default-margin) * 7);
 }
 
 .uranus {
-  margin-left: 4000px;
+  margin-left: calc(var(--default-margin) * 21);
 }
 
 .saturn {
-  margin-left: 5000px;
+  margin-left: calc(var(--default-margin) * 22);
 }
 
 .jupiter {
-  margin-left: 10000px;
+  margin-left: calc(var(--default-margin) * 50);
 }
 
 .sun {
-  margin-left: 35000px;
+  margin-left: calc(var(--default-margin) * 100);
+  display: flex;
+  justify-content: center;
+  align-self: start;
+  position: relative;
+
+  img {
+    order: 2;
+  }
+  p {
+    position: absolute;
+    order: 1;
+    top: 0;
+    left: 0;
+    /* width: 1000px; */
+  }
 }
