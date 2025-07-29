@@ -10,49 +10,94 @@
     <title>행성 비교</title>
   </head>
   <body>
-    <section class="page-1">sddfdfsdfsdff</section>
+    <section class="page-1">
+      <h1>태양계의 행성 크기 비교</h1>
+    </section>
     <section class="page_5-container" aria-label="행성 크기 비교 페이지">
       <ul class="planet__contents">
-        <li class="planet mercury" data-scale="0.4">
+        <li class="title">
+          <h1>
+            Panet size comparison
+            <p>"The size differences between planets are made to match actual proportions."</p>
+            <p>"행성 간의 크기 차이는 실제 비율에 맞게 만들어졌습니다."</p>
+          </h1>
+        </li>
+        <li class="planet mercury">
           <img src="/public/planet/mercury_fill.svg" alt="Mercury" />
           <p>Mercury : 수성</p>
+          <div class="is-active">
+            <p>4,880 km</p>
+            <p>지구와의 반지름 비율 : 0.4</p>
+          </div>
         </li>
-        <li class="planet mars" data-scale="0.5">
+        <li class="planet mars">
           <img src="/public/planet/mars_fill.svg" alt="Mars" />
           <p>Mars : 화성</p>
+          <div class="is-active">
+            <p>6,779 km</p>
+            <p>지구와의 반지름 비율 : 0.5</p>
+          </div>
         </li>
-        <li class="planet venus" data-scale="0.9">
+        <li class="planet venus">
           <img src="/public/planet/venus_fill.svg" alt="Venus" />
           <p>Venus : 금성</p>
+          <div class="is-active">
+            <p>12,104 km</p>
+            <p>지구와의 반지름 비율 : 0.9</p>
+          </div>
         </li>
-        <li class="planet earth" data-scale="1">
+        <li class="planet earth">
           <img src="/public/planet/earth_fill.webp" alt="Earth" />
           <p>Earth : 지구</p>
+          <div class="is-active">
+            <p>12,742 km</p>
+          </div>
         </li>
-        <li class="planet neptune" data-scale="3.9">
+        <li class="planet neptune">
           <img src="/public/planet/neptune_fill.svg" alt="Neptune" />
           <p>Neptune : 해왕성</p>
+          <div class="is-active">
+            <p>49,000 km</p>
+            <p>지구와의 비율 : 3.9</p>
+          </div>
         </li>
-        <li class="planet uranus" data-scale="4.0">
+        <li class="planet uranus">
           <img src="/public/planet/uranus_fill.svg" alt="Uranus" />
           <p>Uranus : 천왕성</p>
+          <div class="is-active">
+            <p>51,000 km</p>
+            <p>지구와의 비율 : 4.0</p>
+          </div>
         </li>
-        <li class="planet saturn" data-scale="9.4">
-          <img src="/public/planet/saturn_fill.svg" alt="" />
+        <li class="planet saturn">
+          <img src="/public/planet/saturn_fill.svg" alt="Saturn" />
           <p>Saturn : 토성</p>
+          <div class="is-active">
+            <p>120,000 km</p>
+            <p>지구와의 비율 : 9.4</p>
+          </div>
         </li>
-        <li class="planet jupiter" data-scale="11.2">
+        <li class="planet jupiter">
           <img src="/public/planet/jupiter_fill.svg" alt="Jupiter" />
           <p>Jupiter : 목성</p>
+          <div class="is-active">
+            <p>140,000 km</p>
+            <p>지구와의 비율 : 11.2</p>
+          </div>
         </li>
-        <li class="planet sun" data-scale="109">
-          <img src="/public/planet/sun.svg" alt="Sum" />
-          <p>Sum : 태양</p>
+        <li class="planet sun">
+          <img src="/public/planet/sun.svg" alt="Sun" />
+          <p>The Sun : 태양</p>
+          <div class="is-active">
+            <p>1,392,000 km</p>
+            <p>지구와의 비율 : 109</p>
+          </div>
         </li>
       </ul>
     </section>
     <section class="page-3"></section>
 
     <script src="./planet-comparison.js"></script>
+    <!-- <script src="./repactoring.js"></script> -->
   </body>
 </html>
