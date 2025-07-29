@@ -10,8 +10,7 @@
     "au": "1AU",
     "distance": "0 km (중심)",
     "orbitalPeriod": "1년",
-    "rotationPeriod": "24시간",
-    "sateliteImage": "/public/planet/sun.svg"
+    "rotationPeriod": "24시간"
   },
   "mercury": {
     "class": "MERCURY",
