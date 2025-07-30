@@ -3,7 +3,6 @@ gsap.registerPlugin(ScrollTrigger);
 const mm = gsap.matchMedia();
 const mmover = gsap.matchMedia();
 const planetContents = document.querySelector(".planet__contents");
-
 let planets = gsap.utils.toArray(".planet__contents .planet");
 let scrollTween = gsap.to(planets, {
   scrollTrigger: {
@@ -16,23 +15,48 @@ let scrollTween = gsap.to(planets, {
   },
 });
 
-gsap.to(".planet img", {
-  scrollTrigger: {
-    trigger: ".planet",
-    start: "top top",
-    end: "center center",
-    toggleAction: "play pause play pause",
-    horizontal: true,
-    containerAnimation: scrollTween,
-  },
+// 행성 회전 -> 태양파트 이후 정지
+const planetTween = gsap.to(".planet img", {
   rotation: 360,
   repeat: -1,
-  // duration: 30,
-  ease: "none",
-  // transformOrigin: "center center",
+  duration: 40,
+  ease: "none", // 중요: 무한회전은 linear로
+  paused: true, // 일단 멈춰 놓고
 });
 
-// gsap.set(".planet__contents", { scale: 1.8 });
+// ScrollTrigger 설정
+ScrollTrigger.create({
+  trigger: ".page_5-container",
+  start: "top top",
+  end: "+=16300",
+  // markers: true,
+  onEnter: () => {
+    planets.forEach((planet) => {
+      planet.classList.add("planet-shadow");
+    });
+    planetTween.play();
+  },
+  onLeave: () => {
+    planets.forEach((planet) => {
+      planet.classList.remove("planet-shadow");
+    });
+
+    planetTween.pause();
+  },
+  onEnterBack: () => {
+    planets.forEach((planet) => {
+      planet.classList.add("planet-shadow");
+    });
+    planetTween.play();
+  },
+  onLeaveBack: () => {
+    planets.forEach((planet) => {
+      planet.classList.remove("planet-shadow");
+    });
+    planetTween.pause();
+  },
+  // markers: true,
+});
 
 // 스케일 타임라인
 // 모바일-----------------------------------------------------------------------
@@ -57,7 +81,8 @@ mm.add("(max-width : 1279px", () => {
     opacity: 0,
   });
   gsap.set(".sun p.sun-name", { opacity: 0 });
-  gsap.set(".sun .description span", { opacity: 0 });
+  // gsap.set(".sun .description span", { opacity: 0 });
+  gsap.set(".title .description span", { x: 0, y: 0, opacity: 0 });
 
   const t2 = gsap.timeline();
 
@@ -87,7 +112,7 @@ mm.add("(max-width : 1279px", () => {
     // 지구
     .to(".planet__contents", {
       x: centerPlanet(".earth") * 0.34,
-      y: centerPlanetY(".earth") * 0.27,
+      y: centerPlanetY(".earth") * 0.25,
       scale: 1.3,
       duration: 2,
     })
@@ -127,16 +152,23 @@ mm.add("(max-width : 1279px", () => {
     .to(".sun", { x: -102, y: 0, opacity: 1, duration: 2 })
     .to(".sun .sun-name", { opacity: 1, duration: 2 })
     .to(".sun .is-active", { opacity: 1, duration: 2 })
-    .to(".sun img", { rotation: 360, repeat: 0.1, duration: 2 })
-    .to(".planet__contents", { scale: 0.1, x: -1050, y: -3100, duration: 5 })
-    .to(".sun .description span:nth-child(1)", { opacity: 1, duration: 2 })
-    .to(".sun .description span:nth-child(1)", { opacity: 0, duration: 2 })
-    .to(".sun .description span:nth-child(2)", { opacity: 1, duration: 2 })
-    .to(".sun .description span:nth-child(2)", { opacity: 0, duration: 2 });
+    .to(".planet__contents", {
+      scale: 1.5,
+      x: 0,
+      y: 0,
+      duration: 5,
+      transformOrigin: "top left",
+    })
+
+    .to(".description span:nth-child(1)", { opacity: 1, duration: 3 })
+    .to(".description span:nth-child(1)", { opacity: 0, duration: 2 })
+    .to(".description span:nth-child(2)", { opacity: 1, duration: 3 })
+    .to(".description span:nth-child(2)", { opacity: 0, duration: 2 });
+
   ScrollTrigger.create({
     trigger: ".page_5-container",
     start: "top top",
-    end: "+=15000",
+    end: "+=19000",
     scrub: 0.5,
     animation: t2,
   });
@@ -162,9 +194,9 @@ mmover.add("(min-width: 1280px)", () => {
     opacity: 0,
   });
   gsap.set(".sun p.sun-name", { opacity: 0 });
-  gsap.set(".sun .description span", { opacity: 0 });
   gsap.set(".planet__contents", { scale: 1.8 });
   gsap.set(".title", { x: centerPlanet(".title") * 0.4 });
+  gsap.set(".title .description span", { x: -370, y: -200, opacity: 0 });
 
   const tl = gsap.timeline();
 
@@ -228,16 +260,17 @@ mmover.add("(min-width: 1280px)", () => {
     .to(".sun", { y: -20000, opacity: 1, duration: 2 })
     .to(".sun p.sun-name", { opacity: 1, duration: 2 })
     .to(".sun .is-active", { opacity: 1, duration: 2 })
-    // .to(".sun img", { rotation: 360, repeat: 0.1, duration: 2 })
     .to(".planet__contents", {
-      scale: 0.03,
-      x: 1500,
-      y: 2100,
+      scale: 1.8,
+      x: 0,
+      y: 0,
       duration: 2,
     })
-    .to(".sun .description span:nth-child(1)", { opacity: 1, duration: 2 })
-    .to(".sun .description span:nth-child(1)", { opacity: 0, duration: 2 })
-    .to(".sun .description span:nth-child(2)", { opacity: 1, duration: 2 });
+    .to(".description span:nth-child(1)", { opacity: 1, duration: 2 })
+    .to(".description span:nth-child(1)", { opacity: 0, duration: 2 })
+    .to(".description span:nth-child(2)", { opacity: 1, duration: 2 })
+    .to(".description span:nth-child(2)", { opacity: 0, duration: 2 });
+
   ScrollTrigger.create({
     trigger: ".page_5-container",
     start: "top top",
