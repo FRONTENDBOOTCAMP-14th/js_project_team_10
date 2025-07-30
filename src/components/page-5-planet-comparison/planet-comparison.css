@@ -46,12 +46,14 @@
   align-items: end;
   gap: var(--planet-gap);
   padding-left: 20vw;
-
+  /* overflow: hidden; */
   /* 화면 제어 */
   transform-origin: bottom left;
 
   @media (width<1280px) {
-    align-items: end;
+    flex-direction: column;
+    align-items: start;
+    transform-origin: top left;
   }
 }
 
@@ -112,75 +114,185 @@
   }
 }
 
-.mercury {
-  &.is-active {
-    outline: 1px solid white;
+@media (width > 1280px) {
+  .mercury {
+  }
+
+  .venus {
+    margin-left: calc(var(--default-margin) / 1);
+  }
+
+  .earth {
+    margin-left: calc(var(--default-margin) * 2.8);
+  }
+
+  .neptune {
+    margin-left: calc(var(--default-margin) * 7);
+  }
+
+  .uranus {
+    margin-left: calc(var(--default-margin) * 21);
+  }
+
+  .saturn {
+    margin-left: calc(var(--default-margin) * 22);
+  }
+
+  .jupiter {
+    margin-left: calc(var(--default-margin) * 50);
+  }
+
+  .sun {
+    margin-left: calc(var(--default-margin) * 100);
+    display: flex;
+    justify-content: center;
+    align-self: start;
+    position: relative;
+
+    & > img {
+      order: 2;
+    }
+    & .sun-name {
+      z-index: 1;
+      position: absolute;
+      order: 1;
+      top: 0;
+      left: 0;
+      transform: translate(160px, -90px);
+    }
+
+    .description {
+      /* background: red; */
+      text-shadow: 0.1em 0.1em 0.1em rgba(248, 135, 14, 0.692);
+      z-index: 1;
+      font-size: 4px;
+      order: 1;
+      top: 0;
+      left: 0;
+      transform: translate(5.4vw, 19vh);
+      text-align: start;
+      line-height: 2em;
+      font-weight: 500;
+      color: #414345;
+      span {
+        position: absolute;
+        opacity: 0;
+        width: 6vw;
+      }
+    }
   }
 }
 
-.venus {
-  margin-left: calc(var(--default-margin) / 1);
-}
-
-.earth {
-  margin-left: calc(var(--default-margin) * 2.8);
-}
-
-.neptune {
-  margin-left: calc(var(--default-margin) * 7);
-}
-
-.uranus {
-  margin-left: calc(var(--default-margin) * 21);
-}
-
-.saturn {
-  margin-left: calc(var(--default-margin) * 22);
-}
-
-.jupiter {
-  margin-left: calc(var(--default-margin) * 50);
-}
-
-.sun {
-  margin-left: calc(var(--default-margin) * 100);
-  display: flex;
-  justify-content: center;
-  align-self: start;
-  position: relative;
-
-  & > img {
-    order: 2;
+@media (width < 1280px) {
+  .mercury {
   }
-  & > p {
-    z-index: 1;
-    position: absolute;
-    order: 1;
-    top: 0;
-    left: 0;
+
+  .venus {
+    margin-top: calc(var(--default-margin) / 1);
+  }
+
+  .earth {
+    margin-top: calc(var(--default-margin) * 2.8);
+  }
+
+  .neptune {
+    margin-top: calc(var(--default-margin) * 7);
+  }
+
+  .uranus {
+    margin-top: calc(var(--default-margin) * 21);
+  }
+
+  .saturn {
+    margin-top: calc(var(--default-margin) * 22);
+  }
+
+  .jupiter {
+    margin-top: calc(var(--default-margin) * 50);
+  }
+
+  .sun {
+    margin-top: calc(var(--default-margin) * 100);
+    display: flex;
+    justify-content: center;
+    align-self: start;
+    position: relative;
+
+    & > img {
+      order: 2;
+    }
+    & > p {
+      z-index: 1;
+      position: absolute;
+      order: 1;
+      top: 0;
+      left: 0;
+      transform: translate(8.5vw, 11vh);
+    }
+
+    .description {
+      width: 100vw;
+      height: 100vh;
+      background: red;
+      text-shadow: 0.1em 0.1em 0.1em rgba(248, 135, 14, 0.692);
+      z-index: 1;
+      font-size: 0.8px;
+      order: 1;
+      top: 0;
+      left: 0;
+      transform: translate(9.8vw, 5.3vh);
+      text-align: start;
+      line-height: 2em;
+      font-weight: 500;
+      color: #414345;
+      span {
+        width: 100%;
+        height: 100%;
+        background: red;
+        position: absolute;
+        opacity: 0;
+        width: 3vw;
+      }
+    }
   }
 }
-
 /* 활성화 텍스트 */
 .is-active {
   opacity: 0;
   position: absolute;
-  width: 500px;
-  height: 500px;
+  width: 10vw;
+  height: 30vh;
   top: 0;
   left: 0;
-  transform: translateX(-24rem);
   align-content: center;
   /* background-color: green; */
+
+  @media (width > 1280px) {
+    transform: translateX(-17rem);
+  }
+
+  @media (width < 1280px) {
+    width: 20vw;
+    align-content: start;
+    transform: translate(0.5rem, -1rem);
+    p {
+      text-align: center;
+    }
+  }
   p {
     font-size: 16px;
-    text-align: center;
-    color: rgb(191, 162, 253);
-    text-shadow: 0 0.1em 0.1em black;
-  }
-}
+    color: rgb(255, 255, 255);
+    text-shadow: -0.1em 0.4em 0.2em black;
+    /* background-color: rgba(255, 255, 255, 0.3); */
+    /* -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px); */
+    border-radius: 3px;
+    @media (width >1280px) {
+      text-align: center;
+    }
 
-/* 치수 표시 선택자*/
-.size {
-  outline: 1px solid white;
+    @media (width < 1280px) {
+      font-size: 5px;
+    }
+  }
 }
