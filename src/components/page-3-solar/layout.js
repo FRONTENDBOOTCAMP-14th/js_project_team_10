@@ -1,7 +1,9 @@
 const SolarSystemSection = `
 <div class="solarSystem">
+  <div class="solarSystem2"></div>
     <button class="system__button solar">
       <img 
+      class="solar-solo"
         src="/public/planet/sun.svg" 
         data-default="/public/planet/sun.svg"
         alt="sun"
@@ -31,6 +33,7 @@ const SolarSystemSection = `
         alt="earth"
       >
     </button>
+
     <button class="system__button mars">
       <img 
         src="/public/planet/mars.svg" 
@@ -71,6 +74,16 @@ const SolarSystemSection = `
         alt="neptune"
       >
     </button>
+      <div class="shooting-star"></div>
+      <div class="shooting-star"></div>
+      <div class="shooting-star"></div>
+      <div class="shooting-star"></div>
+      <div class="shooting-star"></div>
+      <div class="shooting-star"></div>
+      <div class="shooting-star"></div>
+      <div class="shooting-star"></div>
+      <div class="shooting-star"></div>
+      <div class="shooting-star"></div>
 </div>
 `;
 
