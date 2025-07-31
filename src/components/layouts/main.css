@@ -2,8 +2,11 @@
 
 @import "../../style/common/_normalize.css" layer(base);
 @import "../../style/common/_base.css" layer(base);
+@import "../../style/globals.css" layer(base);
 
 @import "../../style/common/_theme.css" layer(theme);
 @import "../../style/common/common.css" layer(common);
 
 @import "./page-1-main.css" layer(components);
+@import "/src/components/layouts/page-2-sun-tracking.css" layer(components);
+@import "/src/components/layouts/page-5-planet-comparison.css" layer(components);

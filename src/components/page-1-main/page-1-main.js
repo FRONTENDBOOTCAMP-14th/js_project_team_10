@@ -39,10 +39,10 @@ function animatePlanet(
 }
 
 window.addEventListener("DOMContentLoaded", () => {
-  const planet1 = document.getElementById("planet");
+  const planet1 = document.getElementById("page_1_planet");
   const orbit1 = document.getElementById("orbit");
 
-  const planet2 = document.getElementById("planet2");
+  const planet2 = document.getElementById("page_1_planet2");
   const orbit2 = document.getElementById("orbit2");
 
   // 궤도 #1은 -30도 회전됨
@@ -51,17 +51,16 @@ window.addEventListener("DOMContentLoaded", () => {
   // 궤도 #2는 회전 없음
   animatePlanet(planet2, orbit2, 5);
 });
-
 gsap.set(
   [
     ".main-span-circle",
     ".main-span-lineSm",
     ".main-span-lineM",
-    ".planet",
+    ".page_1-planet",
     ".side-circle",
     ".main-span-extendLineX",
     ".main-span-extendLineY",
-    "orbit-path",
+    ".orbit-path",
     ".solar-text",
     ".header_p-title",
   ],
@@ -109,7 +108,7 @@ tl.fromTo(
 
 // 행성
 tl.fromTo(
-  ".planet",
+  ".page_1-planet",
   { scale: 0 },
   { scale: 1, opacity: 1, duration: 0.5, stagger: 0.2 },
   "-=0.8"

@@ -24,40 +24,6 @@ const planetTween = gsap.to(".planet img", {
   paused: true, // 일단 멈춰 놓고
 });
 
-// ScrollTrigger 설정
-ScrollTrigger.create({
-  trigger: ".page_5-container",
-  start: "top top",
-  end: "+=16300",
-  // markers: true,
-  onEnter: () => {
-    planets.forEach((planet) => {
-      planet.classList.add("planet-shadow");
-    });
-    planetTween.play();
-  },
-  onLeave: () => {
-    planets.forEach((planet) => {
-      planet.classList.remove("planet-shadow");
-    });
-
-    planetTween.pause();
-  },
-  onEnterBack: () => {
-    planets.forEach((planet) => {
-      planet.classList.add("planet-shadow");
-    });
-    planetTween.play();
-  },
-  onLeaveBack: () => {
-    planets.forEach((planet) => {
-      planet.classList.remove("planet-shadow");
-    });
-    planetTween.pause();
-  },
-  // markers: true,
-});
-
 // 스케일 타임라인
 // 모바일-----------------------------------------------------------------------
 mm.add("(max-width : 1279px", () => {
@@ -96,7 +62,7 @@ mm.add("(max-width : 1279px", () => {
     // 화성
     .to(".planet__contents", {
       x: -125,
-      y: centerPlanetY(".mars") * 0.4,
+      y: centerPlanetY(".mars") * 0.28,
       scale: 2.3,
       duration: 2,
     })
@@ -104,7 +70,7 @@ mm.add("(max-width : 1279px", () => {
     // 금성
     .to(".planet__contents", {
       x: centerPlanet(".venus") * 0.6,
-      y: centerPlanetY(".venus") * 0.31,
+      y: centerPlanetY(".venus") * 0.22,
       scale: 1.6,
       duration: 2,
     })
@@ -112,7 +78,7 @@ mm.add("(max-width : 1279px", () => {
     // 지구
     .to(".planet__contents", {
       x: centerPlanet(".earth") * 0.34,
-      y: centerPlanetY(".earth") * 0.25,
+      y: centerPlanetY(".earth") * 0.22,
       scale: 1.3,
       duration: 2,
     })
@@ -159,7 +125,6 @@ mm.add("(max-width : 1279px", () => {
       duration: 5,
       transformOrigin: "top left",
     })
-
     .to(".description span:nth-child(1)", { opacity: 1, duration: 3 })
     .to(".description span:nth-child(1)", { opacity: 0, duration: 2 })
     .to(".description span:nth-child(2)", { opacity: 1, duration: 3 })
@@ -168,9 +133,43 @@ mm.add("(max-width : 1279px", () => {
   ScrollTrigger.create({
     trigger: ".page_5-container",
     start: "top top",
-    end: "+=19000",
-    scrub: 0.5,
+    end: "+=20000",
+    scrub: 0.2,
     animation: t2,
+  });
+
+  // ScrollTrigger 설정
+  ScrollTrigger.create({
+    trigger: ".page_5-container",
+    start: "top top",
+    end: "+=14900",
+    // markers: true,
+    onEnter: () => {
+      planets.forEach((planet) => {
+        planet.classList.add("planet-shadow");
+      });
+      planetTween.play();
+    },
+    onLeave: () => {
+      planets.forEach((planet) => {
+        planet.classList.remove("planet-shadow");
+      });
+
+      planetTween.pause();
+    },
+    onEnterBack: () => {
+      planets.forEach((planet) => {
+        planet.classList.add("planet-shadow");
+      });
+      planetTween.play();
+    },
+    onLeaveBack: () => {
+      planets.forEach((planet) => {
+        planet.classList.remove("planet-shadow");
+      });
+      planetTween.pause();
+    },
+    // markers: true,
   });
 });
 
@@ -277,6 +276,40 @@ mmover.add("(min-width: 1280px)", () => {
     end: "+=20000",
     scrub: 0.5,
     animation: tl,
+  });
+
+  // ScrollTrigger 설정
+  ScrollTrigger.create({
+    trigger: ".page_5-container",
+    start: "top top",
+    end: "+=16300",
+    // markers: true,
+    onEnter: () => {
+      planets.forEach((planet) => {
+        planet.classList.add("planet-shadow");
+      });
+      planetTween.play();
+    },
+    onLeave: () => {
+      planets.forEach((planet) => {
+        planet.classList.remove("planet-shadow");
+      });
+
+      planetTween.pause();
+    },
+    onEnterBack: () => {
+      planets.forEach((planet) => {
+        planet.classList.add("planet-shadow");
+      });
+      planetTween.play();
+    },
+    onLeaveBack: () => {
+      planets.forEach((planet) => {
+        planet.classList.remove("planet-shadow");
+      });
+      planetTween.pause();
+    },
+    // markers: true,
   });
 });
 
