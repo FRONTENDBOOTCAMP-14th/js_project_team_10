@@ -1,0 +1,262 @@
+/* 행성 박스 */
+.page_5-container {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-image: url(/public/planet/universe-background-4.jpg);
+    background-size: cover;
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
+    filter: brightness(40%);
+  }
+}
+
+/* 비교 박스 */
+.planet__contents {
+  --planet-gap: 20vw;
+
+  width: max-content;
+  height: 100%;
+
+  display: flex;
+  justify-content: start;
+  align-items: end;
+  gap: var(--planet-gap);
+  padding-left: 20vw;
+  position: relative;
+  /* 화면 제어 */
+  transform-origin: bottom left;
+
+  @media (width<1280px) {
+    flex-direction: column;
+    align-items: start;
+    transform-origin: top left;
+  }
+}
+
+.planet {
+  --default-margin: 23vw;
+  --planet-size: 500px;
+  --planet-font-size: 24px;
+
+  width: var(--planet-size);
+  position: relative;
+
+  &.planet-shadow {
+    filter: drop-shadow(0px 0px 30px #f5f5f58d);
+  }
+  p {
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font-size: var(--planet-font-size);
+    font-weight: 700;
+  }
+
+  @media (width<1280px) {
+    --default-margin: 20vw;
+    --planet-size: 100px;
+    --planet-font-size: 5px;
+  }
+}
+
+.title {
+  --h1-font-size: 2.5rem;
+  --p-font-size: 1rem;
+
+  width: 80vw;
+  height: 65vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--planet-font-size);
+
+  @media (width < 1280px) {
+    --h1-font-size: 1rem;
+    --p-font-size: 8px;
+  }
+
+  h1 {
+    /* border: 1px solid red; */
+    padding: 10px;
+    border-radius: 20px;
+    position: relative;
+    font-size: var(--h1-font-size);
+
+    p {
+      opacity: 0;
+      font-size: var(--p-font-size);
+      position: absolute;
+      transform: translateY(7vh);
+      padding: 10px;
+    }
+  }
+
+  .description {
+    width: 50vw;
+    font-size: 10px;
+    position: relative;
+    span {
+      backdrop-filter: blur(5px);
+      background-color: rgba(255, 255, 255, 0.1);
+      margin-left: 10vw;
+      margin-top: 10vh;
+      top: 0;
+      left: 0;
+      position: absolute;
+      display: block;
+      width: 100%;
+      line-height: 15px;
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+        rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+        rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+      border-radius: 5px;
+      padding: 1rem;
+    }
+
+    @media (width > 1280px) {
+      span {
+        width: 400px;
+        font-size: 12px;
+        line-height: 1.5rem;
+      }
+    }
+  }
+}
+
+@media (width > 1280px) {
+  .venus {
+    margin-left: calc(var(--default-margin) / 1);
+  }
+
+  .earth {
+    margin-left: calc(var(--default-margin) * 2.8);
+  }
+
+  .neptune {
+    margin-left: calc(var(--default-margin) * 7);
+  }
+
+  .uranus {
+    margin-left: calc(var(--default-margin) * 21);
+  }
+
+  .saturn {
+    margin-left: calc(var(--default-margin) * 22);
+  }
+
+  .jupiter {
+    margin-left: calc(var(--default-margin) * 50);
+  }
+
+  .sun {
+    margin-left: calc(var(--default-margin) * 100);
+    display: flex;
+    justify-content: center;
+    align-self: start;
+    position: relative;
+
+    & > img {
+      order: 2;
+    }
+    & .sun-name {
+      z-index: 1;
+      position: absolute;
+      order: 1;
+      top: 0;
+      left: 0;
+      transform: translate(160px, -40px);
+    }
+  }
+}
+
+@media (width < 1280px) {
+  .venus {
+    margin-top: calc(var(--default-margin) / 1);
+  }
+
+  .earth {
+    margin-top: calc(var(--default-margin) * 2.8);
+  }
+
+  .neptune {
+    margin-top: calc(var(--default-margin) * 7);
+  }
+
+  .uranus {
+    margin-top: calc(var(--default-margin) * 21);
+  }
+
+  .saturn {
+    margin-top: calc(var(--default-margin) * 22);
+  }
+
+  .jupiter {
+    margin-top: calc(var(--default-margin) * 50);
+  }
+
+  .sun {
+    margin-top: calc(var(--default-margin) * 100);
+    display: flex;
+    justify-content: center;
+    align-self: start;
+    position: relative;
+
+    & > img {
+      order: 2;
+    }
+    & > p {
+      z-index: 1;
+      position: absolute;
+      order: 1;
+      top: 0;
+      left: 0;
+      transform: translate(8.5vw, 11vh);
+    }
+  }
+}
+
+/* 활성화 텍스트 */
+.is-active {
+  opacity: 0;
+  position: absolute;
+  width: 10vw;
+  height: 30vh;
+  top: 0;
+  left: 0;
+  align-content: center;
+  /* background-color: green; */
+
+  @media (width > 1280px) {
+    transform: translateX(-17rem);
+  }
+
+  @media (width < 1280px) {
+    width: 20vw;
+    align-content: start;
+    transform: translate(0.5rem, -1rem);
+    p {
+      text-align: center;
+    }
+  }
+  p {
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+    text-shadow: -0.1em 0.4em 0.2em black;
+    border-radius: 3px;
+    @media (width >1280px) {
+      text-align: center;
+    }
+
+    @media (width < 1280px) {
+      font-size: 5px;
+    }
+  }
+}
