@@ -1,7 +1,7 @@
-import "./satellite.css";
-import planetData from "./satelliteData.json";
+async function createSatelliteModal(planetName) {
+    const response = await fetch('/src/components/page-3-solar/satelliteData.json');
+  const planetData = await response.json();
 
-function createSatelliteModal(planetName) {
   const satellite = Object.values(planetData).find(
     (sat) => sat.planet === planetName.toLowerCase()
   ) || {
@@ -71,12 +71,12 @@ function setupSatelliteModal() {
   if (!satelliteButtons.length) return;
 
   satelliteButtons.forEach((button) => {
-    button.onclick = (e) => {
+        button.onclick = async (e) => {
       e.stopPropagation();
       const satelliteClass =
         button.closest(".system__modal-content").querySelector("h2")
           ?.textContent || "";
-      createSatelliteModal(satelliteClass);
+            await createSatelliteModal(satelliteClass);
     };
   });
 }

@@ -1,9 +1,6 @@
-import planetData from "./planetData.json";
-import "/src/components/page-3-solar/modal.css";
-import "/src/components/page-3-solar/modalCarousel.css";
-import { setupSatelliteModal } from "./satelite";
-import { initModalCarousel } from "./modalCarousel";
-import "/src/style/common/_theme.css";
+
+import { setupSatelliteModal } from "./satelite.js";
+import { initModalCarousel } from "./modalCarousel.js";
 
 let focusedElementBeforeModal = null;
 let currentPlanetElement = null;
@@ -56,11 +53,14 @@ const closeModal = (modal) => {
   }
 };
 
-export function createModal(planetId, planetElement) {
+export async function createModal(planetId, planetElement) {
+    const response = await fetch("/src/components/page-3-solar/planetData.json");
+  const planetData = await response.json();
+
   const lowerId = planetId.toLowerCase();
   const planet = planetData[lowerId] || {
     class: "알 수 없는 행성",
-    image: "/public/planet/planet.svg",
+    image: "/planet/planet.svg",
     name: "알 수 없는 행성",
     type: "정보 없음",
     planetType: "정보 없음",
@@ -181,7 +181,9 @@ export function createModal(planetId, planetElement) {
 
   const modal = document.getElementById("planetModal");
   const closeButton = document.getElementById("closeModal");
-  const satelliteButton = document.querySelector(".system__modal-satelite-button");
+  const satelliteButton = document.querySelector(
+    ".system__modal-satelite-button"
+  );
   const prevButton = document.querySelector(".carousel-arrow--left");
   const nextButton = document.querySelector(".carousel-arrow--right");
 
@@ -200,7 +202,7 @@ export function createModal(planetId, planetElement) {
   const keyDownHandler = (e) => {
     const KEY_TAB = 9;
     const KEY_ESC = 27;
-    
+
     if (e.keyCode === KEY_ESC) {
       closeModal(modal);
       return;
@@ -208,9 +210,9 @@ export function createModal(planetId, planetElement) {
 
     if (e.keyCode === KEY_TAB) {
       e.preventDefault();
-      
+
       const activeElement = document.activeElement;
-      
+
       if (e.shiftKey) {
         // Shift + Tab
         if (activeElement === closeButton && satelliteButton) {
@@ -263,12 +265,12 @@ function handleEscape(e) {
 export function initModal() {
   const planetButtons = document.querySelectorAll(".system__button");
   planetButtons.forEach((button) => {
-    button.addEventListener("click", (e) => {
+        button.addEventListener("click", async (e) => {
       e.stopPropagation();
       const planetClass = Array.from(button.classList).find(
         (cls) => cls !== "system__button" && cls !== "active"
       );
-      if (planetClass) createModal(planetClass.toLowerCase());
+            if (planetClass) await createModal(planetClass.toLowerCase());
     });
   });
 }

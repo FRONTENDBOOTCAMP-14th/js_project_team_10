@@ -1,6 +1,7 @@
-import planetPositions from "./planetPositions.json";
+export async function initSolarSystem() {
+    const response = await fetch("/src/components/page-3-solar/planetPositions.json");
+  const planetPositions = await response.json();
 
-export function initSolarSystem() {
   const sun = document.querySelector(".system__button.solar");
   if (!sun) return;
 

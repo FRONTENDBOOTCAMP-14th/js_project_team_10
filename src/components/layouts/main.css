@@ -10,3 +10,7 @@
 @import "./page-1-main.css" layer(components);
 @import "/src/components/layouts/page-2-sun-tracking.css" layer(components);
 @import "/src/components/layouts/page-5-planet-comparison.css" layer(components);
+@import "/src/components/page-3-solar/layout.css" layer(components);
+@import "/src/components/page-3-solar/modal.css" layer(components);
+@import "/src/components/page-3-solar/modalCarousel.css" layer(components);
+@import "/src/components/page-3-solar/satellite.css" layer(components);

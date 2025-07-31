@@ -1,4 +1,4 @@
-import "./layout.css";
+
 import SolarSystemSection from "/src/components/page-3-solar/layout.js";
 import { initSolarSystem } from "./transition.js";
 import { lightStars } from "./transition.js";
@@ -43,8 +43,8 @@ document.addEventListener("DOMContentLoaded", () => {
     waitForImages(solarSystemSection).then(() => {
       initHoverEffects();
       initModal();
-      setTimeout(() => {
-        initSolarSystem();
+      setTimeout(async () => {
+        await initSolarSystem();
         lightStars();
       }, 100);
     });
