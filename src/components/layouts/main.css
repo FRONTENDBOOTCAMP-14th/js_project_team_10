@@ -7,3 +7,5 @@
 @import "../../style/common/common.css" layer(common);
 
 @import "./page-1-main.css" layer(components);
+@import "/src/components/layouts/page-2-sun-tracking.css" layer(components);
+@import "/src/components/layouts/page-5-planet-comparison.css" layer(components);

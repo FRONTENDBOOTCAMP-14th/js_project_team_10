@@ -4,20 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vanilla JS Router</title>
-    <link rel="stylesheet" href="/src/routing/page.css" />
+    <!-- <link rel="stylesheet" href="/src/routing/page.css" /> -->
     <link rel="stylesheet" href="/src/components/layouts/main.css" />
-    <link rel="stylesheet" href="/src/components/layouts/page-1-main.css" />
-    <link
+    <!-- <link rel="stylesheet" href="/src/components/layouts/page-1-main.css" /> -->
+    <!-- <link
       rel="stylesheet"
       href="/src/components/layouts/page-2-sun-tracking.css"
-    />
-    <link
+    /> -->
+    <!-- <link
       rel="stylesheet"
       href="/src/components/layouts/page-5-planet-comparison.css"
-    />
+    /> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script
+    <!-- <script
       type="module"
       src="/src/components/page-1-main/page-1-main.js"
       defer
@@ -29,9 +29,15 @@
     ></script>
     <script
       type="module"
-      src="/src/components/page-5-planet-comparison/planet-comparison.js"
+      src="/src/components/page-3-solar/routing.js"
       defer
     ></script>
+    <script
+      type="module"
+      src="/src/components/page-5-planet-comparison/planet-comparison.js"
+      defer
+    ></script> -->
+    <script type="module" src="/src/main.js"></script>
   </head>
   <body>
     <main>
@@ -130,8 +136,8 @@
               />
 
               <!-- 행성 -->
-              <circle id="planet" class="planet" r="10" />
-              <circle id="planet2" class="planet" r="7" />
+              <circle id="page_1_planet" class="page_1-planet" r="10" />
+              <circle id="page_1_planet2" class="page_1-planet" r="7" />
             </svg>
           </span>
         </div>
@@ -205,13 +211,7 @@
           여겨집니다.
         </div>
       </section>
-      <section id="solarSystem">
-        <script
-          type="module"
-          src="/src/components/page-3-solar/routing.js"
-          defer
-        ></script>
-      </section>
+      <section id="solarSystem"></section>
       <section
         id="planetComparison"
         class="page_5-container"
@@ -318,27 +318,6 @@
           <li class="planet sun">
             <img src="/public/planet/sun.svg" alt="Sun" />
             <p class="sun-name">The Sun : 태양</p>
-            <!-- <p class="description">
-            <span>
-              The Sun accounts for the majority of the solar system's mass,
-              approximately 99.86%. The remainder is shared among other
-              celestial bodies, including planets, satellites, asteroids, and
-              comets. The Sun's mass is approximately 2 x 10^30 kg, or about
-              330,000 times that of the Earth. The mass of other celestial
-              bodies accounts for only about 0.134% of the Sun's mass. Planets
-              make up the majority of this mass, followed by satellites,
-              asteroids, and comets.
-            </span>
-            <span>
-              태양계 전체 질량의 대부분, 약 <strong>99.86%</strong>는 태양이
-              차지하고 있습니다. 나머지 질량은 행성, 위성, 소행성, 혜성 등 다른
-              천체들이 나눠 가지고 있습니다. 태양의 질량은 약 2 x 10^30 kg으로
-              지구 질량의 약 <strong>33만</strong> 배에 달합니다. 태양을 제외한
-              다른 천체들의 질량은 태양 질량의 <strong>0.134%</strong> 정도에
-              불과합니다. 이 중 행성들이 대부분을 차지하며, 위성, 소행성, 혜성
-              등이 그 뒤를 잇습니다
-            </span>
-          </p> -->
             <div class="is-active">
               <p>1,392,000 km</p>
               <p>지구와의 비율 : 109</p>

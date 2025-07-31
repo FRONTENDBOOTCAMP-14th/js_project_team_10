@@ -232,12 +232,12 @@
       stroke-width: 1.5;
     }
 
-    .planet {
+    .page_1-planet {
       fill: var(--white);
       stroke-width: 1.5;
     }
 
-    .planet2 {
+    .page_1-planet2 {
       stroke-width: 1.5;
     }
   }
