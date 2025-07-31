@@ -155,13 +155,13 @@
   --pink-900: hsl(350, 45%, 10%);
   --pink-950: hsl(350, 45%, 5%);
 
-  --text-color: light-dark(var(--stone-950), var(--stone-50));
-  --background-color: light-dark(var(--yellow-500), var(--blue-950));
+  /* --text-color: light-dark(var(--stone-950), var(--stone-50));
+  --background-color: light-dark(var(--yellow-500), var(--blue-950)); */
 
   /* menu */
-  --menu-text-color: light-dark(var(--nature-100), var(--nature-900));
+  /* --menu-text-color: light-dark(var(--nature-100), var(--nature-900));
   --menu-text-hover-color: light-dark(var(--nature-950), var(--yellow-400));
-  --menu-background-color: light-dark(var(--nature-900), var(--yellow-500));
+  --menu-background-color: light-dark(var(--nature-900), var(--yellow-500)); */
 
   color-scheme: light dark;
 }
