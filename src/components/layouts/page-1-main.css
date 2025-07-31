@@ -236,10 +236,6 @@
       fill: var(--white);
       stroke-width: 1.5;
     }
-
-    .page_1-planet2 {
-      stroke-width: 1.5;
-    }
   }
 
   & span:nth-of-type(14) {

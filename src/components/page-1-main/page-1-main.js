@@ -1,5 +1,3 @@
-console.log("page-1 start");
-
 function animatePlanet(
   planetEl,
   pathEl,
@@ -44,7 +42,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const planet1 = document.getElementById("page_1_planet");
   const orbit1 = document.getElementById("orbit");
 
-  const planet2 = document.getElementById("page_2_planet2");
+  const planet2 = document.getElementById("page_1_planet2");
   const orbit2 = document.getElementById("orbit2");
 
   // 궤도 #1은 -30도 회전됨

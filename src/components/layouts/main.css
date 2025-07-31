@@ -2,6 +2,7 @@
 
 @import "../../style/common/_normalize.css" layer(base);
 @import "../../style/common/_base.css" layer(base);
+@import "../../style/globals.css" layer(base);
 
 @import "../../style/common/_theme.css" layer(theme);
 @import "../../style/common/common.css" layer(common);

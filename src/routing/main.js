@@ -1,4 +1,4 @@
-// import "./style/globals.css";
+
 import "/src/components/page-1-main/page-1-main.js";
 import "/src/components/page-2-sun-tracking/sun-tracking.js";
 import "/src/components/page-3-solar/routing.js";
