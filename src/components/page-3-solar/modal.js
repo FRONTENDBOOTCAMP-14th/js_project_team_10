@@ -1,9 +1,12 @@
 import planetData from "./planetData.json";
 import "/src/components/page-3-solar/modal.css";
+import "/src/components/page-3-solar/modalCarousel.css";
 import { setupSatelliteModal } from "./satelite";
+import { initModalCarousel } from "./modalCarousel";
 import "/src/style/common/_theme.css";
 
 let focusedElementBeforeModal = null;
+let currentPlanetElement = null;
 
 const getFocusableElements = (modal) => {
   return Array.from(
@@ -38,16 +41,22 @@ const closeModal = (modal) => {
   }
   if (modal) {
     document.body.style.overflow = "";
-    if (focusedElementBeforeModal) {
-      focusedElementBeforeModal.focus();
-    }
     modal.style.animation = "fadeOut 0.3s forwards";
-    setTimeout(() => modal.remove(), 300);
+    setTimeout(() => {
+      modal.remove();
+      // Focus on the original planet element when closing
+      if (currentPlanetElement) {
+        currentPlanetElement.focus();
+        currentPlanetElement = null;
+      } else if (focusedElementBeforeModal) {
+        focusedElementBeforeModal.focus();
+      }
+    }, 300);
     document.removeEventListener("keydown", handleEscape);
   }
 };
 
-function createModal(planetId) {
+export function createModal(planetId, planetElement) {
   const lowerId = planetId.toLowerCase();
   const planet = planetData[lowerId] || {
     class: "알 수 없는 행성",
@@ -66,8 +75,22 @@ function createModal(planetId) {
 
   const modalHTML = `
     <div role="dialog" aria-modal="true" aria-labelledby="modal-title" class="system__modal-overlay" id="planetModal">
+      <button class="carousel-arrow carousel-arrow--left" aria-label="이전 행성">
+        <svg width="50" height="50" viewBox="0 0 17 19" class="carousel-arrow__img carousel-arrow__img--prev">
+          <path d="M15.75 8.20117C16.7499 8.77854 16.7499 10.2215 15.75 10.7988L3 18.1602C2.00003 18.7375 0.75008 18.016 0.749999 16.8613L0.75 2.13867C0.750076 1.05637 1.84841 0.35431 2.80957 0.746093L3 0.839843L15.75 8.20117Z" 
+                class="arrow-path"/>
+        </svg>
+      </button>
+      <button class="carousel-arrow carousel-arrow--right" aria-label="다음 행성">
+        <svg width="50" height="50" viewBox="0 0 17 19" class="carousel-arrow__img carousel-arrow__img--next">
+          <path d="M15.75 8.20117C16.7499 8.77854 16.7499 10.2215 15.75 10.7988L3 18.1602C2.00003 18.7375 0.75008 18.016 0.749999 16.8613L0.75 2.13867C0.750076 1.05637 1.84841 0.35431 2.80957 0.746093L3 0.839843L15.75 8.20117Z" 
+                class="arrow-path"/>
+        </svg>
+      </button>
       <div class="system__modal-content modal-${lowerId}">
         <button type="button" class="system__modal-close" id="closeModal">&times;</button>
+        
+
 
         <h2 id="modalTitle" class="planet-eng-name">${planet.class}</h2>
 
@@ -158,15 +181,63 @@ function createModal(planetId) {
 
   const modal = document.getElementById("planetModal");
   const closeButton = document.getElementById("closeModal");
+  const satelliteButton = document.querySelector(".system__modal-satelite-button");
+  const prevButton = document.querySelector(".carousel-arrow--left");
+  const nextButton = document.querySelector(".carousel-arrow--right");
 
-  focusedElementBeforeModal = document.activeElement;
+  // Store the current planet element
+  currentPlanetElement = planetElement || document.activeElement;
+  focusedElementBeforeModal = currentPlanetElement;
   document.body.style.overflow = "hidden";
 
-  const focusableElements = getFocusableElements(modal);
+  // Set up tab order
+  if (closeButton) closeButton.tabIndex = 1;
+  if (satelliteButton) satelliteButton.tabIndex = 2;
+  if (prevButton) prevButton.tabIndex = 3;
+  if (nextButton) nextButton.tabIndex = 4;
 
-  const keyDownHandler = (e) => handleKeyDown(e, modal, focusableElements);
+  // Set up keyboard navigation
+  const keyDownHandler = (e) => {
+    const KEY_TAB = 9;
+    const KEY_ESC = 27;
+    
+    if (e.keyCode === KEY_ESC) {
+      closeModal(modal);
+      return;
+    }
+
+    if (e.keyCode === KEY_TAB) {
+      e.preventDefault();
+      
+      const activeElement = document.activeElement;
+      
+      if (e.shiftKey) {
+        // Shift + Tab
+        if (activeElement === closeButton && satelliteButton) {
+          nextButton.focus();
+        } else if (activeElement === satelliteButton) {
+          closeButton.focus();
+        } else if (activeElement === prevButton) {
+          satelliteButton ? satelliteButton.focus() : closeButton.focus();
+        } else if (activeElement === nextButton) {
+          prevButton.focus();
+        }
+      } else {
+        // Tab
+        if (activeElement === closeButton) {
+          satelliteButton ? satelliteButton.focus() : prevButton.focus();
+        } else if (activeElement === satelliteButton) {
+          prevButton.focus();
+        } else if (activeElement === prevButton) {
+          nextButton.focus();
+        } else if (activeElement === nextButton) {
+          closeButton.focus();
+        }
+      }
+    }
+  };
+
   modal.addEventListener("keydown", keyDownHandler);
-
   closeButton.focus();
 
   closeButton.addEventListener("click", () => closeModal(modal));
@@ -178,6 +249,11 @@ function createModal(planetId) {
   });
 
   document.addEventListener("keydown", handleEscape);
+
+  // Initialize the carousel after the modal is fully rendered
+  setTimeout(() => {
+    initModalCarousel();
+  }, 0);
 }
 
 function handleEscape(e) {

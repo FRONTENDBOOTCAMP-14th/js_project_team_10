@@ -5,9 +5,9 @@
   justify-content: center;
   align-items: center;
   column-gap: 170px;
-  padding-inline: 30px;
   background-color: #606060;
   font-family: "Arial", sans-serif;
+  overflow: hidden;
 }
 
 @keyframes rotate-ring {
