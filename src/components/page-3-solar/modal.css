@@ -1,6 +1,7 @@
 @font-face {
   font-family: "GmarketSansMedium";
-  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff") format("woff");
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff")
+    format("woff");
 }
 
 #planetModal {
@@ -10,12 +11,18 @@
 .planet-eng-name {
   text-align: center;
   text-transform: uppercase;
-  background: linear-gradient(to bottom, currentColor 30%, rgba(0, 0, 0, 0) 80%, transparent 100%);
+  background: linear-gradient(
+    to bottom,
+    currentColor 30%,
+    rgba(0, 0, 0, 0) 80%,
+    transparent 100%
+  );
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   margin: 0 0 -48px 0;
   pointer-events: none;
-  font-family: 'GmarketSansLight', sans-serif;
+  font-family: "GmarketSansLight", sans-serif;
   font-size: 89px;
   font-weight: 320;
   font-style: normal;
@@ -45,8 +52,8 @@
   color: #fff;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   z-index: 1;
-  overflow: hidden;
   border: 1px solid currentColor;
+  overflow: hidden;
 }
 
 .system__modal-close {
@@ -82,7 +89,11 @@
   left: 50%;
   width: 330px;
   height: 330px;
-  background: radial-gradient(circle, var(--planet-color) 0%, rgba(0, 0, 0, 0) 70%);
+  background: radial-gradient(
+    circle,
+    var(--planet-color) 0%,
+    rgba(0, 0, 0, 0) 70%
+  );
   transform: translate(-50%, -50%);
   filter: blur(25px);
   opacity: 1;
@@ -183,7 +194,6 @@
   color: #ddd;
   margin-bottom: 1.5rem;
   white-space: normal;
-
 }
 
 .planet-diameter {
@@ -212,15 +222,14 @@
   white-space: nowrap;
 }
 
-@media (min-width:0px) and (max-width:496px) {
+@media (min-width: 0px) and (max-width: 496px) {
   .planet-orbit-label {
     display: none !important;
   }
-  .planet-distance{
-    font-size:1.5rem
+  .planet-distance {
+    font-size: 1.5rem;
   }
 }
-
 
 .planet-metadata-row {
   display: flex;
@@ -238,7 +247,7 @@
 }
 
 .modal-solar {
-  --planet-color: #FFCB4B;
+  --planet-color: #ffcb4b;
   background: #000;
   color: var(--planet-color);
 }
@@ -334,7 +343,11 @@
   left: 50%;
   width: 180px;
   height: 40px;
-  background: radial-gradient(ellipse at center, var(--planet-color) 30%, rgba(0, 0, 0, 0) 70%);
+  background: radial-gradient(
+    ellipse at center,
+    var(--planet-color) 30%,
+    rgba(0, 0, 0, 0) 70%
+  );
   filter: blur(12px);
   opacity: 0.6;
   z-index: 1;

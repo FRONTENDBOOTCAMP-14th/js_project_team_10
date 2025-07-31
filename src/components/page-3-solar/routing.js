@@ -1,6 +1,7 @@
 import "./layout.css";
 import SolarSystemSection from "/src/components/page-3-solar/layout.js";
 import { initSolarSystem } from "./transition.js";
+import { lightStars } from "./transition.js";
 import { initHoverEffects } from "./hover.js";
 import { initModal } from "./modal.js";
 
@@ -44,6 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
       initModal();
       setTimeout(() => {
         initSolarSystem();
+        lightStars();
       }, 100);
     });
   }

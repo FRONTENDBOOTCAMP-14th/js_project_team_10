@@ -1,0 +1,96 @@
+/* 캐러셀 화살표 스타일 */
+.carousel-arrow {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1100;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+  padding: 0;
+  margin: 0;
+  outline: none;
+}
+
+.arrow-path {
+  stroke: #d9d9d9;
+  stroke-width: 1.5;
+  fill: none;
+  transition: stroke 0.3s ease, fill 0.3s ease;
+}
+
+/* 호버/포커스 시 스타일 */
+.carousel-arrow:hover .arrow-path,
+.carousel-arrow:focus .arrow-path {
+  stroke: transparent;
+  fill: #d9d9d9;
+}
+
+/* 버튼 포커스 아웃라인 제거 */
+.carousel-arrow:focus {
+  outline: none;
+}
+
+.carousel-arrow {
+  transition: transform 0.2s ease;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.carousel-arrow__img {
+  width: 50px;
+  height: 50px;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.carousel-arrow__img--prev {
+  transform: rotate(180deg);
+}
+
+.carousel-arrow--left {
+  left: 30vw;
+}
+
+.carousel-arrow--right {
+  right: 30vw;
+}
+
+/* 모바일 반응형 */
+@media (max-width: 1280px) {
+  .carousel-arrow {
+    width: 40px;
+    height: 40px;
+  }
+
+  .carousel-arrow__img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .carousel-arrow--left {
+    left: 10%;
+    top: 96%;
+  }
+
+  .carousel-arrow--right {
+    right: 10%;
+    top: 96%;
+  }
+}
+
+/* 키보드 포커스 스타일 */
+.carousel-arrow:focus-visible {
+  outline: 2px solid #d9d9d9;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
