@@ -1,7 +1,7 @@
 {
   "solar": {
     "class": "SOLAR",
-    "image": "/public/planet/sun.svg",
+    "image": "/planet/sun.svg",
     "name": "태양",
     "type": "항성",
     "planetType": "항성",
@@ -14,7 +14,7 @@
   },
   "mercury": {
     "class": "MERCURY",
-    "image": "/public/planet/mercury_fill.svg",
+    "image": "/planet/mercury_fill.svg",
     "name": "수성",
     "type": "암석 행성",
     "planetType": "내행성",
@@ -27,7 +27,7 @@
   },
   "venus": {
     "class": "VENUS",
-    "image": "/public/planet/venus_fill.svg",
+    "image": "/planet/venus_fill.svg",
     "name": "금성",
     "type": "암석 행성",
     "planetType": "내행성",
@@ -40,7 +40,7 @@
   },
   "earth": {
     "class": "EARTH",
-    "image": "/public/planet/earth_fill.webp",
+    "image": "/planet/earth_fill.webp",
     "name": "지구",
     "type": "암석 행성",
     "planetType": "내행성",
@@ -50,11 +50,11 @@
     "distance": "149,600,000 km",
     "orbitalPeriod": "365일",
     "rotationPeriod": "24시간",
-    "sateliteImage": "/public/planet/earth_st.webp"
+    "sateliteImage": "/planet/earth_st.webp"
   },
   "mars": {
     "class": "MARS",
-    "image": "/public/planet/mars_fill.svg",
+    "image": "/planet/mars_fill.svg",
     "name": "화성",
     "type": "암석 행성",
     "planetType": "내행성",
@@ -64,11 +64,11 @@
     "distance": "227,900,000 km",
     "orbitalPeriod": "687일",
     "rotationPeriod": "24시간",
-    "sateliteImage": "/public/planet/mars_st.webp"
+    "sateliteImage": "/planet/mars_st.webp"
   },
   "jupiter": {
     "class": "JUPITER",
-    "image": "/public/planet/jupiter_fill.svg",
+    "image": "/planet/jupiter_fill.svg",
     "name": "목성",
     "type": "가스 행성",
     "planetType": "외행성",
@@ -78,11 +78,11 @@
     "distance": "778,500,000 km",
     "orbitalPeriod": "687일",
     "rotationPeriod": "24시간",
-    "sateliteImage": "/public/planet/jupiter_st.webp"
+    "sateliteImage": "/planet/jupiter_st.webp"
   },
   "saturn": {
     "class": "SATURN",
-    "image": "/public/planet/saturn_fill.svg",
+    "image": "/planet/saturn_fill.svg",
     "name": "토성",
     "type": "가스 행성",
     "planetType": "외행성",
@@ -92,11 +92,11 @@
     "distance": "1,433,500,000 km",
     "orbitalPeriod": "687일",
     "rotationPeriod": "24시간",
-    "sateliteImage": "/public/planet/saturn_st.webp"
+    "sateliteImage": "/planet/saturn_st.webp"
   },
   "uranus": {
     "class": "URANUS",
-    "image": "/public/planet/uranus_fill.svg",
+    "image": "/planet/uranus_fill.svg",
     "name": "천왕성",
     "type": "얼음 행성",
     "planetType": "외행성",
@@ -106,11 +106,11 @@
     "distance": "2,872,400,000 km",
     "orbitalPeriod": "687일",
     "rotationPeriod": "24시간",
-    "sateliteImage": "/public/planet/uranus_st.webp"
+    "sateliteImage": "/planet/uranus_st.webp"
   },
   "neptune": {
     "class": "NEPTUNE",
-    "image": "/public/planet/neptune_fill.svg",
+    "image": "/planet/neptune_fill.svg",
     "name": "해왕성",
     "type": "얼음 행성",
     "planetType": "외행성",
@@ -120,6 +120,6 @@
     "distance": "4,498,400,000 km",
     "orbitalPeriod": "687일",
     "rotationPeriod": "24시간",
-    "sateliteImage": "/public/planet/neptune_st.webp"
+    "sateliteImage": "/planet/neptune_st.webp"
   }
 }

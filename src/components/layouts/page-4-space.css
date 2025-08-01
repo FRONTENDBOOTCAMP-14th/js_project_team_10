@@ -1,0 +1,161 @@
+#space4 {
+  width: 100vw;
+  height: 542vh;
+
+  overflow-x: hidden;
+  /* background-color: #0E1023; */
+  background: linear-gradient(
+    to bottom,          /* 방향: 위 → 아래 */
+    #0E1023 0%,          /* 시작 색 */
+    #1a1c3a 8%         /* 끝 색 */
+  );
+}
+
+.star-bc {
+  position: absolute;
+  width: 100vw;
+}
+
+/*      1         */
+
+
+
+.pluto:hover+.info {
+  display: block;
+}
+
+.info {
+  position: absolute;
+
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 319px;
+  height: 186px;
+
+
+
+  display: none;
+
+  background-color: rgba(255, 0, 0, 0.433);
+
+
+}
+
+
+
+
+.space-box-1.one {
+  position: relative;
+  display: inline-block;
+  top: 3%;
+  left: 10%;
+  width: 33vw;
+}
+
+
+
+/*        2         */
+.space-box-1.two {
+  position: relative;
+  top: 4%;
+  left: 60%;
+  width: 33vw;
+
+}
+
+
+
+
+
+/*           3         */
+.space-box-1.three {
+  position: relative;
+  top: 7%;
+  left: 24%;
+  width: 33vw;
+
+}
+
+
+
+
+/*            4            */
+.space-box-1.four {
+  position: relative;
+  top: 9%;
+  left: 49%;
+  width: 33vw;
+
+}
+
+
+
+
+/*             5           */
+.space-box-1.five {
+  position: relative;
+  top: 15%;
+  left: 71%;
+  width: 33vw;
+
+}
+
+
+
+
+/*                6          */
+.space-box-1.six {
+  position: relative;
+  top: 14%;
+  left: 51%;
+  width: 33vw;
+
+}
+
+
+
+
+/*                7            */
+.space-box-1.seven {
+  position: relative;
+  top: 14%;
+  left: 31%;
+  width: 33vw;
+
+}
+
+
+
+
+
+
+.kaferbelt-box {
+  position:absolute;
+  top:280%;
+}
+
+/*카이퍼벨트*/
+.kaferbelt {
+  position: relative;
+  /* background-color: red; */
+  width:100vw;
+}
+
+
+
+
+
+
+.ort-box{
+  position:absolute;
+  top:580%;
+}
+
+.ort{
+  position: relative;
+  /* background-color: red; */
+  width:100vw;
+  /* scale:0.3; */
+}

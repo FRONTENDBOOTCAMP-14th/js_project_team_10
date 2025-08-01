@@ -1,5 +1,4 @@
-import planetData from "./planetData.json";
-import { createModal } from "./modal";
+import { createModal } from "./modal.js";
 
 // 태양계 천체 순서 정의 (태양부터 시작)
 const PLANET_ORDER = [

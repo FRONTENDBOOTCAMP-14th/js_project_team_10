@@ -1,6 +1,7 @@
-import planetPositions from "./planetPositions.json";
+export async function initSolarSystem() {
+    const response = await fetch("/src/components/page-3-solar/planetPositions.json");
+  const planetPositions = await response.json();
 
-export function initSolarSystem() {
   const sun = document.querySelector(".system__button.solar");
   if (!sun) return;
 
@@ -28,9 +29,8 @@ export function initSolarSystem() {
 
   planets.forEach((planet) => {
     if (planet.element) {
-      planet.startTop = 100;
-      planet.startLeft = 50;
-
+      planet.startTop = 450;
+      planet.startLeft = 30;
       planet.element.style.position = "absolute";
       planet.element.style.top = "0";
       planet.element.style.left = "50%";
@@ -55,7 +55,7 @@ export function initSolarSystem() {
   const updatePositions = (scrollY) => {
     const maxScroll =
       document.documentElement.scrollHeight - window.innerHeight;
-    const scrollProgress = Math.min(scrollY / maxScroll, 1);
+    const scrollProgress = Math.min(scrollY / maxScroll, 1); // window.scrollY
 
     const currentSunTop =
       sunInitialTop - (sunInitialTop - sunTargetTop) * scrollProgress;
@@ -90,4 +90,30 @@ export function initSolarSystem() {
     window.removeEventListener("scroll", handleScroll);
     window.removeEventListener("resize", handleResize);
   };
+}
+
+export function lightStars() {
+  const stars = document.querySelectorAll(".shooting-star");
+
+  stars.forEach((star) => {
+    function animateStar() {
+      const pageHeight = document.documentElement.scrollHeight;
+      const startX = Math.random() * window.innerWidth;
+      const startY = Math.random() * pageHeight;
+      const endX = startX - 1200;
+      const endY = startY + 1200;
+
+      gsap.set(star, { x: startX, y: startY, opacity: 1 });
+      gsap.to(star, {
+        x: endX,
+        y: endY,
+        opacity: 0,
+        duration: 4 + Math.random(),
+        ease: "power2.out",
+        onComplete: animateStar,
+      });
+    }
+
+    animateStar();
+  });
 }

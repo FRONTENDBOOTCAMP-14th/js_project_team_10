@@ -1,3 +1,5 @@
+gsap.registerPlugin(ScrollTrigger);
+
 const face = document.getElementById("face-group");
 const leftEye = document.getElementById("left-eye");
 const rightEye = document.getElementById("right-eye");
@@ -26,7 +28,7 @@ function moveEye(eye, originX, originY, mouseX, mouseY) {
   const dy = mouseY - originY;
   const angle = Math.atan2(dy, dx);
 
-  const maxDistance = 5; 
+  const maxDistance = 5;
 
   const newX = originX + Math.cos(angle) * maxDistance;
   const newY = originY + Math.sin(angle) * maxDistance;
@@ -35,15 +37,31 @@ function moveEye(eye, originX, originY, mouseX, mouseY) {
   eye.setAttribute("cy", newY);
 }
 
+const mmweb = gsap.matchMedia();
+const sunDescription = document.querySelector(".sun-description");
+const solar = document.querySelector(".sun-graphic");
 
+gsap.to(sunDescription, {
+  scrollTrigger: {
+    trigger: ".sun-description",
+    start: "top 70%",
+    end: "top 40%",
+    scrub: true,
+  },
+  x: 0,
+  duration: 5,
+  ease: "none",
+  opacity: 1,
+});
 
+const hoverSolar = gsap.to(".sun-graphic", {
+  paused: true,
+  duration: 0.7,
+  repeat: -1,
+  yoyo: true,
+  ease: "power1.inOut",
+  y: 13,
+});
 
-
-
-
-
-
-
-
-
-
+solar.addEventListener("mouseenter", () => hoverSolar.play());
+solar.addEventListener("mouseleave", () => hoverSolar.reverse());

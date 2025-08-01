@@ -5,9 +5,9 @@
   justify-content: center;
   align-items: center;
   column-gap: 170px;
-  background-color: #606060;
+  padding-inline: 30px;
+  background: linear-gradient(#aef6ff 5%, #1d2780, #0e1023 90%);
   font-family: "Arial", sans-serif;
-  overflow: hidden;
 }
 
 @keyframes rotate-ring {
@@ -20,11 +20,11 @@
 }
 
 #sun-ring {
-  animation: rotate-ring 6s linear infinite;
+  animation: rotate-ring 18s linear infinite;
   transform-origin: 152.5px 152.5px;
 }
 
-@keyframes slide-in-right {
+/* @keyframes slide-in-right {
   0% {
     right: -400px;
     opacity: 0;
@@ -33,20 +33,22 @@
     right: 0px;
     opacity: 1;
   }
-}
+} */
 
 .sun-description {
   position: relative;
   background-color: white;
   padding: 40px 30px;
+  border: 2.5px solid;
   border-radius: 15px;
   width: 670px;
   box-shadow: 5px 6px 0px black;
   font-size: 16px;
   line-height: 1.7;
   color: black;
-  right: -1100px;
-  animation: slide-in-right 1s ease-out forwards;
+  transform: translateX(60px);
+  opacity: 0;
+  /* animation: slide-in-right 1s ease-out forwards; */
   overflow: visible;
 }
 
@@ -54,7 +56,7 @@
   content: "";
   position: absolute;
   top: 50%;
-  left: -40px;
+  left: -42.5px;
   transform: translateY(-50%);
   border: 20px solid transparent;
   border-right-color: white;
@@ -64,59 +66,64 @@
 .sun-description::after {
   content: "";
   position: absolute;
-  top: 52%;
-  left: -40px;
+  top: 50%;
+  left: -50px;
   transform: translateY(-50%);
-  border: 20px solid transparent;
-  border-right-color: rgba(0, 0, 0, 0.9);
+  border: 24px solid transparent;
+  border-right-color: black;
   z-index: 0;
 }
 
 @media (max-width: 1280px) {
-  .sun-page {
+  #intro {
     flex-direction: column;
+    align-items: center;
     gap: 80px;
     height: auto;
     padding: 40px 0px;
+  }
+
+  .sun-graphic {
+    width: 40vw;
+    height: auto;
+    margin: 0 auto;
+    display: block;
   }
 
   .sun-description {
     width: 70%;
     font-size: 14px;
     padding: 20px;
-    right: 0;
-    animation: slide-in-bottom 1s ease-out forwards;
-  }
-
-  .sun-graphic {
-    width: 40vw;
-    height: auto;
+    margin: 0 auto;
+    opacity: 0;
+    /* animation: slide-in-bottom 1s ease-out forwards; */
   }
 
   .sun-description::before {
-    top: -40px;
+    top: -43px;
     left: 50%;
     transform: translateX(-50%);
+    border: 20px solid transparent;
     border-bottom-color: white;
     border-right-color: transparent;
   }
 
   .sun-description::after {
-    top: -41px;
-    left: 51%;
+    top: -48px;
+    left: 50%;
     transform: translateX(-50%);
-    border-bottom-color: rgba(0, 0, 0, 0.9);
-    border-right-color: transparent;
+    border: 23px solid transparent;
+    border-bottom-color: black;
   }
 
-  @keyframes slide-in-bottom {
+  /* @keyframes slide-in-bottom {
     0% {
-      bottom: -200px;
+      transform: translateY(200px);
       opacity: 0;
     }
     100% {
-      bottom: 0px;
+      transform: translateY(0);
       opacity: 1;
     }
-  }
+  } */
 }

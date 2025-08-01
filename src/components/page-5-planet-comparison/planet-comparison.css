@@ -27,7 +27,7 @@
     width: 100%;
     height: 100%;
     position: absolute;
-    background-image: url(/public/planet/universe-background-4.jpg);
+    background-image: url(/planet/universe-background-4.jpg);
     background-size: cover;
     background-position: 0px 0px;
     background-repeat: no-repeat;
@@ -95,7 +95,7 @@
   justify-content: center;
   align-items: center;
   font-size: var(--planet-font-size);
-
+  color: var(--white);
   @media (width < 1280px) {
     --h1-font-size: 1rem;
     --p-font-size: 8px;
@@ -109,6 +109,7 @@
     font-size: var(--h1-font-size);
 
     p {
+      color: var(--white);
       opacity: 0;
       font-size: var(--p-font-size);
       position: absolute;
@@ -150,9 +151,6 @@
 }
 
 @media (width > 1280px) {
-  .mercury {
-  }
-
   .venus {
     margin-left: calc(var(--default-margin) / 1);
   }
@@ -199,9 +197,6 @@
 }
 
 @media (width < 1280px) {
-  .mercury {
-  }
-
   .venus {
     margin-top: calc(var(--default-margin) / 1);
   }

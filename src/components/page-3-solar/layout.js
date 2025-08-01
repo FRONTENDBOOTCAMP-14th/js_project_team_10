@@ -1,76 +1,89 @@
 const SolarSystemSection = `
 <div class="solarSystem">
+  <div class="solarSystem2"></div>
     <button class="system__button solar">
       <img 
-        src="/public/planet/sun.svg" 
-        data-default="/public/planet/sun.svg"
+      class="solar-solo"
+        src="/planet/sun.svg" 
+        data-default="/planet/sun.svg"
         alt="sun"
       >
     </button>
     <button class="system__button mercury">
       <img 
-        src="/public/planet/mercury.svg" 
-        data-default="/public/planet/mercury.svg"
-        data-hover="/public/planet/mercury_fill.svg"
+        src="/planet/mercury.svg" 
+        data-default="/planet/mercury.svg"
+        data-hover="/planet/mercury_fill.svg"
         alt="mercury"
       >
     </button>
     <button class="system__button venus">
       <img 
-        src="/public/planet/venus.svg" 
-        data-default="/public/planet/venus.svg"
-        data-hover="/public/planet/venus_fill.svg"
+        src="/planet/venus.svg" 
+        data-default="/planet/venus.svg"
+        data-hover="/planet/venus_fill.svg"
         alt="venus"
       >
     </button>
     <button class="system__button earth">
       <img 
-        src="/public/planet/earth.svg" 
-        data-default="/public/planet/earth.svg"
-        data-hover="/public/planet/earth_fill.webp"
+        src="/planet/earth.svg" 
+        data-default="/planet/earth.svg"
+        data-hover="/planet/earth_fill.webp"
         alt="earth"
       >
     </button>
+
     <button class="system__button mars">
       <img 
-        src="/public/planet/mars.svg" 
-        data-default="/public/planet/mars.svg"
-        data-hover="/public/planet/mars_fill.svg"
+        src="/planet/mars.svg" 
+        data-default="/planet/mars.svg"
+        data-hover="/planet/mars_fill.svg"
         alt="mars"
       >
     </button>
     <button class="system__button jupiter">
       <img 
-        src="/public/planet/jupiter.svg" 
-        data-default="/public/planet/jupiter.svg"
-        data-hover="/public/planet/jupiter_fill.svg"
+        src="/planet/jupiter.svg" 
+        data-default="/planet/jupiter.svg"
+        data-hover="/planet/jupiter_fill.svg"
         alt="jupiter"
       >
     </button>
     <button class="system__button saturn">
       <img 
-        src="/public/planet/saturn.svg" 
-        data-default="/public/planet/saturn.svg"
-        data-hover="/public/planet/saturn_fill.svg"
+        src="/planet/saturn.svg" 
+        data-default="/planet/saturn.svg"
+        data-hover="/planet/saturn_fill.svg"
         alt="saturn"
       >
     </button>
     <button class="system__button uranus">
       <img 
-        src="/public/planet/uranus.svg" 
-        data-default="/public/planet/uranus.svg"
-        data-hover="/public/planet/uranus_fill.svg"
+        src="/planet/uranus.svg" 
+        data-default="/planet/uranus.svg"
+        data-hover="/planet/uranus_fill.svg"
         alt="uranus"
       >
     </button>
     <button class="system__button neptune">
       <img 
-        src="/public/planet/neptune.svg" 
-        data-default="/public/planet/neptune.svg"
-        data-hover="/public/planet/neptune_fill.svg"
+        src="/planet/neptune.svg" 
+        data-default="/planet/neptune.svg"
+        data-hover="/planet/neptune_fill.svg"
         alt="neptune"
       >
     </button>
+      <div class="shooting-star"></div>
+      <div class="shooting-star"></div>
+      <div class="shooting-star"></div>
+      <div class="shooting-star"></div>
+      <div class="shooting-star"></div>
+      <div class="shooting-star"></div>
+      <div class="shooting-star"></div>
+      <div class="shooting-star"></div>
+      <div class="shooting-star"></div>
+      <div class="shooting-star"></div>
 </div>
 `;
 
