@@ -2,17 +2,18 @@
 html {
   /* overflow-x: hidden; */
   box-sizing: border-box;
-  width: 100%;
+  /* width: 100%; */
   /* font-family: "Pacifico", cursive; */
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 
 .intro-main-container {
   display: flex;
   flex-flow: column nowrap;
-  /* width: 100vw; */
+  width: 100%;
+
   overflow-x: hidden;
-  height: max-content;
+  height: 2000vh;
   position: relative;
 
   .intro-div-box {
@@ -20,7 +21,7 @@ html {
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    /* overflow: hidden; */
+    overflow: hidden;
     &::before {
       content: "";
       position: absolute;
@@ -59,21 +60,21 @@ section {
   height: 100vh;
 }
 
-.pin-spacer {
-  background: #5c258d;
-  background: -webkit-linear-gradient(to right, #4389a2, #5c258d);
+/* .pin-spacer:has(.team-section-intro) {
   background: linear-gradient(to right, #4389a2, #5c258d);
   min-height: 150vh;
-}
+} */
 
 /* 팀 소개 페이지 */
 .team-section-intro {
   display: flex;
   flex-flow: column nowrap;
-  justify-content: space-evenly;
+  /* justify-content: space-evenly; */
+  justify-content: center;
   align-items: center;
-  background: rgb(60, 150, 183);
+  background: rgb(40, 52, 49);
   border-radius: 10px;
+
   h1 {
     font-size: 50px;
     padding-top: 100px;
@@ -85,14 +86,16 @@ section {
     display: flex;
     justify-content: center;
     gap: 10%;
-    align-items: center;
+    margin-top: 2%;
+    overflow: hidden;
   }
   /* 소개 글 */
   .text-wrap {
+    margin-top: 5%;
     position: relative;
-    width: 20vw;
+    width: 30vw;
     height: 30vh;
-    overflow: hidden;
+    /* overflow: hidden; */
 
     /* 각 팀원 소개 페이지 */
     .panel-text {
@@ -100,7 +103,7 @@ section {
       font-size: 30px;
       padding: 20px;
       margin-bottom: 0.5rem;
-
+      /* background: red; */
       & * {
         overflow: hidden;
       }
@@ -136,32 +139,128 @@ section {
   }
 }
 
-.cover-parllel {
-  width: 100vw;
-  display: flex;
-  /* transform: rotate(-2deg); */
-  background-color: #ff3796;
-  .first-parallel {
-    display: flex;
-    padding: 4vh 0;
-    font-size: clamp(2vw, 8vw, 3rem);
-    font-family: "Pacifico", cursive;
-    color: black;
-  }
-}
-
 .element-spacing {
   display: flex;
   align-items: end;
 
-  height: calc(0px + 2700px);
-  background: pink;
+  height: calc(0px + 4300px);
+  background: #283431;
 }
 
 /* 프로젝트 소개 페이지 */
 .project-intro {
-  display: block;
-  /* width: 100%; */
-  /* height: calc(1vh + 3000px); */
-  /* background: pink; */
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  /* overflow: hidden; */
+  background-color: #283431;
+
+  /* 프로젝트 배경 속성 */
+  h1 {
+    font-size: 50px;
+    padding: 30px;
+    color: rgb(219, 226, 214);
+  }
+
+  & > p {
+    width: 1000px;
+    font-size: 25px;
+    line-height: 50px;
+    text-align: center;
+
+    strong {
+      color: rgb(201, 158, 29);
+    }
+  }
+
+  ul {
+    top: 50vh;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 50vh;
+  }
+
+  li {
+    width: 900px;
+    background: rgba(9, 9, 9, 0.647);
+    border-radius: 30px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: center;
+
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(128, 128, 128, 0.308);
+    box-sizing: border-box;
+
+    img {
+      margin-block: 30px;
+      border-radius: 15px;
+      width: 800px;
+      height: 400px;
+    }
+
+    p {
+      padding-inline: 50px;
+      padding-block-end: 30px;
+      line-height: 25px;
+      strong {
+        font-size: 30px;
+      }
+    }
+  }
+}
+
+/* 팀 개인 설명란 */
+.division-box {
+  background: black;
+
+  h1 {
+    /* text-align: center; */
+    font-size: 35px;
+    margin: 20px;
+  }
+
+  p {
+    /* background: blue; */
+    text-align: center;
+    padding: 20px;
+    font-size: 30px;
+  }
+
+  .description-box {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background: gray; */
+  }
+
+  .user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background: rgb(56, 45, 106);
+    width: 300px;
+    aspect-ratio: 1;
+    text-decoration: none;
+    transition: background, transform, color, 0.3s ease-in-out;
+    h2 {
+      font-size: 50px;
+    }
+  }
+
+  .user:hover {
+    background: skyblue;
+    width: 310px;
+
+    color: white;
+  }
 }
