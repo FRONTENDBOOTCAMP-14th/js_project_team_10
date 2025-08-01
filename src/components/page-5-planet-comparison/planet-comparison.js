@@ -145,28 +145,28 @@ mm.add("(max-width : 1279px", () => {
     end: "+=14900",
     // markers: true,
     onEnter: () => {
-      planets.forEach((planet) => {
-        planet.classList.add("planet-shadow");
-      });
+      // planets.forEach((planet) => {
+      //   planet.classList.add("planet-shadow");
+      // });
       planetTween.play();
     },
     onLeave: () => {
-      planets.forEach((planet) => {
-        planet.classList.remove("planet-shadow");
-      });
+      // planets.forEach((planet) => {
+      //   planet.classList.remove("planet-shadow");
+      // });
 
       planetTween.pause();
     },
     onEnterBack: () => {
-      planets.forEach((planet) => {
-        planet.classList.add("planet-shadow");
-      });
+      // planets.forEach((planet) => {
+      //   planet.classList.add("planet-shadow");
+      // });
       planetTween.play();
     },
     onLeaveBack: () => {
-      planets.forEach((planet) => {
-        planet.classList.remove("planet-shadow");
-      });
+      // planets.forEach((planet) => {
+      //   planet.classList.remove("planet-shadow");
+      // });
       planetTween.pause();
     },
     // markers: true,
@@ -285,28 +285,29 @@ mmover.add("(min-width: 1280px)", () => {
     end: "+=16300",
     // markers: true,
     onEnter: () => {
-      planets.forEach((planet) => {
-        planet.classList.add("planet-shadow");
-      });
+      // planets.forEach((planet) => {
+      //   planet.classList.add("planet-shadow");
+      // });
+
       planetTween.play();
     },
     onLeave: () => {
-      planets.forEach((planet) => {
-        planet.classList.remove("planet-shadow");
-      });
+      // planets.forEach((planet) => {
+      //   planet.classList.remove("planet-shadow");
+      // });
 
       planetTween.pause();
     },
     onEnterBack: () => {
-      planets.forEach((planet) => {
-        planet.classList.add("planet-shadow");
-      });
+      // planets.forEach((planet) => {
+      //   planet.classList.add("planet-shadow");
+      // });
       planetTween.play();
     },
     onLeaveBack: () => {
-      planets.forEach((planet) => {
-        planet.classList.remove("planet-shadow");
-      });
+      // planets.forEach((planet) => {
+      //   planet.classList.remove("planet-shadow");
+      // });
       planetTween.pause();
     },
     // markers: true,
