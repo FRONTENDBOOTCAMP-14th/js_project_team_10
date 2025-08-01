@@ -49,8 +49,8 @@
   },
   "desktop": {
     "sun": {
-      "initialTop": 0,
-      "targetTop": -60
+      "initialTop": 7,
+      "targetTop": -250
     },
     "planets": [
       {
