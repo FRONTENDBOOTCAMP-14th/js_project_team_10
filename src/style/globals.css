@@ -6,6 +6,14 @@ html {
   /* font-family: "Pacifico", cursive; */
   /* overflow-x: hidden; */
 }
+body {
+  background: white;
+}
+
+footer {
+  color: black;
+  margin: 40px;
+}
 
 .intro-main-container {
   display: flex;
@@ -13,10 +21,11 @@ html {
   width: 100%;
 
   overflow-x: hidden;
-  height: 2000vh;
+  height: 1520vh;
   position: relative;
 
   .intro-div-box {
+    background: black;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
@@ -218,7 +227,7 @@ section {
 /* 팀 개인 설명란 */
 .division-box {
   background: black;
-
+  /* height: 100vh; */
   h1 {
     /* text-align: center; */
     font-size: 35px;
@@ -250,17 +259,22 @@ section {
     background: rgb(56, 45, 106);
     width: 300px;
     aspect-ratio: 1;
-    text-decoration: none;
-    transition: background, transform, color, 0.3s ease-in-out;
+
     h2 {
       font-size: 50px;
+    }
+
+    a {
+      text-decoration: none;
     }
   }
 
   .user:hover {
+    /* transition: background, transform, color, 0.3s ease-in-out; */
     background: skyblue;
     width: 310px;
-
-    color: white;
+    a {
+      color: white;
+    }
   }
 }

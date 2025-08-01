@@ -78,7 +78,6 @@ projectIntro
       x: () => {
         const a =
           document.querySelector(".project-intro-box").scrollWidth - 1700;
-        console.log(a);
         return "-" + a;
       },
       duration: 30,
@@ -103,30 +102,31 @@ ScrollTrigger.create({
   pin: true,
   scrub: 3,
   animation: projectIntro,
-  markers: true,
+  // markers: true,
 });
 
 gsap.set(".description-box", { opacity: 0 });
-
+gsap.set(".link-guide", { opacity: 0 });
 const description = gsap.timeline();
 
 description
   .to(".division-box", { backgroundColor: "#ffffff", duration: 2 }, 0)
-  .to(".division-box h1, p", { color: "#000000" }, 0)
+  .to(".division-box h1, p", { color: "#000000", duration: 2 }, 0)
   .to(".description-box", { opacity: 1, duration: 2 }, 0)
   .to(".division-box p", { y: 200, duration: 2 }, 0)
-  .to(".user", { borderRadius: 300, duration: 2 })
-  .to(".kdk", { x: -750, duration: 4 }, 5)
-  .to(".name1", { x: 750, duration: 4 }, 5)
-  .to(".name2", { x: -250, duration: 4 }, 5)
-  .to(".name3", { x: 250, duration: 4 }, 5);
+  .to(".user", { borderRadius: 300, duration: 3 }, 1)
+  .to(".kdk", { x: -750, duration: 2 }, 3)
+  .to(".name1", { x: 750, duration: 2 }, 3)
+  .to(".name2", { x: -250, duration: 2 }, 4)
+  .to(".name3", { x: 250, duration: 2 }, 4)
+  .to(".link-guide", { opacity: 1, duration: 2 });
 
 ScrollTrigger.create({
   trigger: ".division-box",
   start: "+20 top",
-  end: "+=5000",
+  end: "+=1700",
   pin: true,
   scrub: 3,
   animation: description,
-  markers: true,
+  // markers: true,
 });
