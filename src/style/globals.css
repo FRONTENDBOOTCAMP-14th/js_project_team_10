@@ -21,7 +21,7 @@ footer {
   width: 100%;
 
   overflow-x: hidden;
-  height: 1520vh;
+  height: 1380vh;
   position: relative;
 
   .intro-div-box {
@@ -276,5 +276,15 @@ section {
     a {
       color: white;
     }
+  }
+
+  #donggle {
+    background-color: rgb(225, 100, 100);
+    color: white !important;
+  }
+
+  #donggle:hover {
+    background-color: black !important;
+    color: white !important;
   }
 }

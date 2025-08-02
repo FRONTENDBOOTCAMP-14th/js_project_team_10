@@ -8,3 +8,5 @@
 @import "./common/common.css" layer(common);
 
 @import "./globals.css" layer(main-component);
+
+@import "/src/components/mkdown/donggle.css";
