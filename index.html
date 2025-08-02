@@ -3,23 +3,205 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>유틸리티 퍼스트 — Tailwind CSS</title>
+    <title>10^13조</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="/src/style/main.css" />
+    <script type="module" src="/src/script.js"></script>
   </head>
   <body>
-    <div id="app">
-      <h1>Vite + Tailwind CSS</h1>
-      <h2>public</h2>
-      <img src="/vite.svg" alt="" />
-      <a href="./src/components/feature/navigation-bar/navigation.html"
-        >네비게이션 바</a
-      >
-      <a href="./src/components/page-5-planet-comparison/planet-comparison.html"
-        >행성 비교 페이지</a
-      >
-      <a href="./src/routing/page.html">라우팅</a>
-      <h2>src</h2>
-      <img src="./src/javascript.svg" alt="" />
-    </div>
-    <script type="module" src="/src/main.js"></script>
+    <main class="intro-main-container">
+      <section class="intro-div-box">
+        <h1>Ten Trillion</h1>
+        <h2>Vanila Project</h2>
+        <p>The topic is the solar system.</p>
+      </section>
+      <section class="team-section-intro">
+        <h1>Team Profile</h1>
+        <div class="team-section-wrap">
+          <div class="text-wrap">
+            <div class="panel-text text-1">
+              <h2>심우섭</h2>
+              <p>MBTI : <em>INTP</em></p>
+              <p>지역 : 전주</p>
+              <p>역할 : 조장</p>
+              <p>프로젝트 디자인 시안 제작 및 기획 총괄</p>
+              <p>적고 싶은 글이 있다면 말해주세요~</p>
+            </div>
+            <div class="panel-text text-2">
+              <h2>이희륜</h2>
+              <p>MBTI : <em>INFP</em></p>
+              <p>지역 : 광명</p>
+              <p>역할 : 팀원</p>
+              <p>페이지-2, 페이지-3 내부 모달창 제작</p>
+              <p>적고 싶은 내용이 있다면 말해주세요~</p>
+            </div>
+            <div class="panel-text text-3">
+              <h2>김동규</h2>
+              <p>MBTI : <em>ESTP</em></p>
+              <p>지역 : 군산</p>
+              <p>역할 : 팀원</p>
+              <p>
+                메인 페이지, 행성 크기 비교 페이지 제작, 팀 소개 페이지
+                제작,노션 문서 정리
+              </p>
+              <p>
+                짧지만 밀도 있었던 2주, 아쉬움 없이 Vanila Project에
+                몰입했습니다.
+              </p>
+            </div>
+            <div class="panel-text text-4">
+              <h2>윤동식</h2>
+              <p>MBTI : <em>ENTJ</em></p>
+              <p>지역 : 일산</p>
+              <p>역할 : 팀원</p>
+              <p>페이지-3 초안 제작, 페이지-3 모달 내부 모달창 제작</p>
+            </div>
+          </div>
+
+          <div class="p-wrap">
+            <div class="panel">
+              <img
+                src="/public/profile/KakaoTalk_20250402_233422836.jpg"
+                alt="김동규"
+              />
+            </div>
+            <div class="panel">
+              <img
+                src="/public/profile/KakaoTalk_20250402_233422836.jpg"
+                alt="김동규"
+              />
+            </div>
+            <div class="panel orane">
+              <img
+                src="/public/profile/KakaoTalk_20250402_233422836.jpg"
+                alt="김동규"
+              />
+            </div>
+            <div class="panel">
+              <img
+                src="/public/profile/KakaoTalk_20250402_233422836.jpg"
+                alt="김동규"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="element-spacing"></section>
+      <section class="project-intro">
+        <!-- <h1>프로젝트 소개</h1> -->
+        <h1>Project subject</h1>
+        <p>
+          멋쟁이사자처럼 부트캠프 프론트엔드 14기 Vanila Project
+          <strong>Ten Trillion</strong>입니다. 이번 프로젝트의 주제는
+          <strong>SOLER SYSTEM</strong> 입니다. 다양한 애니메이션의 구현과 함께
+          사용자의 몰입도를 끌어들일 수 있는 웹 디자인 개발을 목표로 프로젝트를
+          진행해보았습니다.
+        </p>
+        <ul class="project-intro-box">
+          <li class="intro-list-1">
+            <a href="https://www.rubens.design/#book">
+              <img src="./public/page/cyanogen.png" alt="" />
+            </a>
+            <p>
+              <strong>참고 사이트</strong> <br />
+              처음 참고시안으로 사용하기 위해 선택했던 웹 사이트입니다. GSAP의
+              다양한 기능들이 적용되어 애니메이션 디자인을 참고하기 좋은
+              사이트라는 생각에 참고를 하게 되었습니다. 각 기능들을 분석하고
+              시안을 제작하여, 프로젝트에 접목하였습니다.
+            </p>
+          </li>
+          <li class="intro-list-2">
+            <a
+              href="https://www.figma.com/design/k0WZwMfpQJHN6CpiUfIgiR/vanila-Project-10?node-id=0-1&p=f"
+            >
+              <img src="./public/page/cyanogen-1.png" alt="" />
+            </a>
+            <p>
+              <strong>시안 제작</strong> <br />
+              태양계와 우주를 테마로 한 콘텐츠의 시각적 흐름을 기획하고, 홈
+              화면, 개별 행성 정보, 모바일 앱 등 다양한 상황을 고려한 시안을
+              제작하였습니다.
+            </p>
+          </li>
+          <li class="intro-list-3">
+            <a href="./src/routing/page.html">
+              <img src="./public/page/page-1-width.png" alt="" />
+            </a>
+            <p>
+              <strong>메인 페이지</strong> <br />
+              테양게를 태마로 한 메인 화면 구성은 사용자 접근성과 몰입감을
+              동시에 고려하여 기획되었습니다. 모바일과 데스크탑에서 모두
+              자연스럽게 작동하는 반응형 UI를 구성하고, GSAP 애니메이션을 활용해
+              행성 궤도 움직임을 시각적으로 표현하여 우주 콘셉트에 생동감을
+              더했습니다. 전체 컬러 시스템과 UI 구성 요소, 인터렉션 흐름을
+              일관되게 설계함으로써 프로젝트의 방향성과 분위기를 효과적으로
+              제시합니다.
+            </p>
+          </li>
+          <li class="intro-list-4">
+            <a href="./src/routing/page.html">
+              <img
+                src="./public/page/project-page-planet-comparison.png"
+                alt=""
+              />
+            </a>
+            <p>
+              <strong>행성 크기 비교 페이지</strong>
+              사용자가 행성의 상대적인 크기를 시각적으로 이해할 수 있도록, 크기
+              순서에 따라 수평으로 스크롤 되는 구조를 설계하였습니다. GSAP의
+              ScrollTrigger 기능을 활용하여 스크롤에 따라 화면의 시점이 점점
+              축소되며 등장하도록 애니메이션을 적용하였고, 이를 통해 단순 나열이
+              아닌 체감 중심의 비교 경험을 제공합니다.
+            </p>
+          </li>
+        </ul>
+      </section>
+      <section class="element-spacing"></section>
+      <section class="division-box">
+        <h1>Division of team roles</h1>
+        <p>
+          “어떤 고민을 했고, 어떻게 풀어냈을까?” <br />
+          각자의 시선으로 바라본 프로젝트 이야기를 들어보세요.
+        </p>
+
+        <div class="description-box">
+          <article class="user kdk">
+            <a href="./src/components/mkdown/markdown.html">
+              <h2>김동규</h2>
+            </a>
+          </article>
+          <article class="user name1">
+            <a href="#profile1">
+              <h2>홍길동1</h2>
+            </a>
+          </article>
+          <article class="user name2">
+            <a href="#profile2">
+              <h2>홍길동2</h2>
+            </a>
+          </article>
+          <article class="user name3">
+            <a href="#profile3">
+              <h2>홍길동3</h2>
+            </a>
+          </article>
+          <p class="link-guide">
+            ※ 이름을 클릭하면 해당 팀원의 페이지로 이동합니다.
+          </p>
+        </div>
+      </section>
+    </main>
+    <hr />
+    <footer
+      style="text-align: center; padding: 20px; font-size: 14px; color: #777"
+    >
+      &copy; 2025 Ten Trillion Project. All rights reserved. <br />
+      본 웹사이트의 디자인 및 콘텐츠는
+      <strong>심우섭, 이희륜, 김동규, 윤동식</strong> 팀원이 제작하였으며,
+      <strong>Ten Trillion Team</strong>에 저작권이 있습니다. <br />
+      본 사이트의 모든 자료는 저작권법에 의해 보호되며, 무단 복제, 배포, 편집을
+      금지합니다.
+    </footer>
   </body>
 </html>
