@@ -21,7 +21,7 @@ footer {
   width: 100%;
 
   overflow-x: hidden;
-  height: 1520vh;
+  height: 1500vh;
   position: relative;
 
   .intro-div-box {
@@ -158,6 +158,7 @@ section {
 
 /* 프로젝트 소개 페이지 */
 .project-intro {
+  min-height: 100vh;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
@@ -227,7 +228,7 @@ section {
 /* 팀 개인 설명란 */
 .division-box {
   background: black;
-  /* height: 100vh; */
+  min-height: 100vh;
   h1 {
     /* text-align: center; */
     font-size: 35px;
@@ -276,5 +277,23 @@ section {
     a {
       color: white;
     }
+  }
+}
+
+.element-spacing2 {
+  display: flex;
+  align-items: end;
+
+  height: calc(1851px);
+  background: #283431;
+}
+
+/* 태양계 페이지 링크 연결 페이지 */
+.solar-page {
+  width: 100%;
+  height: 100vh;
+  background: pink;
+  h1 {
+    color: black;
   }
 }

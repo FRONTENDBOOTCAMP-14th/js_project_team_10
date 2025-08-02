@@ -102,7 +102,7 @@ ScrollTrigger.create({
   pin: true,
   scrub: 3,
   animation: projectIntro,
-  // markers: true,
+  markers: true,
 });
 
 gsap.set(".description-box", { opacity: 0 });
