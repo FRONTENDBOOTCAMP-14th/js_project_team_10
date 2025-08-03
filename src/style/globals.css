@@ -285,14 +285,7 @@ section {
   }
 
   #donggle {
-    background-color: rgb(225, 100, 100);
-    color: white !important;
     border: none;
-  }
-
-  #donggle:hover {
-    background-color: rgb(56, 45, 106) !important;
-    color: white !important;
   }
 }
 
