@@ -1,708 +1,540 @@
 <!DOCTYPE html>
 <html lang="ko-KR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vanilla JS Router</title>
-    <!-- <link rel="stylesheet" href="/src/routing/page.css" /> -->
-    <link rel="stylesheet" href="/src/components/layouts/main.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script type="module" src="/src/routing/page.js"></script>
-  </head>
-  <body>
-    <main>
-      <section id="hero">
-        <div class="header-div-page1">
-          <div class="header-box">
-            <div
-              class="header_div-title solar-text"
-              aria-label="SOLAR SYSTEM"
-              role="heading"
-            >
-              <svg width="681" height="229" viewBox="0 0 681 229" fill="none">
-                <rect width="681" height="229" fill="url(#pattern0_119_369)" />
-                <defs>
-                  <pattern
-                    id="pattern0_119_369"
-                    patternContentUnits="objectBoundingBox"
-                    width="1"
-                    height="1"
-                  >
-                    <use
-                      xlink:href="#image0_119_369"
-                      transform="scale(0.00146843 0.00436681)"
-                    />
-                  </pattern>
-                  <image
-                    id="image0_119_369"
-                    width="681"
-                    height="229"
-                    preserveAspectRatio="none"
-                    xlink:href="data:image/png;base64,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"
-                  />
-                </defs>
-              </svg>
 
-              <svg width="744" height="210" viewBox="0 0 744 210" fill="none">
-                <rect width="744" height="210" fill="url(#pattern0_119_372)" />
-                <defs>
-                  <pattern
-                    id="pattern0_119_372"
-                    patternContentUnits="objectBoundingBox"
-                    width="1"
-                    height="1"
-                  >
-                    <use
-                      xlink:href="#image0_119_372"
-                      transform="scale(0.00134409 0.0047619)"
-                    />
-                  </pattern>
-                  <image
-                    id="image0_119_372"
-                    width="744"
-                    height="210"
-                    preserveAspectRatio="none"
-                    xlink:href="data:image/png;base64,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"
-                  />
-                </defs>
-              </svg>
-            </div>
-            <div class="header_p-title">
-              <p>Explore the Wonders of Our Solar System</p>
-              <p>Sapace Travel</p>
-            </div>
-          </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vanilla JS Router</title>
+  <!-- <link rel="stylesheet" href="/src/routing/page.css" /> -->
+  <link rel="stylesheet" href="/src/components/layouts/main.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script type="module" src="/src/routing/page.js"></script>
+</head>
 
-          <!-- 선 디자인 마크업 -->
-          <span class="main-span-circle"></span>
-          <span class="main-span-extendLineX"></span>
-          <span class="main-span-extendLineY"></span>
-          <span class="main-span-lineSm"></span>
-          <span class="main-span-lineSm"></span>
-          <span class="main-span-lineSm"></span>
-          <span class="main-span-lineSm"></span>
-          <span class="main-span-lineM"></span>
-          <span class="main-span-lineM"></span>
-          <span class="main-span-lineM"></span>
-          <span class="main-span-lineM"></span>
-          <span class="side-circle left"></span>
-          <span class="side-circle right"></span>
-          <span class="orbit">
-            <svg viewBox="0 0 600 600">
-              <!-- 타원형 궤도 -->
-              <path
-                id="orbit"
-                class="orbit-path"
-                d="M 300,245
-         a 200,60 0 1,0 0.1,0"
-                transform="rotate(-30 300 300)"
-              />
-              <path
-                id="orbit2"
-                class="orbit-path"
-                d="M 300,270
-         a 160,40 0 1,0 0.1,0"
-                transform="rotate(0 300 300)"
-              />
-
-              <!-- 행성 -->
-              <circle id="page_1_planet" class="page_1-planet" r="10" />
-              <circle id="page_1_planet2" class="page_1-planet" r="7" />
+<body>
+  <main>
+    <section id="hero">
+      <div class="header-div-page1">
+        <div class="header-box">
+          <div class="header_div-title solar-text" aria-label="SOLAR SYSTEM" role="heading">
+            <svg width="681" height="229" viewBox="0 0 681 229" fill="none">
+              <rect width="681" height="229" fill="url(#pattern0_119_369)" />
+              <defs>
+                <pattern id="pattern0_119_369" patternContentUnits="objectBoundingBox" width="1" height="1">
+                  <use xlink:href="#image0_119_369" transform="scale(0.00146843 0.00436681)" />
+                </pattern>
+                <image id="image0_119_369" width="681" height="229" preserveAspectRatio="none"
+                  xlink:href="data:image/png;base64,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" />
+              </defs>
             </svg>
-          </span>
-        </div>
-      </section>
-      <section id="intro">
-        <div class="sun-wrapper">
-          <svg
-            class="sun-graphic"
-            width="305"
-            height="305"
-            viewBox="0 0 305 305"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g>
-              <path
-                d="M152.3 274.36C219.712 274.36 274.36 219.712 274.36 152.3C274.36 84.8881 219.712 30.24 152.3 30.24C84.8884 30.24 30.2402 84.8881 30.2402 152.3C30.2402 219.712 84.8884 274.36 152.3 274.36Z"
-                fill="#FFCB4B"
-              />
-              <path
-                id="sun-ring"
-                d="M152.3 302.34C235.165 302.34 302.34 235.165 302.34 152.3C302.34 69.4352 235.165 2.26001 152.3 2.26001C69.435 2.26001 2.25977 69.4352 2.25977 152.3C2.25977 235.165 69.435 302.34 152.3 302.34Z"
-                stroke="#E85C0D"
-                stroke-width="4.53"
-                stroke-miterlimit="10"
-                stroke-dasharray="29.46 29.46"
-              />
-              <g clip-path="url(#clip0_171_374)" id="face-group"></g>
-              <ellipse
-                id="left-eye"
-                cx="125"
-                cy="130"
-                rx="10"
-                ry="17"
-                fill="black"
-              />
-              <ellipse
-                id="right-eye"
-                cx="175"
-                cy="130"
-                rx="10"
-                ry="17"
-                fill="black"
-              />
-              <path
-                d="M120 180 Q152.5 200 180 180"
-                stroke="black"
-                stroke-width="4"
-                fill="none"
-              />
-            </g>
-            <defs>
-              <clipPath id="clip0_171_374">
-                <rect width="304.61" height="304.61" fill="white" />
-              </clipPath>
-            </defs>
-          </svg>
-        </div>
 
-        <div class="sun-description">
-          태양계는 태양을 중심으로 하여 그 주위를 공전하는 다양한
-          <b>천체들</b>로 구성됩니다. 이 천체들은 태양을 중심으로 한 중력의
-          영향을 받아 <b>궤도</b>를 형성하며, 주요 구성 요소로는 <b>행성</b>,
-          <b>위성</b>, <b>소행성</b>, <b>혜성</b> 등이 있습니다.<br /><br />
-          태양계의 행성들은 태양에서의 거리와 크기에 따라 <b>내행성</b>과
-          <b>외행성</b>으로 나뉘며, 내행성은 수성, 금성, 지구, 화성으로
-          구성하고, 외행성은 목성, 토성, 천왕성, 해왕성으로 이루어져
-          있습니다.<br /><br />
-          또한 이 외에도 왜소행성인 <b>명왕성</b>과 여러 <b>소행성대</b>, 그리고
-          오르트 구름과 같은 <b>외부 천체</b>들도 태양계의 중요한 구성 요소로
-          여겨집니다.
-        </div>
-      </section>
-      <section id="solarSystem"></section>
-
-      <section id="space4">
-        <div class="space-box-1 one">
-          <svg
-            class="pluto svg-margin-inline"
-            viewBox="0 0 102 102"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g clip-path="url(#clip0_305_309)">
-              <path
-                d="M50.51 99.52C77.5775 99.52 99.52 77.5775 99.52 50.51C99.52 23.4425 77.5775 1.5 50.51 1.5C23.4425 1.5 1.5 23.4425 1.5 50.51C1.5 77.5775 23.4425 99.52 50.51 99.52Z"
-                stroke="#DCC8A4"
-                stroke-width="3"
-                stroke-miterlimit="10"
-              />
-              <path
-                d="M68.7701 61.4002C68.7701 61.4002 61.1601 45.9102 53.3801 61.4002C45.6001 76.8902 67.8901 79.0102 69.8301 87.7102C69.8301 87.7102 90.5301 77.3102 88.0501 62.4602C85.5701 47.6102 71.4201 53.9702 68.7701 61.4002Z"
-                stroke="#DCC8A4"
-                stroke-width="3"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M30.5804 36.2898C34.7999 36.2898 38.2204 32.8692 38.2204 28.6498C38.2204 24.4303 34.7999 21.0098 30.5804 21.0098C26.361 21.0098 22.9404 24.4303 22.9404 28.6498C22.9404 32.8692 26.361 36.2898 30.5804 36.2898Z"
-                stroke="#DCC8A4"
-                stroke-width="3"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M28.2302 76.0698C33.7476 76.0698 38.2202 71.5972 38.2202 66.0798C38.2202 60.5625 33.7476 56.0898 28.2302 56.0898C22.7129 56.0898 18.2402 60.5625 18.2402 66.0798C18.2402 71.5972 22.7129 76.0698 28.2302 76.0698Z"
-                stroke="#DCC8A4"
-                stroke-width="3"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M71.5898 28.5995C74.9256 28.5995 77.6298 25.8953 77.6298 22.5595C77.6298 19.2237 74.9256 16.5195 71.5898 16.5195C68.254 16.5195 65.5498 19.2237 65.5498 22.5595C65.5498 25.8953 68.254 28.5995 71.5898 28.5995Z"
-                stroke="#DCC8A4"
-                stroke-width="3"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </g>
-            <defs>
-              <clipPath id="clip0_305_309">
-                <rect width="101.02" height="101.02" fill="white" />
-              </clipPath>
-            </defs>
-          </svg>
-          <img class="planet-filled" src="/planet/pluto.svg" alt="" />
-
-          <div class="info one">
-            <div class="space-pluto-header">
-              <h2 class="space-title">명왕성</h2>
-              <span class="space-type">왜행성</span>
-            </div>
-            <div class="info-card-header-line"></div>
-            <p class="space-description">
-              2006년 명왕성은 행성들과는 다른 궤도를 가지고 있는 등 다양한
-              이유에 의해 행성지위를 박탈 당했다.
-            </p>
-            <div class="space-diameter">지름 : <span>2,377 km</span></div>
-            <div class="space-diameter-box">
-              <div class="space-distance">5,913,520,000 km</div>
-              <div class="space-label">궤적 궤도 반지름</div>
-            </div>
-            <div class="sub-info">
-              <div>태양에서의 거리 : <span>29 AU</span></div>
-              <div>공전주기 : <span>248년</span></div>
-              <div>자전주기 : <span>6일</span></div>
-            </div>
+            <svg width="744" height="210" viewBox="0 0 744 210" fill="none">
+              <rect width="744" height="210" fill="url(#pattern0_119_372)" />
+              <defs>
+                <pattern id="pattern0_119_372" patternContentUnits="objectBoundingBox" width="1" height="1">
+                  <use xlink:href="#image0_119_372" transform="scale(0.00134409 0.0047619)" />
+                </pattern>
+                <image id="image0_119_372" width="744" height="210" preserveAspectRatio="none"
+                  xlink:href="data:image/png;base64,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" />
+              </defs>
+            </svg>
+          </div>
+          <div class="header_p-title">
+            <p>Explore the Wonders of Our Solar System</p>
+            <p>Sapace Travel</p>
           </div>
         </div>
 
-        <!--222222222222222-->
-        <div class="space-box-1 two">
-          <svg
-            class="eris svg-margin-inline"
-            viewBox="0 0 93 93"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g clip-path="url(#clip0_305_319)">
-              <path
-                d="M46.37 91.24C71.151 91.24 91.24 71.151 91.24 46.37C91.24 21.589 71.151 1.5 46.37 1.5C21.589 1.5 1.5 21.589 1.5 46.37C1.5 71.151 21.589 91.24 46.37 91.24Z"
-                stroke="#C2BBB5"
-                stroke-width="3"
-                stroke-miterlimit="10"
-              />
-            </g>
-            <defs>
-              <clipPath id="clip0_305_319">
-                <rect width="92.75" height="92.75" fill="white" />
-              </clipPath>
-            </defs>
-          </svg>
-          <img class="planet-filled" src="/planet/eris.svg" alt="" />
+        <!-- 선 디자인 마크업 -->
+        <span class="main-span-circle"></span>
+        <span class="main-span-extendLineX"></span>
+        <span class="main-span-extendLineY"></span>
+        <span class="main-span-lineSm"></span>
+        <span class="main-span-lineSm"></span>
+        <span class="main-span-lineSm"></span>
+        <span class="main-span-lineSm"></span>
+        <span class="main-span-lineM"></span>
+        <span class="main-span-lineM"></span>
+        <span class="main-span-lineM"></span>
+        <span class="main-span-lineM"></span>
+        <span class="side-circle left"></span>
+        <span class="side-circle right"></span>
+        <span class="orbit">
+          <svg viewBox="0 0 600 600">
+            <!-- 타원형 궤도 -->
+            <path id="orbit" class="orbit-path" d="M 300,245
+         a 200,60 0 1,0 0.1,0" transform="rotate(-30 300 300)" />
+            <path id="orbit2" class="orbit-path" d="M 300,270
+         a 160,40 0 1,0 0.1,0" transform="rotate(0 300 300)" />
 
-          <div class="info two">
-            <div class="space-pluto-header">
-              <h2 class="space-title">에리스</h2>
-              <span class="space-type">왜행성</span>
-            </div>
-            <div class="info-card-header-line"></div>
-            <p class="space-description">
-              에리스는 산란 분포대에서 발견된 왜행성으로 천문학자 마이클 E.
-              브라운이 발견하였다.
-            </p>
-            <div class="space-diameter">지름 : <span>2,326 km</span></div>
-            <div class="space-diameter-box">
-              <div class="space-distance">5,706,376,272 km</div>
-              <div class="space-label">궤적 궤도 반지름</div>
-            </div>
-            <div class="sub-info">
-              <div>태양에서의 거리 : <span>68 AU</span></div>
-              <div>공전주기 : <span>558년</span></div>
-              <div>자전주기 : <span>25.9시간</span></div>
-            </div>
+            <!-- 행성 -->
+            <circle id="page_1_planet" class="page_1-planet" r="10" />
+            <circle id="page_1_planet2" class="page_1-planet" r="7" />
+          </svg>
+        </span>
+      </div>
+    </section>
+    <section id="intro">
+      <div class="sun-wrapper">
+        <svg class="sun-graphic" width="305" height="305" viewBox="0 0 305 305" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <g>
+            <path
+              d="M152.3 274.36C219.712 274.36 274.36 219.712 274.36 152.3C274.36 84.8881 219.712 30.24 152.3 30.24C84.8884 30.24 30.2402 84.8881 30.2402 152.3C30.2402 219.712 84.8884 274.36 152.3 274.36Z"
+              fill="#FFCB4B" />
+            <path id="sun-ring"
+              d="M152.3 302.34C235.165 302.34 302.34 235.165 302.34 152.3C302.34 69.4352 235.165 2.26001 152.3 2.26001C69.435 2.26001 2.25977 69.4352 2.25977 152.3C2.25977 235.165 69.435 302.34 152.3 302.34Z"
+              stroke="#E85C0D" stroke-width="4.53" stroke-miterlimit="10" stroke-dasharray="29.46 29.46" />
+            <g clip-path="url(#clip0_171_374)" id="face-group"></g>
+            <ellipse id="left-eye" cx="125" cy="130" rx="10" ry="17" fill="black" />
+            <ellipse id="right-eye" cx="175" cy="130" rx="10" ry="17" fill="black" />
+            <path d="M120 180 Q152.5 200 180 180" stroke="black" stroke-width="4" fill="none" />
+          </g>
+          <defs>
+            <clipPath id="clip0_171_374">
+              <rect width="304.61" height="304.61" fill="white" />
+            </clipPath>
+          </defs>
+        </svg>
+      </div>
+
+      <div class="sun-description">
+        태양계는 태양을 중심으로 하여 그 주위를 공전하는 다양한
+        <b>천체들</b>로 구성됩니다. 이 천체들은 태양을 중심으로 한 중력의
+        영향을 받아 <b>궤도</b>를 형성하며, 주요 구성 요소로는 <b>행성</b>,
+        <b>위성</b>, <b>소행성</b>, <b>혜성</b> 등이 있습니다.<br /><br />
+        태양계의 행성들은 태양에서의 거리와 크기에 따라 <b>내행성</b>과
+        <b>외행성</b>으로 나뉘며, 내행성은 수성, 금성, 지구, 화성으로
+        구성하고, 외행성은 목성, 토성, 천왕성, 해왕성으로 이루어져
+        있습니다.<br /><br />
+        또한 이 외에도 왜소행성인 <b>명왕성</b>과 여러 <b>소행성대</b>, 그리고
+        오르트 구름과 같은 <b>외부 천체</b>들도 태양계의 중요한 구성 요소로
+        여겨집니다.
+      </div>
+    </section>
+    <section id="solarSystem"></section>
+
+    <section id="space4">
+      <div class="space-bc-star-box">
+        <img class="space-bc-star" src="/background-img/page-bc.svg" alt="">
+      </div>
+      <div class="space-box-1 one">
+        <svg class="pluto svg-margin-inline" viewBox="0 0 102 102" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g clip-path="url(#clip0_305_309)">
+            <path
+              d="M50.51 99.52C77.5775 99.52 99.52 77.5775 99.52 50.51C99.52 23.4425 77.5775 1.5 50.51 1.5C23.4425 1.5 1.5 23.4425 1.5 50.51C1.5 77.5775 23.4425 99.52 50.51 99.52Z"
+              stroke="#DCC8A4" stroke-width="3" stroke-miterlimit="10" />
+            <path
+              d="M68.7701 61.4002C68.7701 61.4002 61.1601 45.9102 53.3801 61.4002C45.6001 76.8902 67.8901 79.0102 69.8301 87.7102C69.8301 87.7102 90.5301 77.3102 88.0501 62.4602C85.5701 47.6102 71.4201 53.9702 68.7701 61.4002Z"
+              stroke="#DCC8A4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+            <path
+              d="M30.5804 36.2898C34.7999 36.2898 38.2204 32.8692 38.2204 28.6498C38.2204 24.4303 34.7999 21.0098 30.5804 21.0098C26.361 21.0098 22.9404 24.4303 22.9404 28.6498C22.9404 32.8692 26.361 36.2898 30.5804 36.2898Z"
+              stroke="#DCC8A4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+            <path
+              d="M28.2302 76.0698C33.7476 76.0698 38.2202 71.5972 38.2202 66.0798C38.2202 60.5625 33.7476 56.0898 28.2302 56.0898C22.7129 56.0898 18.2402 60.5625 18.2402 66.0798C18.2402 71.5972 22.7129 76.0698 28.2302 76.0698Z"
+              stroke="#DCC8A4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+            <path
+              d="M71.5898 28.5995C74.9256 28.5995 77.6298 25.8953 77.6298 22.5595C77.6298 19.2237 74.9256 16.5195 71.5898 16.5195C68.254 16.5195 65.5498 19.2237 65.5498 22.5595C65.5498 25.8953 68.254 28.5995 71.5898 28.5995Z"
+              stroke="#DCC8A4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+          </g>
+          <defs>
+            <clipPath id="clip0_305_309">
+              <rect width="101.02" height="101.02" fill="white" />
+            </clipPath>
+          </defs>
+        </svg>
+        <img class="planet-filled" src="/planet/pluto.svg" alt="" />
+
+        <div class="info one">
+          <div class="space-pluto-header">
+            <h2 class="space-title">명왕성</h2>
+            <span class="space-type">왜행성</span>
+          </div>
+          <div class="info-card-header-line"></div>
+          <p class="space-description">
+            2006년 명왕성은 행성들과는 다른 궤도를 가지고 있는 등 다양한
+            이유에 의해 행성지위를 박탈 당했다.
+          </p>
+          <div class="space-diameter">지름 : <span>2,377 km</span></div>
+          <div class="space-diameter-box">
+            <div class="space-distance">5,913,520,000 km</div>
+            <div class="space-label">궤적 궤도 반지름</div>
+          </div>
+          <div class="sub-info">
+            <div>태양에서의 거리 : <span>29 AU</span></div>
+            <div>공전주기 : <span>248년</span></div>
+            <div>자전주기 : <span>6일</span></div>
           </div>
         </div>
+      </div>
 
-        <!--3333333333333333333-->
+      <!--222222222222222-->
+      <div class="space-box-1 two">
+        <svg class="eris svg-margin-inline" viewBox="0 0 93 93" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g clip-path="url(#clip0_305_319)">
+            <path
+              d="M46.37 91.24C71.151 91.24 91.24 71.151 91.24 46.37C91.24 21.589 71.151 1.5 46.37 1.5C21.589 1.5 1.5 21.589 1.5 46.37C1.5 71.151 21.589 91.24 46.37 91.24Z"
+              stroke="#C2BBB5" stroke-width="3" stroke-miterlimit="10" />
+          </g>
+          <defs>
+            <clipPath id="clip0_305_319">
+              <rect width="92.75" height="92.75" fill="white" />
+            </clipPath>
+          </defs>
+        </svg>
+        <img class="planet-filled" src="/planet/eris.svg" alt="" />
 
-        <div class="space-box-1 three">
-          <svg
-            class="haumea svg-margin-inline"
-            viewBox="0 0 50 119"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g clip-path="url(#clip0_305_322)">
-              <path
-                d="M44.604 66.38C51.1976 47.541 47.6348 29.1511 36.6463 25.3051C25.6577 21.4592 11.4045 33.6134 4.81091 52.4524C-1.78273 71.2914 1.78005 89.6813 12.7686 93.5272C23.7572 97.3732 38.0103 85.219 44.604 66.38Z"
-                stroke="#D3D3D3"
-                stroke-width="3"
-                stroke-miterlimit="10"
-              />
-              <path
-                d="M8.62976 91.1295C4.39976 106.37 2.60976 116.67 4.43976 117.31C7.42976 118.36 18.9298 93.2896 30.1198 61.3096C41.3198 29.3496 47.9698 2.57955 44.9798 1.52955C43.1498 0.889549 38.1198 10.0495 31.9298 24.6095"
-                stroke="#D3D3D3"
-                stroke-width="3"
-                stroke-miterlimit="10"
-              />
-            </g>
-            <defs>
-              <clipPath id="clip0_305_322">
-                <rect width="49.42" height="118.84" fill="white" />
-              </clipPath>
-            </defs>
-          </svg>
-          <img class="planet-filled" src="/planet/haumea.svg" alt="" />
-
-          <div class="info three">
-            <div class="space-pluto-header">
-              <h2 class="space-title">하우메아</h2>
-              <span class="space-type">왜행성</span>
-            </div>
-            <div class="info-card-header-line"></div>
-            <p class="space-description">
-              하우메아는 큐비원족에 속하는 해왕성 바깥 천체의 하나로 분류된다.
-            </p>
-            <div class="space-diameter">지름 : <span>1,632 km</span></div>
-            <div class="space-diameter-box">
-              <div class="space-distance">966,146,813 km</div>
-              <div class="space-label">궤적 궤도 반지름</div>
-            </div>
-            <div class="sub-info">
-              <div>태양에서의 거리 : <span>35 AU</span></div>
-              <div>공전주기 : <span>284년</span></div>
-              <div>자전주기 : <span>3.9시간</span></div>
-            </div>
+        <div class="info two">
+          <div class="space-pluto-header">
+            <h2 class="space-title">에리스</h2>
+            <span class="space-type">왜행성</span>
+          </div>
+          <div class="info-card-header-line"></div>
+          <p class="space-description">
+            에리스는 산란 분포대에서 발견된 왜행성으로 천문학자 마이클 E.
+            브라운이 발견하였다.
+          </p>
+          <div class="space-diameter">지름 : <span>2,326 km</span></div>
+          <div class="space-diameter-box">
+            <div class="space-distance">5,706,376,272 km</div>
+            <div class="space-label">궤적 궤도 반지름</div>
+          </div>
+          <div class="sub-info">
+            <div>태양에서의 거리 : <span>68 AU</span></div>
+            <div>공전주기 : <span>558년</span></div>
+            <div>자전주기 : <span>25.9시간</span></div>
           </div>
         </div>
+      </div>
 
-        <!--4444444444444444444444-->
-        <div class="space-box-1 four">
-          <svg
-            class="ceres svg-margin-inline"
-            viewBox="0 0 46 46"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g clip-path="url(#clip0_305_326)">
-              <path
-                d="M22.57 43.64C34.2066 43.64 43.64 34.2066 43.64 22.57C43.64 10.9334 34.2066 1.5 22.57 1.5C10.9334 1.5 1.5 10.9334 1.5 22.57C1.5 34.2066 10.9334 43.64 22.57 43.64Z"
-                stroke="#B5B5B5"
-                stroke-width="3"
-                stroke-miterlimit="10"
-              />
-            </g>
-            <defs>
-              <clipPath id="clip0_305_326">
-                <rect width="45.14" height="45.14" fill="white" />
-              </clipPath>
-            </defs>
-          </svg>
-          <img class="planet-filled" src="/planet/ceres.svg" alt="" />
+      <!--3333333333333333333-->
 
-          <div class="info four">
-            <div class="space-pluto-header">
-              <h2 class="space-title">세레스</h2>
-              <span class="space-type">왜행성</span>
-            </div>
-            <div class="info-card-header-line"></div>
-            <p class="space-description">
-              세레스는 화성과 목성 사이에 위치한 태양계의 왜행성이다.소행성대
-              천체들 중에서 가장 거대한 천체다.
-            </p>
-            <div class="space-diameter">지름 : <span>946 km</span></div>
-            <div class="space-diameter-box">
-              <div class="space-distance">276,376,272 km</div>
-              <div class="space-label">궤적 궤도 반지름</div>
-            </div>
-            <div class="sub-info">
-              <div>태양에서의 거리 : <span>2.77AU</span></div>
-              <div>공전주기 : <span>1682일</span></div>
-              <div>자전주기 : <span>9시간</span></div>
-            </div>
+      <div class="space-box-1 three">
+        <svg class="haumea svg-margin-inline" viewBox="0 0 50 119" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g clip-path="url(#clip0_305_322)">
+            <path
+              d="M44.604 66.38C51.1976 47.541 47.6348 29.1511 36.6463 25.3051C25.6577 21.4592 11.4045 33.6134 4.81091 52.4524C-1.78273 71.2914 1.78005 89.6813 12.7686 93.5272C23.7572 97.3732 38.0103 85.219 44.604 66.38Z"
+              stroke="#D3D3D3" stroke-width="3" stroke-miterlimit="10" />
+            <path
+              d="M8.62976 91.1295C4.39976 106.37 2.60976 116.67 4.43976 117.31C7.42976 118.36 18.9298 93.2896 30.1198 61.3096C41.3198 29.3496 47.9698 2.57955 44.9798 1.52955C43.1498 0.889549 38.1198 10.0495 31.9298 24.6095"
+              stroke="#D3D3D3" stroke-width="3" stroke-miterlimit="10" />
+          </g>
+          <defs>
+            <clipPath id="clip0_305_322">
+              <rect width="49.42" height="118.84" fill="white" />
+            </clipPath>
+          </defs>
+        </svg>
+        <img class="planet-filled" src="/planet/haumea.svg" alt="" />
+
+        <div class="info three">
+          <div class="space-pluto-header">
+            <h2 class="space-title">하우메아</h2>
+            <span class="space-type">왜행성</span>
+          </div>
+          <div class="info-card-header-line"></div>
+          <p class="space-description">
+            하우메아는 큐비원족에 속하는 해왕성 바깥 천체의 하나로 분류된다.
+          </p>
+          <div class="space-diameter">지름 : <span>1,632 km</span></div>
+          <div class="space-diameter-box">
+            <div class="space-distance">966,146,813 km</div>
+            <div class="space-label">궤적 궤도 반지름</div>
+          </div>
+          <div class="sub-info">
+            <div>태양에서의 거리 : <span>35 AU</span></div>
+            <div>공전주기 : <span>284년</span></div>
+            <div>자전주기 : <span>3.9시간</span></div>
           </div>
         </div>
+      </div>
 
-        <!--55555555555555555-->
-        <div class="space-box-1 five">
-          <svg
-            class="asteroid-Belt1 svg-margin-inline"
-            viewBox="0 0 78 56"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
+      <!--4444444444444444444444-->
+      <div class="space-box-1 four">
+        <svg class="ceres svg-margin-inline" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g clip-path="url(#clip0_305_326)">
             <path
-              d="M39.2251 2.67653C39.2251 2.67653 55.7178 -2.90641 69.1229 5.42098C82.5281 13.7484 76.2843 28.3341 70.8297 33.8743C65.3836 39.4145 58.1879 42.1675 58.1879 42.1675C58.1879 42.1675 46.1635 50.5291 40.6574 52.7606C35.1513 54.9921 31.7807 54.8211 29.4564 54.6159C27.1322 54.4107 17.0376 49.6913 17.0376 49.6913C17.0376 49.6913 12.2348 46.7758 10.2193 46.6048C8.2038 46.4338 7.05452 46.0491 4.56732 45.7755C2.08013 45.5019 -0.46708 42.5352 2.07157 35.6356C4.61023 28.736 19.2589 11.9871 39.2251 2.66799V2.67653Z"
-              stroke="#8291A6"
-              stroke-width="1.97"
-              stroke-miterlimit="10"
-            />
-            <path
-              d="M65.8211 19.0141C63.8743 17.877 58.8141 21.485 54.5087 27.0679C50.2033 32.6508 48.2907 38.097 50.2376 39.2341C52.1844 40.3712 57.2446 36.7632 61.55 31.1803C65.8554 25.5974 67.768 20.1512 65.8211 19.0141Z"
-              stroke="#8291A6"
-              stroke-width="1.97"
-              stroke-miterlimit="10"
-            />
-            <path
-              d="M25.9831 36.6436C24.7395 37.9945 21.386 37.2678 18.4958 35.0106C15.6055 32.7535 14.2589 29.8295 15.5025 28.4787C16.7461 27.1278 20.0996 27.8545 22.9898 30.1117C25.8887 32.3688 27.2266 35.2928 25.9831 36.6436Z"
-              stroke="#8291A6"
-              stroke-width="1.97"
-              stroke-miterlimit="10"
-            />
-            <path
-              d="M38.2997 9.02893C36.2928 9.23412 34.6118 12.7395 34.5432 16.8604C34.4746 20.9814 36.0526 24.1619 38.0596 23.9567C40.0665 23.7515 41.7475 20.2461 41.8161 16.1252C41.8847 12.0042 40.3066 8.82373 38.2997 9.02893Z"
-              stroke="#8291A6"
-              stroke-width="1.97"
-              stroke-miterlimit="10"
-            />
-          </svg>
-          <img class="planet-filled" src="/planet/asteroid-belt1.svg" alt="" />
+              d="M22.57 43.64C34.2066 43.64 43.64 34.2066 43.64 22.57C43.64 10.9334 34.2066 1.5 22.57 1.5C10.9334 1.5 1.5 10.9334 1.5 22.57C1.5 34.2066 10.9334 43.64 22.57 43.64Z"
+              stroke="#B5B5B5" stroke-width="3" stroke-miterlimit="10" />
+          </g>
+          <defs>
+            <clipPath id="clip0_305_326">
+              <rect width="45.14" height="45.14" fill="white" />
+            </clipPath>
+          </defs>
+        </svg>
+        <img class="planet-filled" src="/planet/ceres.svg" alt="" />
 
-          <div class="info five">
-            <div class="space-pluto-header">
-              <h2 class="space-title">소행성대</h2>
-              <span class="space-type">왜행성</span>
-            </div>
-            <div class="info-card-header-line"></div>
-            <p class="space-description">
-              소행성대는 화성과 목성 궤도 사이에 위치한 원반 모양의 영역으로,
-              수많은 소행성들이 모여 있는 곳입니다.
-            </p>
-            <div class="space-diameter">지름 : <span>950 km</span></div>
-            <div class="space-diameter-box">
-              <div class="space-distance">5,906,376,272 km</div>
-              <div class="space-label">궤적 궤도 반지름</div>
-            </div>
-            <div class="sub-info">
-              <div>태양에서의 거리 : <span>2.2 AU</span></div>
-              <div>공전주기 : <span>3.3년</span></div>
-              <div>자전주기 : <span>16시간</span></div>
-            </div>
+        <div class="info four">
+          <div class="space-pluto-header">
+            <h2 class="space-title">세레스</h2>
+            <span class="space-type">왜행성</span>
+          </div>
+          <div class="info-card-header-line"></div>
+          <p class="space-description">
+            세레스는 화성과 목성 사이에 위치한 태양계의 왜행성이다.소행성대
+            천체들 중에서 가장 거대한 천체다.
+          </p>
+          <div class="space-diameter">지름 : <span>946 km</span></div>
+          <div class="space-diameter-box">
+            <div class="space-distance">276,376,272 km</div>
+            <div class="space-label">궤적 궤도 반지름</div>
+          </div>
+          <div class="sub-info">
+            <div>태양에서의 거리 : <span>2.77AU</span></div>
+            <div>공전주기 : <span>1682일</span></div>
+            <div>자전주기 : <span>9시간</span></div>
           </div>
         </div>
+      </div>
 
-        <!--666666666666666666666-->
-        <div class="space-box-1 six">
-          <svg
-            class="asteroid-Belt2 svg-margin-inline"
-            viewBox="0 0 89 60"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M65.3834 51.7889C65.3834 51.7889 83.1712 43.0512 87.245 25.5756C91.3189 8.10004 74.5003 1.37998 65.6407 1.29449C56.7812 1.20899 48.7621 4.76566 48.7621 4.76566C48.7621 4.76566 32.3295 7.6811 26.0857 10.3059C19.842 12.9306 17.2691 15.7691 15.5623 17.8039C13.8556 19.8302 9.54159 31.7399 9.54159 31.7399C9.54159 31.7399 8.02355 37.947 6.54839 39.6997C5.06465 41.4524 4.44714 42.6835 2.66322 44.9064C0.879297 47.1294 1.22236 51.5581 8.83832 55.0806C16.4543 58.603 41.7808 60.3301 65.3834 51.7975V51.7889Z"
-              stroke="#8291A6"
-              stroke-width="2.25"
-              stroke-miterlimit="10"
-            />
-            <path
-              d="M73.5992 17.2824C72.9474 19.7618 65.9575 20.9246 57.9899 19.8815C50.0137 18.8384 44.0788 15.9914 44.7306 13.512C45.3824 11.0326 52.3723 9.86982 60.3399 10.9129C68.3161 11.9559 74.251 14.803 73.5992 17.2824Z"
-              stroke="#8291A6"
-              stroke-width="2.25"
-              stroke-miterlimit="10"
-            />
-            <path
-              d="M27.2779 35.0654C25.1853 34.9714 23.0754 38.2545 22.5694 42.3925C22.0548 46.5306 23.3413 49.9676 25.434 50.0616C27.5266 50.1556 29.6365 46.8726 30.1425 42.7345C30.6571 38.5965 29.3706 35.1595 27.2779 35.0654Z"
-              stroke="#8291A6"
-              stroke-width="2.25"
-              stroke-miterlimit="10"
-            />
-            <path
-              d="M59.5086 47.4205C57.7246 48.8654 53.5393 47.3948 50.1601 44.1288C46.781 40.8628 45.4773 37.0411 47.2613 35.5877C49.0452 34.1428 53.2305 35.6133 56.6097 38.8793C59.9888 42.1453 61.2925 45.967 59.5086 47.4205Z"
-              stroke="#8291A6"
-              stroke-width="2.25"
-              stroke-miterlimit="10"
-            />
-          </svg>
-          <img class="planet-filled" src="/planet/asteroid-belt2.svg" alt="" />
+      <!--55555555555555555-->
+      <div class="space-box-1 five">
+        <svg class="asteroid-Belt1 svg-margin-inline" viewBox="0 0 78 56" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M39.2251 2.67653C39.2251 2.67653 55.7178 -2.90641 69.1229 5.42098C82.5281 13.7484 76.2843 28.3341 70.8297 33.8743C65.3836 39.4145 58.1879 42.1675 58.1879 42.1675C58.1879 42.1675 46.1635 50.5291 40.6574 52.7606C35.1513 54.9921 31.7807 54.8211 29.4564 54.6159C27.1322 54.4107 17.0376 49.6913 17.0376 49.6913C17.0376 49.6913 12.2348 46.7758 10.2193 46.6048C8.2038 46.4338 7.05452 46.0491 4.56732 45.7755C2.08013 45.5019 -0.46708 42.5352 2.07157 35.6356C4.61023 28.736 19.2589 11.9871 39.2251 2.66799V2.67653Z"
+            stroke="#8291A6" stroke-width="1.97" stroke-miterlimit="10" />
+          <path
+            d="M65.8211 19.0141C63.8743 17.877 58.8141 21.485 54.5087 27.0679C50.2033 32.6508 48.2907 38.097 50.2376 39.2341C52.1844 40.3712 57.2446 36.7632 61.55 31.1803C65.8554 25.5974 67.768 20.1512 65.8211 19.0141Z"
+            stroke="#8291A6" stroke-width="1.97" stroke-miterlimit="10" />
+          <path
+            d="M25.9831 36.6436C24.7395 37.9945 21.386 37.2678 18.4958 35.0106C15.6055 32.7535 14.2589 29.8295 15.5025 28.4787C16.7461 27.1278 20.0996 27.8545 22.9898 30.1117C25.8887 32.3688 27.2266 35.2928 25.9831 36.6436Z"
+            stroke="#8291A6" stroke-width="1.97" stroke-miterlimit="10" />
+          <path
+            d="M38.2997 9.02893C36.2928 9.23412 34.6118 12.7395 34.5432 16.8604C34.4746 20.9814 36.0526 24.1619 38.0596 23.9567C40.0665 23.7515 41.7475 20.2461 41.8161 16.1252C41.8847 12.0042 40.3066 8.82373 38.2997 9.02893Z"
+            stroke="#8291A6" stroke-width="1.97" stroke-miterlimit="10" />
+        </svg>
+        <img class="planet-filled" src="/planet/asteroid-belt1.svg" alt="" />
 
-          <div class="info six">
-            <div class="space-pluto-header">
-              <h2 class="space-title">소행성대</h2>
-              <span class="space-type">왜행성</span>
-            </div>
-            <div class="info-card-header-line"></div>
-            <p class="space-description">
-              소행성대는 화성과 목성 궤도 사이에 위치한 원반 모양의 영역으로,
-              수많은 소행성들이 모여 있는 곳입니다.
-            </p>
-            <div class="space-diameter">지름 : <span>950 km</span></div>
-            <div class="space-diameter-box">
-              <div class="space-distance">5,906,376,272 km</div>
-              <div class="space-label">궤적 궤도 반지름</div>
-            </div>
-            <div class="sub-info">
-              <div>태양에서의 거리 : <span>2.2 AU</span></div>
-              <div>공전주기 : <span>3.3년</span></div>
-              <div>자전주기 : <span>16시간</span></div>
-            </div>
+        <div class="info five">
+          <div class="space-pluto-header">
+            <h2 class="space-title">소행성대</h2>
+            <span class="space-type">왜행성</span>
+          </div>
+          <div class="info-card-header-line"></div>
+          <p class="space-description">
+            소행성대는 화성과 목성 궤도 사이에 위치한 원반 모양의 영역으로,
+            수많은 소행성들이 모여 있는 곳입니다.
+          </p>
+          <div class="space-diameter">지름 : <span>950 km</span></div>
+          <div class="space-diameter-box">
+            <div class="space-distance">5,906,376,272 km</div>
+            <div class="space-label">궤적 궤도 반지름</div>
+          </div>
+          <div class="sub-info">
+            <div>태양에서의 거리 : <span>2.2 AU</span></div>
+            <div>공전주기 : <span>3.3년</span></div>
+            <div>자전주기 : <span>16시간</span></div>
           </div>
         </div>
+      </div>
 
-        <!--7777777777777777777777-->
-        <div class="space-box-1 seven">
-          <svg
-            class="asteroid-Belt3 svg-margin-inline"
-            viewBox="0 0 128 106"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M61.9656 5.07052C61.9656 5.07052 88.8616 -4.51368 111.632 12.4232C134.403 29.3602 125.08 56.95 116.452 67.2096C107.824 77.4693 96.1087 82.2656 96.1087 82.2656C96.1087 82.2656 76.803 97.5012 67.8491 101.408C58.8952 105.316 53.3033 104.76 49.4438 104.196C45.5844 103.64 28.5514 93.8676 28.5514 93.8676C28.5514 93.8676 20.3951 87.9341 17.0502 87.4639C13.714 86.9936 11.7757 86.1814 7.6332 85.4803C3.49073 84.7792 -0.926182 78.9056 2.78746 65.816C6.5011 52.7265 29.572 21.5629 61.957 5.05342L61.9656 5.07052Z"
-              stroke="#8291A6"
-              stroke-width="3.26"
-              stroke-miterlimit="10"
-            />
-            <path
-              d="M66.2076 34.9057C75.568 27.6598 81.0531 19.0861 78.4589 15.7556C75.8646 12.4252 66.1734 15.5993 56.8129 22.8451C47.4524 30.0909 41.9673 38.6647 44.5616 41.9951C47.1558 45.3256 56.8471 42.1515 66.2076 34.9057Z"
-              stroke="#8291A6"
-              stroke-width="3.26"
-              stroke-miterlimit="10"
-            />
-            <path
-              d="M29.9551 75.3539C36.0227 75.336 40.9331 72.4697 40.9226 68.952C40.9121 65.4342 35.9848 62.597 29.9172 62.615C23.8495 62.6329 18.9392 65.4992 18.9496 69.0169C18.9601 72.5347 23.8874 75.3719 29.9551 75.3539Z"
-              stroke="#8291A6"
-              stroke-width="3.26"
-              stroke-miterlimit="10"
-            />
-            <path
-              d="M75.5471 85.3993C81.1544 81.3723 83.8954 75.6108 81.6693 72.5305C79.4432 69.4503 73.0931 70.2177 67.4858 74.2447C61.8786 78.2716 59.1376 84.0332 61.3637 87.1134C63.5897 90.1937 69.9399 89.4263 75.5471 85.3993Z"
-              stroke="#8291A6"
-              stroke-width="3.26"
-              stroke-miterlimit="10"
-            />
-          </svg>
+      <!--666666666666666666666-->
+      <div class="space-box-1 six">
+        <svg class="asteroid-Belt2 svg-margin-inline" viewBox="0 0 89 60" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M65.3834 51.7889C65.3834 51.7889 83.1712 43.0512 87.245 25.5756C91.3189 8.10004 74.5003 1.37998 65.6407 1.29449C56.7812 1.20899 48.7621 4.76566 48.7621 4.76566C48.7621 4.76566 32.3295 7.6811 26.0857 10.3059C19.842 12.9306 17.2691 15.7691 15.5623 17.8039C13.8556 19.8302 9.54159 31.7399 9.54159 31.7399C9.54159 31.7399 8.02355 37.947 6.54839 39.6997C5.06465 41.4524 4.44714 42.6835 2.66322 44.9064C0.879297 47.1294 1.22236 51.5581 8.83832 55.0806C16.4543 58.603 41.7808 60.3301 65.3834 51.7975V51.7889Z"
+            stroke="#8291A6" stroke-width="2.25" stroke-miterlimit="10" />
+          <path
+            d="M73.5992 17.2824C72.9474 19.7618 65.9575 20.9246 57.9899 19.8815C50.0137 18.8384 44.0788 15.9914 44.7306 13.512C45.3824 11.0326 52.3723 9.86982 60.3399 10.9129C68.3161 11.9559 74.251 14.803 73.5992 17.2824Z"
+            stroke="#8291A6" stroke-width="2.25" stroke-miterlimit="10" />
+          <path
+            d="M27.2779 35.0654C25.1853 34.9714 23.0754 38.2545 22.5694 42.3925C22.0548 46.5306 23.3413 49.9676 25.434 50.0616C27.5266 50.1556 29.6365 46.8726 30.1425 42.7345C30.6571 38.5965 29.3706 35.1595 27.2779 35.0654Z"
+            stroke="#8291A6" stroke-width="2.25" stroke-miterlimit="10" />
+          <path
+            d="M59.5086 47.4205C57.7246 48.8654 53.5393 47.3948 50.1601 44.1288C46.781 40.8628 45.4773 37.0411 47.2613 35.5877C49.0452 34.1428 53.2305 35.6133 56.6097 38.8793C59.9888 42.1453 61.2925 45.967 59.5086 47.4205Z"
+            stroke="#8291A6" stroke-width="2.25" stroke-miterlimit="10" />
+        </svg>
+        <img class="planet-filled" src="/planet/asteroid-belt2.svg" alt="" />
 
-          <img class="planet-filled" src="/planet/asteroid-belt3.svg" alt="" />
-
-          <div class="info seven">
-            <div class="space-pluto-header">
-              <h2 class="space-title">소행성대</h2>
-              <span class="space-ype">왜행성</span>
-            </div>
-            <div class="info-card-header-line"></div>
-            <p class="space-description">
-              소행성대는 화성과 목성 궤도 사이에 위치한 원반 모양의 영역으로,
-              수많은 소행성들이 모여 있는 곳입니다.
-            </p>
-            <div class="space-diameter">지름 : <span>950 km</span></div>
-            <div class="space-diameter-box">
-              <div class="space-distance">5,906,376,272 km</div>
-              <div class="space-label">궤적 궤도 반지름</div>
-            </div>
-            <div class="sub-info">
-              <div>태양에서의 거리 : <span>2.2AU</span></div>
-              <div>공전주기 : <span>3.3년</span></div>
-              <div>자전주기 : <span>16시간</span></div>
-            </div>
+        <div class="info six">
+          <div class="space-pluto-header">
+            <h2 class="space-title">소행성대</h2>
+            <span class="space-type">왜행성</span>
+          </div>
+          <div class="info-card-header-line"></div>
+          <p class="space-description">
+            소행성대는 화성과 목성 궤도 사이에 위치한 원반 모양의 영역으로,
+            수많은 소행성들이 모여 있는 곳입니다.
+          </p>
+          <div class="space-diameter">지름 : <span>950 km</span></div>
+          <div class="space-diameter-box">
+            <div class="space-distance">5,906,376,272 km</div>
+            <div class="space-label">궤적 궤도 반지름</div>
+          </div>
+          <div class="sub-info">
+            <div>태양에서의 거리 : <span>2.2 AU</span></div>
+            <div>공전주기 : <span>3.3년</span></div>
+            <div>자전주기 : <span>16시간</span></div>
           </div>
         </div>
+      </div>
 
-        <div class="kaferbelt-box">
-          <img class="kaferbelt" src="./page-4-kuiperBelt-web.webp" alt="" />
+      <!--7777777777777777777777-->
+      <div class="space-box-1 seven">
+        <svg class="asteroid-Belt3 svg-margin-inline" viewBox="0 0 128 106" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M61.9656 5.07052C61.9656 5.07052 88.8616 -4.51368 111.632 12.4232C134.403 29.3602 125.08 56.95 116.452 67.2096C107.824 77.4693 96.1087 82.2656 96.1087 82.2656C96.1087 82.2656 76.803 97.5012 67.8491 101.408C58.8952 105.316 53.3033 104.76 49.4438 104.196C45.5844 103.64 28.5514 93.8676 28.5514 93.8676C28.5514 93.8676 20.3951 87.9341 17.0502 87.4639C13.714 86.9936 11.7757 86.1814 7.6332 85.4803C3.49073 84.7792 -0.926182 78.9056 2.78746 65.816C6.5011 52.7265 29.572 21.5629 61.957 5.05342L61.9656 5.07052Z"
+            stroke="#8291A6" stroke-width="3.26" stroke-miterlimit="10" />
+          <path
+            d="M66.2076 34.9057C75.568 27.6598 81.0531 19.0861 78.4589 15.7556C75.8646 12.4252 66.1734 15.5993 56.8129 22.8451C47.4524 30.0909 41.9673 38.6647 44.5616 41.9951C47.1558 45.3256 56.8471 42.1515 66.2076 34.9057Z"
+            stroke="#8291A6" stroke-width="3.26" stroke-miterlimit="10" />
+          <path
+            d="M29.9551 75.3539C36.0227 75.336 40.9331 72.4697 40.9226 68.952C40.9121 65.4342 35.9848 62.597 29.9172 62.615C23.8495 62.6329 18.9392 65.4992 18.9496 69.0169C18.9601 72.5347 23.8874 75.3719 29.9551 75.3539Z"
+            stroke="#8291A6" stroke-width="3.26" stroke-miterlimit="10" />
+          <path
+            d="M75.5471 85.3993C81.1544 81.3723 83.8954 75.6108 81.6693 72.5305C79.4432 69.4503 73.0931 70.2177 67.4858 74.2447C61.8786 78.2716 59.1376 84.0332 61.3637 87.1134C63.5897 90.1937 69.9399 89.4263 75.5471 85.3993Z"
+            stroke="#8291A6" stroke-width="3.26" stroke-miterlimit="10" />
+        </svg>
+
+        <img class="planet-filled" src="/planet/asteroid-belt3.svg" alt="" />
+
+        <div class="info seven">
+          <div class="space-pluto-header">
+            <h2 class="space-title">소행성대</h2>
+            <span class="space-ype">왜행성</span>
+          </div>
+          <div class="info-card-header-line"></div>
+          <p class="space-description">
+            소행성대는 화성과 목성 궤도 사이에 위치한 원반 모양의 영역으로,
+            수많은 소행성들이 모여 있는 곳입니다.
+          </p>
+          <div class="space-diameter">지름 : <span>950 km</span></div>
+          <div class="space-diameter-box">
+            <div class="space-distance">5,906,376,272 km</div>
+            <div class="space-label">궤적 궤도 반지름</div>
+          </div>
+          <div class="sub-info">
+            <div>태양에서의 거리 : <span>2.2AU</span></div>
+            <div>공전주기 : <span>3.3년</span></div>
+            <div>자전주기 : <span>16시간</span></div>
+          </div>
         </div>
+      </div>
 
-        <div class="ort-box">
-          <img class="ort" src="./page-4-oortcloud-web.webp" alt="" />
-        </div>
-      </section>
+      <div class="kaferbelt-box">
+        <img class="kaferbelt" src="/background-img/page-4-kuiperBelt-web.webp" alt="" />
+      </div>
 
-      <section
-        id="planetComparison"
-        class="page_5-container"
-        aria-label="행성 크기 비교 페이지"
-      >
-        <ul class="planet__contents">
-          <li class="title">
-            <h1>
-              Planet size comparison
-              <p>
-                "The size differences between planets are made to match actual
-                proportions."
-              </p>
-              <p>"행성 간의 크기 차이는 실제 비율에 맞게 만들어졌습니다."</p>
-            </h1>
+      <div class="ort-box">
+        <img class="ort" src="/background-img/page-4-oortcloud-web.webp" alt="" />
+      </div>
+    </section>
 
-            <p class="description">
-              <span>
-                The Sun accounts for the majority of the solar system's mass,
-                approximately 99.86%. The remainder is shared among other
-                celestial bodies, including planets, satellites, asteroids, and
-                comets. The Sun's mass is approximately 2 x 10^30 kg, or about
-                330,000 times that of the Earth. <br />
-                The mass of other celestial bodies accounts for only about
-                0.134% of the Sun's mass. <br />
-                Planets make up the majority of this mass, followed by
-                satellites, asteroids, and comets.
-              </span>
-              <span>
-                태양계 전체 질량의 대부분, 약 <strong>99.86%</strong>는 태양이
-                차지하고 있습니다. 나머지 질량은 행성, 위성, 소행성, 혜성 등
-                다른 천체들이 나눠 가지고 있습니다. 태양의 질량은 약 2 x 10^30
-                kg으로 지구 질량의 약 <strong>33만</strong> 배에 달합니다.
-                <br />
-                태양을 제외한 다른 천체들의 질량은 태양 질량의
-                <strong>0.134%</strong> 정도에 불과합니다. 이 중 행성들이
-                대부분을 차지하며, 위성, 소행성, 혜성 등이 그 뒤를 잇습니다
-              </span>
+    <section id="planetComparison" class="page_5-container" aria-label="행성 크기 비교 페이지">
+      <ul class="planet__contents">
+        <li class="title">
+          <h1>
+            Planet size comparison
+            <p>
+              "The size differences between planets are made to match actual
+              proportions."
             </p>
-          </li>
-          <li class="planet mercury">
-            <img src="/planet/mercury_fill.svg" alt="Mercury" />
-            <p>Mercury : 수성</p>
-            <div class="is-active">
-              <p>4,880 km</p>
-              <p>지구와의 반지름 비율 : 0.4</p>
-            </div>
-          </li>
-          <li class="planet mars">
-            <img src="/planet/mars_fill.svg" alt="Mars" />
-            <p>Mars : 화성</p>
-            <div class="is-active">
-              <p>6,779 km</p>
-              <p>지구와의 반지름 비율 : 0.5</p>
-            </div>
-          </li>
-          <li class="planet venus">
-            <img src="/planet/venus_fill.svg" alt="Venus" />
-            <p>Venus : 금성</p>
-            <div class="is-active">
-              <p>12,104 km</p>
-              <p>지구와의 반지름 비율 : 0.9</p>
-            </div>
-          </li>
-          <li class="planet earth">
-            <img src="/planet/earth_fill.webp" alt="Earth" />
-            <p>Earth : 지구</p>
-            <div class="is-active">
-              <p>12,742 km</p>
-            </div>
-          </li>
-          <li class="planet neptune">
-            <img src="/planet/neptune_fill.svg" alt="Neptune" />
-            <p>Neptune : 해왕성</p>
-            <div class="is-active">
-              <p>49,000 km</p>
-              <p>지구와의 비율 : 3.9</p>
-            </div>
-          </li>
-          <li class="planet uranus">
-            <img src="/planet/uranus_fill.svg" alt="Uranus" />
-            <p>Uranus : 천왕성</p>
-            <div class="is-active">
-              <p>51,000 km</p>
-              <p>지구와의 비율 : 4.0</p>
-            </div>
-          </li>
-          <li class="planet saturn">
-            <img src="/planet/saturn_fill.svg" alt="Saturn" />
-            <p>Saturn : 토성</p>
-            <div class="is-active">
-              <p>120,000 km</p>
-              <p>지구와의 비율 : 9.4</p>
-            </div>
-          </li>
-          <li class="planet jupiter">
-            <img src="/planet/jupiter_fill.svg" alt="Jupiter" />
-            <p>Jupiter : 목성</p>
-            <div class="is-active">
-              <p>140,000 km</p>
-              <p>지구와의 비율 : 11.2</p>
-            </div>
-          </li>
-          <li class="planet sun">
-            <img src="/planet/sun.svg" alt="Sun" />
-            <p class="sun-name">The Sun : 태양</p>
-            <div class="is-active">
-              <p>1,392,000 km</p>
-              <p>지구와의 비율 : 109</p>
-            </div>
-          </li>
-        </ul>
-      </section>
-    </main>
-  </body>
+            <p>"행성 간의 크기 차이는 실제 비율에 맞게 만들어졌습니다."</p>
+          </h1>
+
+          <p class="description">
+            <span>
+              The Sun accounts for the majority of the solar system's mass,
+              approximately 99.86%. The remainder is shared among other
+              celestial bodies, including planets, satellites, asteroids, and
+              comets. The Sun's mass is approximately 2 x 10^30 kg, or about
+              330,000 times that of the Earth. <br />
+              The mass of other celestial bodies accounts for only about
+              0.134% of the Sun's mass. <br />
+              Planets make up the majority of this mass, followed by
+              satellites, asteroids, and comets.
+            </span>
+            <span>
+              태양계 전체 질량의 대부분, 약 <strong>99.86%</strong>는 태양이
+              차지하고 있습니다. 나머지 질량은 행성, 위성, 소행성, 혜성 등
+              다른 천체들이 나눠 가지고 있습니다. 태양의 질량은 약 2 x 10^30
+              kg으로 지구 질량의 약 <strong>33만</strong> 배에 달합니다.
+              <br />
+              태양을 제외한 다른 천체들의 질량은 태양 질량의
+              <strong>0.134%</strong> 정도에 불과합니다. 이 중 행성들이
+              대부분을 차지하며, 위성, 소행성, 혜성 등이 그 뒤를 잇습니다
+            </span>
+          </p>
+        </li>
+        <li class="planet mercury">
+          <img src="/planet/mercury_fill.svg" alt="Mercury" />
+          <p>Mercury : 수성</p>
+          <div class="is-active">
+            <p>4,880 km</p>
+            <p>지구와의 반지름 비율 : 0.4</p>
+          </div>
+        </li>
+        <li class="planet mars">
+          <img src="/planet/mars_fill.svg" alt="Mars" />
+          <p>Mars : 화성</p>
+          <div class="is-active">
+            <p>6,779 km</p>
+            <p>지구와의 반지름 비율 : 0.5</p>
+          </div>
+        </li>
+        <li class="planet venus">
+          <img src="/planet/venus_fill.svg" alt="Venus" />
+          <p>Venus : 금성</p>
+          <div class="is-active">
+            <p>12,104 km</p>
+            <p>지구와의 반지름 비율 : 0.9</p>
+          </div>
+        </li>
+        <li class="planet earth">
+          <img src="/planet/earth_fill.webp" alt="Earth" />
+          <p>Earth : 지구</p>
+          <div class="is-active">
+            <p>12,742 km</p>
+          </div>
+        </li>
+        <li class="planet neptune">
+          <img src="/planet/neptune_fill.svg" alt="Neptune" />
+          <p>Neptune : 해왕성</p>
+          <div class="is-active">
+            <p>49,000 km</p>
+            <p>지구와의 비율 : 3.9</p>
+          </div>
+        </li>
+        <li class="planet uranus">
+          <img src="/planet/uranus_fill.svg" alt="Uranus" />
+          <p>Uranus : 천왕성</p>
+          <div class="is-active">
+            <p>51,000 km</p>
+            <p>지구와의 비율 : 4.0</p>
+          </div>
+        </li>
+        <li class="planet saturn">
+          <img src="/planet/saturn_fill.svg" alt="Saturn" />
+          <p>Saturn : 토성</p>
+          <div class="is-active">
+            <p>120,000 km</p>
+            <p>지구와의 비율 : 9.4</p>
+          </div>
+        </li>
+        <li class="planet jupiter">
+          <img src="/planet/jupiter_fill.svg" alt="Jupiter" />
+          <p>Jupiter : 목성</p>
+          <div class="is-active">
+            <p>140,000 km</p>
+            <p>지구와의 비율 : 11.2</p>
+          </div>
+        </li>
+        <li class="planet sun">
+          <img src="/planet/sun.svg" alt="Sun" />
+          <p class="sun-name">The Sun : 태양</p>
+          <div class="is-active">
+            <p>1,392,000 km</p>
+            <p>지구와의 비율 : 109</p>
+          </div>
+        </li>
+      </ul>
+    </section>
+  </main>
+</body>
+
 </html>

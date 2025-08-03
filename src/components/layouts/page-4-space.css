@@ -6,43 +6,6 @@
 }
 
 
-.star-bc {
-  position: fixed;
-  width: 200vw;
-  height: 542vh;
-  animation: starMove 30s linear infinite;
-}
-
-.star-bc2 {
-  position: fixed;
-  width: 200vw;
-  animation: starMove2 30s linear infinite;
-}
-
-@keyframes starMove {
-  0% {
-    transform: translate(0, 0);
-  }
-  50% {
-    transform: translate(-150px, -150px);
-  }
-  100% {
-    transform: translate(-300px, -300px);
-  }
-}
-
-@keyframes starMove2 {
-  0% {
-    transform: translate(0, 0);
-  }
-  50% {
-    transform: translate(150px, 150px);
-  }
-  100% {
-    transform: translate(300px, 300px);
-  }
-}
-
 .svg-margin-inline {
   margin-inline: auto;
 }
@@ -359,3 +322,48 @@
 }
 
 
+
+
+
+ .kaferbelt-box {
+  position: absolute; 
+  top: 2000vh; 
+  img {
+    width: 100%; 
+    height: 100%; 
+  }
+}
+
+ .ort-box{
+  position: absolute; 
+  top: 2200vh; 
+  img {
+    width: 100%; 
+    height: 100%;
+  }
+}
+
+
+.space-bc-star-box{
+  position: absolute; 
+  left:40vw;
+
+  top:1700vh;
+  img {
+    width: 100%; 
+    height: 100%;
+  }
+}
+
+
+@media (max-width:  1280px) {
+  .kaferbelt-box {
+    top: 900vh; /* 모바일은 거리 축소 */
+  }
+  .ort-box {
+    top: 1100vh;
+  }
+  .space-bc-star-box {
+    top: 630vh;
+  }
+}
