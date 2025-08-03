@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>MD 파일 읽기</title>
+  </head>
+  <body>
+    <div id="content">Loading...</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+      // md 파일 경로
+      const mdFile = "./lhr.md";
+
+      fetch(mdFile)
+        .then((res) => res.text())
+        .then((md) => {
+          document.getElementById("content").innerHTML = marked.parse(md);
+        })
+        .catch((err) => {
+          document.getElementById("content").innerText =
+            "파일을 불러오는데 실패했습니다.";
+          console.error(err);
+        });
+    </script>
+  </body>
+</html>
