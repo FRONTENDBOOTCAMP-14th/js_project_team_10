@@ -3,6 +3,8 @@ import "/src/components/page-1-main/page-1-main.js";
 import "/src/components/page-2-sun-tracking/sun-tracking.js";
 import "/src/components/page-3-solar/routing.js";
 import "/src/components/page-5-planet-comparison/planet-comparison.js";
+import "/src/components/page-4-space/page-4-space.js";
+
 
 // document.querySelector("#app").innerHTML = `
 //   <h1>Hello Vite + Vanilla JS!</h1>
