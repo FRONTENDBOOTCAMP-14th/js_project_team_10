@@ -6,6 +6,9 @@
     <title>10^13조</title>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <!-- Lenis CDN 추가 -->
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.35/bundled/lenis.min.js"></script>
+
     <link rel="stylesheet" href="/src/style/main.css" />
     <script type="module" src="/src/script.js"></script>
   </head>
@@ -62,19 +65,19 @@
           <div class="p-wrap">
             <div class="panel">
               <img
-                src="/public/profile/KakaoTalk_20250402_233422836.jpg"
+                src="/profile/KakaoTalk_20250402_233422836.jpg"
                 alt="김동규"
               />
             </div>
             <div class="panel">
               <img
-                src="/public/profile/KakaoTalk_20250402_233422836.jpg"
+                src="/profile/KakaoTalk_20250402_233422836.jpg"
                 alt="김동규"
               />
             </div>
             <div class="panel orane">
               <img
-                src="/public/profile/KakaoTalk_20250402_233422836.jpg"
+                src="/profile/KakaoTalk_20250402_233422836.jpg"
                 alt="김동규"
               />
             </div>
@@ -98,7 +101,7 @@
         <ul class="project-intro-box">
           <li class="intro-list-1">
             <a href="https://www.rubens.design/#book">
-              <img src="./public/page/cyanogen.png" alt="" />
+              <img src="/page/cyanogen.png" alt="" />
             </a>
             <p>
               <strong>참고 사이트</strong> <br />
@@ -112,7 +115,7 @@
             <a
               href="https://www.figma.com/design/k0WZwMfpQJHN6CpiUfIgiR/vanila-Project-10?node-id=0-1&p=f"
             >
-              <img src="./public/page/cyanogen-1.png" alt="" />
+              <img src="/page/cyanogen-1.png" alt="" />
             </a>
             <p>
               <strong>시안 제작</strong> <br />
@@ -123,7 +126,7 @@
           </li>
           <li class="intro-list-3">
             <a href="./src/routing/page.html">
-              <img src="./public/page/page-1-width.png" alt="" />
+              <img src="/page/page-1-width.png" alt="" />
             </a>
             <p>
               <strong>메인 페이지</strong> <br />
@@ -138,10 +141,7 @@
           </li>
           <li class="intro-list-4">
             <a href="./src/routing/page.html">
-              <img
-                src="./public/page/project-page-planet-comparison.png"
-                alt=""
-              />
+              <img src="/page/project-page-planet-comparison.png" alt="" />
             </a>
             <p>
               <strong>행성 크기 비교 페이지</strong>
@@ -171,7 +171,10 @@
           <button type="button" class="user name1" id="donggle">
             <h2>윤동식</h2>
           </button>
-          <script type="module" src="/src/components/mkdown/donggle.js"></script>
+          <script
+            type="module"
+            src="/src/components/mkdown/donggle.js"
+          ></script>
           <article class="user name2">
             <a href="#profile2">
               <h2>이희륜</h2>
@@ -185,6 +188,18 @@
           <p class="link-guide">
             ※ 이름을 클릭하면 해당 팀원의 페이지로 이동합니다.
           </p>
+        </div>
+      </section>
+      <section class="element-spacing2"></section>
+      <section class="solar-page">
+        <div class="overlay"></div>
+        <div class="content">
+          <h1>SOLAR SYSTEM</h1>
+          <p>빛과 어둠 사이, 무한한 궤도 속으로.</p>
+          <p class="sub">우주의 순환을 담은 인터랙티브 프로젝트</p>
+          <a href="./src/routing/page.html" class="enter-btn"
+            >지금 탐험 시작하기 →</a
+          >
         </div>
       </section>
     </main>

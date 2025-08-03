@@ -1,13 +1,10 @@
 *,
 html {
-  /* overflow-x: hidden; */
   box-sizing: border-box;
-  /* width: 100%; */
-  /* font-family: "Pacifico", cursive; */
-  /* overflow-x: hidden; */
 }
 body {
   background: white;
+  color: white;
 }
 
 footer {
@@ -21,7 +18,7 @@ footer {
   width: 100%;
 
   overflow-x: hidden;
-  height: 1380vh;
+  max-height: 1800vh;
   position: relative;
 
   .intro-div-box {
@@ -31,6 +28,7 @@ footer {
     justify-content: center;
     align-items: center;
     overflow: hidden;
+
     &::before {
       content: "";
       position: absolute;
@@ -69,10 +67,9 @@ section {
   height: 100vh;
 }
 
-/* .pin-spacer:has(.team-section-intro) {
-  background: linear-gradient(to right, #4389a2, #5c258d);
-  min-height: 150vh;
-} */
+.intro-div-box + .pin-spacer {
+  background: #15063c;
+}
 
 /* 팀 소개 페이지 */
 .team-section-intro {
@@ -82,7 +79,7 @@ section {
   justify-content: center;
   align-items: center;
   background: rgb(40, 52, 49);
-  border-radius: 10px;
+  border-radius: 50px;
 
   h1 {
     font-size: 50px;
@@ -112,7 +109,7 @@ section {
       font-size: 30px;
       padding: 20px;
       margin-bottom: 0.5rem;
-      /* background: red; */
+
       & * {
         overflow: hidden;
       }
@@ -126,6 +123,7 @@ section {
         font-size: 20px;
         margin-left: 20px;
         margin: 10px;
+        color: white;
       }
     }
   }
@@ -139,9 +137,8 @@ section {
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
       rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
       rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
     div img {
-      /* width: 20vw; */
-      /* height: 50vh; */
       width: 100%;
       height: 603px;
     }
@@ -152,19 +149,27 @@ section {
   display: flex;
   align-items: end;
 
-  height: calc(0px + 4300px);
-  background: #283431;
+  min-height: 4200px;
+  /* background: #283431; */
+  background: linear-gradient(
+    to bottom,
+    #15063c 0%,
+    #15063c 50%,
+    rgb(40, 52, 49) 50%,
+    rgb(40, 52, 49) 100%
+  );
 }
 
 /* 프로젝트 소개 페이지 */
 .project-intro {
+  min-height: 100vh;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
   position: relative;
   /* overflow: hidden; */
-  background-color: #283431;
+  background-color: #d8783d;
 
   /* 프로젝트 배경 속성 */
   h1 {
@@ -227,7 +232,7 @@ section {
 /* 팀 개인 설명란 */
 .division-box {
   background: black;
-  /* height: 100vh; */
+  min-height: 100vh;
   h1 {
     /* text-align: center; */
     font-size: 35px;
@@ -266,6 +271,7 @@ section {
 
     a {
       text-decoration: none;
+      color: white;
     }
   }
 
@@ -285,7 +291,87 @@ section {
   }
 
   #donggle:hover {
-    background-color: black !important;
+    background-color: rgb(56, 45, 106) !important;
     color: white !important;
   }
+}
+
+.element-spacing2 {
+  display: flex;
+  align-items: end;
+
+  height: calc(1900px);
+  background: #000000;
+}
+
+/* 태양계 페이지 링크 연결 페이지 */
+/* .solar-page {
+  width: 100%;
+  height: 100vh;
+  background: pink;
+
+} */
+
+/* -------------------- */
+.solar-page {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: url("./assets/solar-bg.jpg") no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  color: rgb(0, 0, 0);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgb(255, 255, 255);
+  z-index: 0;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  padding: 2rem;
+  color: black;
+}
+
+.content h1 {
+  font-size: 4rem;
+  letter-spacing: 0.15em;
+  margin-bottom: 1rem;
+}
+
+.content p {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: black !important;
+}
+
+.content .sub {
+  font-size: 1rem;
+  opacity: 0.75;
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.enter-btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  /* background-color: #ffffff33; */
+  color: #000000;
+  border: 1px solid #000000;
+  border-radius: 2rem;
+  text-decoration: none;
+  /* transition: all 0.3s ease; */
+}
+
+.enter-btn:hover {
+  background-color: #7a10e3;
+  color: #ffffff;
 }
