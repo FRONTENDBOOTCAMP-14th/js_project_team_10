@@ -3,8 +3,8 @@
 ## 1. PAGE-2 ,PAGE3-모달CSS, PAGE4  
 
 ### PAGE2
-![이미지1](/public/md-img/lhr/sun-tracking1.png)
-![이미지2](/public/md-img/lhr/sun-tracking2.png)
+![이미지1](/md-img/lhr/sun-tracking1.png)
+![이미지2](/md-img/lhr/sun-tracking2.png)
 # 🌞 Sun Tracking 페이지
 
 이 페이지는 태양 SVG 애니메이션과 설명 박스를 포함한 인터랙티브 웹 요소를 구현합니다.  
@@ -14,13 +14,13 @@
 
 ## 📂 파일 구조
 
-![이미지3](/public/md-img/lhr/page4-1.png)
+![이미지3](/md-img/lhr/page4-1.png)
 
-![이미지4](/public/md-img/lhr/page4-2.png)
+![이미지4](/md-img/lhr/page4-2.png)
 
-![이미지5](/public/md-img/lhr/ab1.png)
+![이미지5](/md-img/lhr/ab1.png)
 
-![이미지6](/public/md-img/lhr/ab2.png)
+![이미지6](/md-img/lhr/ab2.png)
 
 ---
 # 어려웠던 점
