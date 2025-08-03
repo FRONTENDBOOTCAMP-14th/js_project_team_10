@@ -128,5 +128,5 @@ ScrollTrigger.create({
   pin: true,
   scrub: 3,
   animation: description,
-  // markers: true,
+  markers: true,
 });

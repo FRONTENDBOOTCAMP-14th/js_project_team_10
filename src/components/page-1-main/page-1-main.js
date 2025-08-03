@@ -46,7 +46,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const orbit2 = document.getElementById("orbit2");
 
   // 궤도 #1은 -30도 회전됨
-  animatePlanet(planet1, orbit1, 8, -30, { x: 300, y: 300 });
+  animatePlanet(planet1, orbit1, 9, -30, { x: 300, y: 300 });
 
   // 궤도 #2는 회전 없음
   animatePlanet(planet2, orbit2, 5);
