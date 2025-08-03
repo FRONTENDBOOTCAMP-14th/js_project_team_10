@@ -3,14 +3,59 @@
     "class": "moon",
     "planet": "earth",
     "name": "달",
-    "diameter": "12,104 km",
-    "distance": "384,400 km",
-    "orbitalPeriod": "27일",
-    "rotationPeriod": "24시간"
+    "diameter": "지구",
+    "distance": "3,472.0km",
+    "orbitalPeriod": "7.342x10x22kg",
+    "rotationPeriod": "384,399 km"
+  },
+
+  "phobos": {
+    "class": "phobos",
+    "planet": "mars",
+    "name": "포보스",
+    "diameter": "화성",
+    "distance": "27×21.6×18.8km(크기)",
+    "orbitalPeriod": "1.0659×1016kg",
+    "rotationPeriod": "9,376km"
+  },
+
+  "io": {
+    "class": "io",
+    "planet": "jupiter",
+    "name": "이오",
+    "diameter": "목성",
+    "distance": "3,643.2km",
+    "orbitalPeriod": "8.93193×10x22kg",
+    "rotationPeriod": "421,700km"
+  },
+
+  "titan": {
+    "class": "titan",
+    "planet": "saturn",
+    "name": "타이탄",
+    "diameter": "토성",
+    "distance": "5,151km",
+    "orbitalPeriod": "1.3452×10x23kg",
+    "rotationPeriod": "1,221,870km"
+  },
+
+  "oberon": {
+    "class": "oberon",
+    "planet": "uranus",
+    "name": "오베론",
+    "diameter": "천왕성",
+    "distance": "1,522.8km",
+    "orbitalPeriod": "3.014×10x21kg",
+    "rotationPeriod": "583,520km"
+  },
+
+  "triton": {
+    "class": "triton",
+    "planet": "neptune",
+    "name": "트리톤",
+    "diameter": "해왕성",
+    "distance": "2,706.8km",
+    "orbitalPeriod": "2.138×10x22kg",
+    "rotationPeriod": "354,800km"
   }
-
-
-
-
-
 }
