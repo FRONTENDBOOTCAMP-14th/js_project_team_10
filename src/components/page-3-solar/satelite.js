@@ -1,5 +1,7 @@
 async function createSatelliteModal(planetName) {
-    const response = await fetch('/src/components/page-3-solar/satelliteData.json');
+  const response = await fetch(
+    "/src/components/page-3-solar/satelliteData.json"
+  );
   const planetData = await response.json();
 
   const satellite = Object.values(planetData).find(
@@ -19,19 +21,19 @@ async function createSatelliteModal(planetName) {
         <h2 id="satelliteModalTitle">${satellite.name}</h2>
         <table class="satellite-info-table">
           <tr>
-            <th>지름</th>
+            <th>모행성</th>
             <td>${satellite.diameter}</td>
           </tr>
           <tr>
-            <th>행성에서의 거리</th>
+            <th>지름</th>
             <td>${satellite.distance}</td>
           </tr>
           <tr>
-            <th>공전 주기</th>
+            <th>질량</th>
             <td>${satellite.orbitalPeriod}</td>
           </tr>
           <tr>
-            <th>자전 주기</th>
+            <th>궤도 긴반지름</th>
             <td>${satellite.rotationPeriod}</td>
           </tr>
         </table>
@@ -71,12 +73,12 @@ function setupSatelliteModal() {
   if (!satelliteButtons.length) return;
 
   satelliteButtons.forEach((button) => {
-        button.onclick = async (e) => {
+    button.onclick = async (e) => {
       e.stopPropagation();
       const satelliteClass =
         button.closest(".system__modal-content").querySelector("h2")
           ?.textContent || "";
-            await createSatelliteModal(satelliteClass);
+      await createSatelliteModal(satelliteClass);
     };
   });
 }

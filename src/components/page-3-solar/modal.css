@@ -20,13 +20,18 @@
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin: 0 0 -48px 0;
+  margin: 50px 0 -48px 0;
   pointer-events: none;
   font-family: "GmarketSansLight", sans-serif;
   font-size: 89px;
   font-weight: 320;
   font-style: normal;
   transform: scale(1.2, 0.9);
+}
+@media (max-width: 1280px) {
+  .planet-eng-name {
+    font-size: 80px;
+  }
 }
 
 .system__modal-overlay {
