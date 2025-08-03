@@ -13,35 +13,6 @@
   animation: starMove 30s linear infinite;
 }
 
-.star-bc2 {
-  position: fixed;
-  width: 200vw;
-  animation: starMove2 30s linear infinite;
-}
-
-@keyframes starMove {
-  0% {
-    transform: translate(0, 0);
-  }
-  50% {
-    transform: translate(-150px, -150px);
-  }
-  100% {
-    transform: translate(-300px, -300px);
-  }
-}
-
-@keyframes starMove2 {
-  0% {
-    transform: translate(0, 0);
-  }
-  50% {
-    transform: translate(150px, 150px);
-  }
-  100% {
-    transform: translate(300px, 300px);
-  }
-}
 
 .svg-margin-inline {
   margin-inline: auto;
