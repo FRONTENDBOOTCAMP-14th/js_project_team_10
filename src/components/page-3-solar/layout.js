@@ -84,6 +84,9 @@ const SolarSystemSection = `
       <div class="shooting-star"></div>
       <div class="shooting-star"></div>
       <div class="shooting-star"></div>
+      <div class="shooting-star"></div>
+      <div class="shooting-star"></div>
+      <div class="shooting-star"></div>
 </div>
 `;
 

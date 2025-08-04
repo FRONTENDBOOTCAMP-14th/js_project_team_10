@@ -1,38 +1,370 @@
-/* :root {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-  color: #213547;
-  background-color: #ffffff;
+*,
+html {
+  box-sizing: border-box;
 }
-
 body {
-  margin: 0;
-  min-width: 320px;
+  background: white;
+  color: white;
+}
+
+footer {
+  color: black;
+  margin: 40px;
+}
+
+.intro-main-container {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+
+  overflow-x: hidden;
+  max-height: 1800vh;
+  position: relative;
+
+  .intro-div-box {
+    background: black;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100vh;
+      opacity: 0.6;
+      background-image: url(../../public/background-img/background.jpg);
+      background-position: 0;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    h1 {
+      font-size: 15rem;
+      order: 1;
+      z-index: 1;
+    }
+
+    h2 {
+      z-index: 1;
+      font-weight: 500;
+      font-size: 3rem;
+      order: 0;
+    }
+
+    P {
+      order: 3;
+      font-size: 25px;
+      color: white;
+    }
+  }
+}
+
+section {
+  width: 100%;
+  height: 100vh;
+}
+
+.intro-div-box + .pin-spacer {
+  background: #15063c;
+}
+
+/* 팀 소개 페이지 */
+.team-section-intro {
+  display: flex;
+  flex-flow: column nowrap;
+  /* justify-content: space-evenly; */
+  justify-content: center;
+  align-items: center;
+  background: rgb(40, 52, 49);
+  border-radius: 50px;
+
+  h1 {
+    font-size: 50px;
+    padding-top: 100px;
+  }
+
+  .team-section-wrap {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10%;
+    margin-top: 2%;
+    overflow: hidden;
+  }
+  /* 소개 글 */
+  .text-wrap {
+    margin-top: 5%;
+    position: relative;
+    width: 30vw;
+    height: 30vh;
+    /* overflow: hidden; */
+
+    /* 각 팀원 소개 페이지 */
+    .panel-text {
+      height: 603px;
+      font-size: 30px;
+      padding: 20px;
+      margin-bottom: 0.5rem;
+
+      & * {
+        overflow: hidden;
+      }
+
+      h2 {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      p {
+        font-size: 20px;
+        margin-left: 20px;
+        margin: 10px;
+        color: white;
+      }
+    }
+  }
+  /* 프로필 이미지 */
+  .p-wrap {
+    position: relative;
+    width: 350px;
+    height: 603px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+      rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+      rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+    div img {
+      width: 100%;
+      height: 603px;
+    }
+  }
+}
+
+.element-spacing {
+  display: flex;
+  align-items: end;
+
+  min-height: 4200px;
+  /* background: #283431; */
+  background: linear-gradient(
+    to bottom,
+    #15063c 0%,
+    #15063c 50%,
+    rgb(40, 52, 49) 50%,
+    rgb(40, 52, 49) 100%
+  );
+}
+
+/* 프로젝트 소개 페이지 */
+.project-intro {
   min-height: 100vh;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  /* overflow: hidden; */
+  background-color: #d8783d;
+
+  /* 프로젝트 배경 속성 */
+  h1 {
+    font-size: 50px;
+    padding: 30px;
+    color: rgb(219, 226, 214);
+  }
+
+  & > p {
+    width: 1000px;
+    font-size: 25px;
+    line-height: 50px;
+    text-align: center;
+
+    strong {
+      color: rgb(201, 158, 29);
+    }
+  }
+
+  ul {
+    top: 50vh;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 50vh;
+  }
+
+  li {
+    width: 900px;
+    background: rgba(9, 9, 9, 0.647);
+    border-radius: 30px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: center;
+
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(128, 128, 128, 0.308);
+    box-sizing: border-box;
+
+    img {
+      margin-block: 30px;
+      border-radius: 15px;
+      width: 800px;
+      height: 400px;
+    }
+
+    p {
+      padding-inline: 50px;
+      padding-block-end: 30px;
+      line-height: 25px;
+      strong {
+        font-size: 30px;
+      }
+    }
+  }
 }
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* 팀 개인 설명란 */
+.division-box {
+  background: black;
+  min-height: 100vh;
+  h1 {
+    /* text-align: center; */
+    font-size: 35px;
+    margin: 20px;
+  }
+
+  p {
+    /* background: blue; */
+    text-align: center;
+    padding: 20px;
+    font-size: 30px;
+  }
+
+  .description-box {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background: gray; */
+  }
+
+  .user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background: rgb(56, 45, 106);
+    width: 300px;
+    aspect-ratio: 1;
+
+    h2 {
+      font-size: 50px;
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+    }
+  }
+
+  .user:hover {
+    /* transition: background, transform, color, 0.3s ease-in-out; */
+    background: skyblue;
+    width: 310px;
+    a {
+      color: white;
+    }
+  }
+
+  #donggle {
+    border: none;
+  }
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-  margin-bottom: 1em;
+.element-spacing2 {
+  display: flex;
+  align-items: end;
+
+  height: calc(1900px);
+  background: #000000;
 }
 
-code {
-  background-color: #f5f5f5;
-  padding: 0.2em 0.4em;
-  border-radius: 3px;
-  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+/* 태양계 페이지 링크 연결 페이지 */
+/* .solar-page {
+  width: 100%;
+  height: 100vh;
+  background: pink;
+
 } */
 
-body {
-  overflow-x: hidden;
+/* -------------------- */
+.solar-page {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: url("./assets/solar-bg.jpg") no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  color: rgb(0, 0, 0);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgb(255, 255, 255);
+  z-index: 0;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  padding: 2rem;
+  color: black;
+}
+
+.content h1 {
+  font-size: 4rem;
+  letter-spacing: 0.15em;
+  margin-bottom: 1rem;
+}
+
+.content p {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: black !important;
+}
+
+.content .sub {
+  font-size: 1rem;
+  opacity: 0.75;
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.enter-btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  /* background-color: #ffffff33; */
+  color: #000000;
+  border: 1px solid #000000;
+  border-radius: 2rem;
+  text-decoration: none;
+  /* transition: all 0.3s ease; */
+}
+
+.enter-btn:hover {
+  background-color: #7a10e3;
+  color: #ffffff;
 }

@@ -62,7 +62,7 @@ mm.add("(max-width : 1279px", () => {
     // 화성
     .to(".planet__contents", {
       x: -125,
-      y: centerPlanetY(".mars") * 0.28,
+      y: -1000,
       scale: 2.3,
       duration: 2,
     })
@@ -70,7 +70,7 @@ mm.add("(max-width : 1279px", () => {
     // 금성
     .to(".planet__contents", {
       x: centerPlanet(".venus") * 0.6,
-      y: centerPlanetY(".venus") * 0.22,
+      y: -1100,
       scale: 1.6,
       duration: 2,
     })
@@ -78,7 +78,7 @@ mm.add("(max-width : 1279px", () => {
     // 지구
     .to(".planet__contents", {
       x: centerPlanet(".earth") * 0.34,
-      y: centerPlanetY(".earth") * 0.22,
+      y: -1350,
       scale: 1.3,
       duration: 2,
     })
@@ -86,7 +86,7 @@ mm.add("(max-width : 1279px", () => {
     // 해왕성
     .to(".planet__contents", {
       x: centerPlanet(".neptune") * 0.01,
-      y: centerPlanetY(".neptune") * 0.05,
+      y: -500,
       scale: 0.36,
       duration: 2,
     })
@@ -94,7 +94,7 @@ mm.add("(max-width : 1279px", () => {
     // 천왕성
     .to(".planet__contents", {
       x: 35,
-      y: centerPlanetY(".uranus") * 0.06,
+      y: -1000,
       scale: 0.28,
       duration: 2,
     })
@@ -110,6 +110,7 @@ mm.add("(max-width : 1279px", () => {
     // 목성
     .to(".planet__contents", {
       x: 50,
+      y: -700,
       scale: 0.1,
       duration: 2,
     })
@@ -145,28 +146,28 @@ mm.add("(max-width : 1279px", () => {
     end: "+=14900",
     // markers: true,
     onEnter: () => {
-      planets.forEach((planet) => {
-        planet.classList.add("planet-shadow");
-      });
+      // planets.forEach((planet) => {
+      //   planet.classList.add("planet-shadow");
+      // });
       planetTween.play();
     },
     onLeave: () => {
-      planets.forEach((planet) => {
-        planet.classList.remove("planet-shadow");
-      });
+      // planets.forEach((planet) => {
+      //   planet.classList.remove("planet-shadow");
+      // });
 
       planetTween.pause();
     },
     onEnterBack: () => {
-      planets.forEach((planet) => {
-        planet.classList.add("planet-shadow");
-      });
+      // planets.forEach((planet) => {
+      //   planet.classList.add("planet-shadow");
+      // });
       planetTween.play();
     },
     onLeaveBack: () => {
-      planets.forEach((planet) => {
-        planet.classList.remove("planet-shadow");
-      });
+      // planets.forEach((planet) => {
+      //   planet.classList.remove("planet-shadow");
+      // });
       planetTween.pause();
     },
     // markers: true,
@@ -285,28 +286,29 @@ mmover.add("(min-width: 1280px)", () => {
     end: "+=16300",
     // markers: true,
     onEnter: () => {
-      planets.forEach((planet) => {
-        planet.classList.add("planet-shadow");
-      });
+      // planets.forEach((planet) => {
+      //   planet.classList.add("planet-shadow");
+      // });
+
       planetTween.play();
     },
     onLeave: () => {
-      planets.forEach((planet) => {
-        planet.classList.remove("planet-shadow");
-      });
+      // planets.forEach((planet) => {
+      //   planet.classList.remove("planet-shadow");
+      // });
 
       planetTween.pause();
     },
     onEnterBack: () => {
-      planets.forEach((planet) => {
-        planet.classList.add("planet-shadow");
-      });
+      // planets.forEach((planet) => {
+      //   planet.classList.add("planet-shadow");
+      // });
       planetTween.play();
     },
     onLeaveBack: () => {
-      planets.forEach((planet) => {
-        planet.classList.remove("planet-shadow");
-      });
+      // planets.forEach((planet) => {
+      //   planet.classList.remove("planet-shadow");
+      // });
       planetTween.pause();
     },
     // markers: true,
