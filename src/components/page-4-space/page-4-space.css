@@ -359,3 +359,49 @@
 }
 
 
+
+
+ .kaferbelt-box {
+  position: absolute; 
+  top: 2000vh; 
+  img {
+    width: 100%; 
+    height: 100%; 
+  }
+}
+
+ .ort-box{
+  position: absolute; 
+  top: 2200vh; 
+  img {
+    width: 100%; 
+    height: 100%;
+  }
+}
+
+
+.space-bc-star-box{
+  position: absolute; 
+  left:40vw;
+
+  top:1700vh;
+  img {
+    width: 100%; 
+    height: 100%;
+  }
+}
+
+
+
+@media (max-width:  1280px) {
+  .kaferbelt-box {
+    top: 900vh; /* 모바일은 거리 축소 */
+  }
+  .ort-box {
+    top: 1100vh;
+  }
+  .space-bc-star-box {
+    top: 630vh;
+  
+  }
+}
